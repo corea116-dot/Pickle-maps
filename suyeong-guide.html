@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LH 부산 2026년 2차 일반 매입임대 — 일정·서류 안내</title>
+<style>
+  :root{
+    --navy:#10304f; --ink:#1c3a5c; --muted:#6f7e91; --line:#dde4ec; --line2:#e9eef4;
+    --bg:#eef1f5; --card:#ffffff; --accent:#1f5fd0; --teal:#0d766e; --amber:#a8600f;
+    --amberbg:rgba(196,110,32,.12); --soft:#f5f8fc; --ok:#0d766e; --okbg:rgba(13,118,110,.10);
+    --shadow:0 1px 2px rgba(16,48,79,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#eaf1f8; --ink:#d7e3f0; --muted:#94a4b6; --line:#2a3644; --line2:#22303d;
+      --bg:#111720; --card:#1a222c; --accent:#6fa2f5; --teal:#4fc0b4; --amber:#e0a458;
+      --amberbg:rgba(224,164,88,.14); --soft:#1f2935; --ok:#4fc0b4; --okbg:rgba(79,192,180,.13);
+      --shadow:0 1px 2px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%; line-height:1.55;
+    padding:max(14px, env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  .topbar{display:flex;align-items:center;gap:8px;margin:0 2px 14px;flex-wrap:wrap}
+  .home{
+    display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    font-size:12.5px;font-weight:700;padding:6px 12px;box-shadow:var(--shadow);
+  }
+  .home:active{transform:scale(.97)}
+  .home.map{border-color:rgba(13,118,110,.35);color:var(--teal)}
+  .topbar .spacer{flex:1}
+
+  header.hero{
+    background:linear-gradient(160deg,#10304f 0%,#173f63 55%,#1b4a70 100%);
+    color:#fff;border-radius:18px;padding:20px 18px 18px;margin:0 0 14px;
+    box-shadow:0 4px 18px rgba(16,48,79,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    header.hero{background:linear-gradient(160deg,#16263a 0%,#1b3450 60%,#1f3d5c 100%);box-shadow:none}
+  }
+  .hero .eyebrow{font-size:11px;font-weight:800;letter-spacing:.10em;color:#9dc0e0;text-transform:uppercase}
+  .hero h1{margin:6px 0 6px;font-size:22px;line-height:1.28;letter-spacing:-.02em}
+  .hero p{margin:0;font-size:13.5px;color:#c5d8e8;line-height:1.55}
+  .hero .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+  .hero .chip{
+    font-size:11.5px;font-weight:700;color:#dbeafa;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 9px;
+  }
+
+  /* ---------- countdown ---------- */
+  .clock{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:14px 16px;margin:0 0 14px;box-shadow:var(--shadow);
+  }
+  .clock .lbl{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .clock .what{font-size:15.5px;font-weight:800;margin:5px 0 2px;letter-spacing:-.01em}
+  .clock .when{font-size:13px;color:var(--muted)}
+  .clock .num{
+    margin-top:10px;font-variant-numeric:tabular-nums;font-weight:800;
+    font-size:23px;letter-spacing:.01em;color:var(--accent);
+    display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;
+  }
+  .clock .num small{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:0}
+  .clock .bar{height:6px;border-radius:999px;background:var(--line2);margin-top:11px;overflow:hidden}
+  .clock .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:999px;transition:width .4s ease}
+  .clock .prev{font-size:12px;color:var(--muted);margin-top:9px}
+
+  /* ---------- section ---------- */
+  section{margin:0 0 18px}
+  .sec-h{display:flex;align-items:baseline;gap:9px;margin:22px 4px 10px}
+  .sec-h .no{
+    font-size:11px;font-weight:800;color:#fff;background:var(--navy);
+    border-radius:7px;padding:2px 7px;letter-spacing:.04em;
+  }
+  @media (prefers-color-scheme: dark){ .sec-h .no{color:#111720} }
+  .sec-h h2{margin:0;font-size:17.5px;letter-spacing:-.02em}
+  .sec-h .hint{margin-left:auto;font-size:11.5px;color:var(--muted)}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:15px 16px;margin:0 0 12px;box-shadow:var(--shadow);
+  }
+  .card > h3{margin:0 0 3px;font-size:15px;letter-spacing:-.01em}
+  .card > h3 .tag{
+    font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 6px;margin-left:6px;
+    vertical-align:1px;background:var(--okbg);color:var(--ok);
+  }
+  .card > h3 .tag.off{background:var(--line2);color:var(--muted)}
+  .card .sub{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
+  .note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+  .note strong{color:var(--ink)}
+
+  /* ---------- timeline ---------- */
+  .tl{list-style:none;margin:12px 0 0;padding:0}
+  .tl li{position:relative;padding:0 0 14px 24px}
+  .tl li:last-child{padding-bottom:0}
+  .tl li::before{
+    content:"";position:absolute;left:5px;top:6px;width:9px;height:9px;border-radius:50%;
+    background:var(--card);border:2.5px solid var(--accent);
+  }
+  .tl li::after{
+    content:"";position:absolute;left:9px;top:18px;bottom:0;width:1.5px;background:var(--line);
+  }
+  .tl li:last-child::after{display:none}
+  .tl li.past::before{border-color:var(--line);background:var(--line)}
+  .tl li.key::before{border-color:var(--teal);box-shadow:0 0 0 3px var(--okbg)}
+  .tl .k{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.02em}
+  .tl li.past .k{color:var(--muted)}
+  .tl li.key .k{color:var(--teal)}
+  .tl .v{font-size:14.5px;font-weight:700;margin-top:1px;letter-spacing:-.01em}
+  .tl .d{font-size:12.5px;color:var(--muted);margin-top:1px}
+
+  /* ---------- table ---------- */
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px -4px 0;padding:0 4px}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+  th,td{border-bottom:1px solid var(--line2);padding:8px 8px;text-align:left;vertical-align:top}
+  thead th{
+    background:var(--soft);font-size:11.5px;color:var(--muted);font-weight:800;
+    border-bottom:1px solid var(--line);white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.hi td{background:var(--okbg);font-weight:700}
+  .cap{font-size:11.5px;color:var(--muted);margin-top:8px}
+
+  /* ---------- meta rows ---------- */
+  .rows{display:grid;grid-template-columns:74px 1fr;gap:9px 12px;font-size:13.5px;margin-top:4px}
+  .rows dt{color:var(--muted);font-size:12.5px;font-weight:700;padding-top:1px}
+  .rows dd{margin:0}
+  .rows dd b{font-weight:800}
+  .rows dd .sm{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+
+  .btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+    font-size:13px;font-weight:800;border-radius:10px;padding:9px 14px;
+    border:1px solid var(--line);background:var(--soft);color:var(--ink);
+  }
+  .btn:active{transform:scale(.98)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.teal{background:transparent;border-color:rgba(13,118,110,.4);color:var(--teal)}
+  .btn.ghost{background:transparent}
+
+  /* ---------- checklist ---------- */
+  .prog{display:flex;align-items:center;gap:10px;margin:0 0 4px}
+  .prog .bar{flex:1;height:8px;border-radius:999px;background:var(--line2);overflow:hidden}
+  .prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));transition:width .25s ease}
+  .prog .txt{font-size:12.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .prog .reset{
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    border-radius:8px;font:inherit;font-size:11.5px;font-weight:700;padding:5px 9px;cursor:pointer;
+  }
+  .group{margin-top:14px}
+  .group > .gh{
+    display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;letter-spacing:.05em;
+    color:var(--muted);text-transform:uppercase;margin-bottom:6px;
+  }
+  .group > .gh::after{content:"";flex:1;height:1px;background:var(--line2)}
+  .ck{
+    display:flex;align-items:flex-start;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line2);
+    cursor:pointer;font-size:13.5px;
+  }
+  .group .ck:last-child{border-bottom:0}
+  .ck input{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;width:19px;height:19px;margin:1px 0 0;
+    border:1.8px solid #b9c7d6;border-radius:6px;background:var(--card);position:relative;cursor:pointer;
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .ck input:checked{background:var(--teal);border-color:var(--teal)}
+  .ck input:checked::after{
+    content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;
+    border:solid #fff;border-width:0 2.2px 2.2px 0;transform:rotate(42deg);
+  }
+  .ck .t{flex:1;min-width:0}
+  .ck .t b{font-weight:700}
+  .ck .t .m{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+  .ck.on .t{opacity:.55;text-decoration:line-through}
+  .ck.on .t .m{text-decoration:none}
+
+  /* ---------- accordion ---------- */
+  details.acc{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    margin:0 0 9px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details.acc > summary{
+    list-style:none;cursor:pointer;padding:13px 16px;font-size:14px;font-weight:800;
+    display:flex;align-items:center;gap:9px;
+  }
+  details.acc > summary::-webkit-details-marker{display:none}
+  details.acc > summary::after{
+    content:"+";margin-left:auto;font-size:17px;font-weight:700;color:var(--muted);line-height:1;
+  }
+  details.acc[open] > summary::after{content:"–"}
+  details.acc > summary .ic{font-size:15px}
+  details.acc .body{padding:0 16px 14px;font-size:13px;color:var(--ink);line-height:1.62}
+  details.acc .body ul{margin:6px 0 0;padding-left:17px}
+  details.acc .body li{margin:4px 0}
+  details.acc .body .m{color:var(--muted)}
+
+  .warn{
+    background:var(--amberbg);border:1px solid rgba(196,110,32,.22);border-radius:13px;
+    padding:12px 14px;font-size:12.8px;color:var(--amber);line-height:1.6;margin:0 0 12px;
+  }
+  .warn b{color:var(--amber)}
+
+  footer{margin:26px 4px 0;font-size:12px;color:var(--muted);line-height:1.7}
+  footer a{color:var(--muted)}
+  footer .src{margin-top:6px}
+
+  @media print{
+    body{background:#fff;padding:0}
+    .topbar,.clock .num,.prog .reset,details.acc > summary::after{display:none}
+    details.acc{border:1px solid #ccc;break-inside:avoid}
+    details.acc .body{display:block!important}
+    details.acc:not([open]) .body{display:block}
+    section{break-inside:avoid}
+    header.hero{background:#10304f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .ck.on .t{text-decoration:line-through}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="home" href="index.html">← 임대주택 지도 홈</a>
+    <a class="home map" href="suyeong-16.html">📍 수영구 16호 지도</a>
+    <span class="spacer"></span>
+    <button class="prog-reset home" id="printBtn" type="button" onclick="window.print()">🖨 인쇄</button>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">LH 부산울산지역본부 · 일반 매입임대</div>
+    <h1>2026년 2차 일반 매입임대<br>일정 · 자격 · 서류 총정리</h1>
+    <p>부산·울산 52호 · 공고일 2026.10.29.(목) · 방문접수만 가능<br>
+       대상지역 부산 금정구 · 수영구 · 해운대구</p>
+    <div class="chips">
+      <span class="chip">시세 30% 수준</span>
+      <span class="chip">최장 30년 거주</span>
+      <span class="chip">1세대 1주택</span>
+      <span class="chip">동·호 지정 신청</span>
+    </div>
+  </header>
+
+  <!-- ================= D-DAY ================= -->
+  <div class="clock" id="clock">
+    <div class="lbl">다음 일정까지</div>
+    <div class="what" id="ckWhat">잔여 대상주택(호수) 게시</div>
+    <div class="when" id="ckWhen">2026.11.18(수) 15:00 · LH청약플러스</div>
+    <div class="num" id="ckNum">— <small>계산 중</small></div>
+    <div class="bar"><i id="ckBar"></i></div>
+    <div class="prev" id="ckPrev"></div>
+  </div>
+
+  <!-- ================= 01 일정 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">01</span><h2>순위별 전체 일정</h2><span class="hint">공고문 6쪽</span></div>
+
+    <div class="warn">
+      <b>지금 남은 건 1순위 일반·2순위 접수입니다.</b> 1순위 우선공급(수급자·차상위·한부모) 접수는 11.10~11.12에 마감됐습니다.
+      월평균소득 100% 이하 2순위(또는 장애인 70% 이하 1순위 일반)는 <b>11.18(수) 15:00 이후 게시되는 잔여 호수</b>를 확인하고
+      11.26~11.28 열람 → <b>12.7~12.9 방문접수</b> 순서로 진행합니다.
+    </div>
+
+    <div class="card">
+      <h3>1순위 일반 · 2순위<span class="tag">진행 예정</span></h3>
+      <p class="sub">1순위 일반 = 장애인(월평균소득 70% 이하) · 2순위 = 월평균소득 100% 이하</p>
+      <ul class="tl" id="tl2">
+        <li class="key" data-date="2026-11-18T15:00">
+          <div class="k">대상주택 게시</div>
+          <div class="v">2026.11.18.(수) 15:00 이후</div>
+          <div class="d">LH청약플러스 — 후순위 공급가능주택(잔여 호수) 목록 공개</div>
+        </li>
+        <li data-date="2026-11-26T10:00">
+          <div class="k">주택 열람</div>
+          <div class="v">2026.11.26.(목) ~ 11.28.(토)</div>
+          <div class="d">매일 10:00~16:00 · 현장 직접 방문 (보수 상황에 따라 일부 제한)</div>
+        </li>
+        <li data-date="2026-12-07T10:00">
+          <div class="k">방문접수</div>
+          <div class="v">2026.12.7.(월) ~ 12.9.(수)</div>
+          <div class="d">10:00~16:00 · LH 부산동부권주거복지지사 (구서동) · 동·호 지정 접수</div>
+        </li>
+        <li data-date="2027-01-13T17:00">
+          <div class="k">입주자 선정결과 발표</div>
+          <div class="v">2027.1.13.(수) 17:00 이후</div>
+          <div class="d">LH청약플러스 게시</div>
+        </li>
+        <li>
+          <div class="k">계약체결</div>
+          <div class="v">2027.1월 중 별도 안내</div>
+          <div class="d">지역본부(주거복지지사)에서 개별 통보</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>1순위 우선공급<span class="tag off">접수 마감</span></h3>
+      <p class="sub">수급자(생계·의료·주거·교육) · 차상위계층 · 지원대상 한부모가족</p>
+      <ul class="tl" id="tl1">
+        <li class="past" data-date="2026-10-29T15:00">
+          <div class="k">대상주택 게시</div>
+          <div class="v">2026.10.29.(목) 15:00 이후</div>
+          <div class="d">LH청약플러스</div>
+        </li>
+        <li class="past" data-date="2026-11-05T10:00">
+          <div class="k">주택 열람</div>
+          <div class="v">2026.11.5.(목) ~ 11.7.(토)</div>
+          <div class="d">10:00~16:00 현장 방문</div>
+        </li>
+        <li class="past" data-date="2026-11-10T10:00">
+          <div class="k">방문접수</div>
+          <div class="v">2026.11.10.(화) ~ 11.12.(목)</div>
+          <div class="d">10:00~16:00 · 부산동부권주거복지지사</div>
+        </li>
+        <li data-date="2026-11-25T17:00">
+          <div class="k">선정결과 발표</div>
+          <div class="v">2026.11.25.(수) 17:00 이후</div>
+          <div class="d">LH청약플러스</div>
+        </li>
+        <li>
+          <div class="k">계약체결</div>
+          <div class="v">2026.12월 중 별도 안내</div>
+          <div class="d">개별 통보</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>순위·일정을 놓치면 생기는 일</h3>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:1.65">
+        <li><b>선순위자가 후순위 접수일에 신청하면 후순위로 처리</b>됩니다. (예: 1순위 우선공급 대상이 1순위 일반 접수일이나 2순위 접수일에 신청 → 그 순위로 인정)</li>
+        <li>접수는 <b>순위별 지정 일자에만</b> 가능하고, 시간은 매일 <b>10:00~16:00</b>입니다.</li>
+        <li>주택 물량이 한정돼 <b>앞 순위에서 조기 마감</b>될 수 있습니다.</li>
+        <li>1세대가 2건 이상 중복 신청하면 <b>전부 무효</b>입니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 02 접수처 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">02</span><h2>접수처 · 연락처</h2><span class="hint">공고문 11쪽</span></div>
+    <div class="card">
+      <h3>LH 부산동부권주거복지지사</h3>
+      <p class="sub">부산 금정구·수영구·해운대구 공급분의 신청접수 및 계약체결 장소</p>
+      <dl class="rows">
+        <dt>주소</dt>
+        <dd><b>부산광역시 금정구 중앙대로 1817 (구서동) BN빌딩 4층</b>
+          <span class="sm">방문접수·계약 모두 이곳</span></dd>
+        <dt>신청접수</dt>
+        <dd><b>1600-1004</b><span class="sm">LH 콜센터 · 공고 내용 상담도 같은 번호</span></dd>
+        <dt>주택열람</dt>
+        <dd><b>1844-2724</b></dd>
+        <dt>지사 직통</dt>
+        <dd><b>051-460-6921, 051-460-6951</b></dd>
+      </dl>
+      <div class="btnrow">
+        <a class="btn primary" href="https://map.kakao.com/link/search/%EB%B6%80%EC%82%B0%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C%201817" target="_blank" rel="noopener">카카오맵으로 보기</a>
+        <a class="btn" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C%201817" target="_blank" rel="noopener">네이버지도</a>
+        <a class="btn ghost" href="tel:16001004">📞 1600-1004</a>
+      </div>
+      <p class="note">주택 열람은 <b>접수 전 현장 확인</b>이 원칙입니다. 층·향·도배·장판·보일러·입지까지 직접 보고 계약해야 하며, 미확인 책임은 신청자에게 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 자격 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">03</span><h2>2순위 자격 · 소득 기준</h2><span class="hint">공고문 3~5쪽</span></div>
+
+    <div class="card">
+      <h3>기본 요건 — 무주택세대구성원</h3>
+      <p class="sub">판단 기준일은 입주자모집공고일 2026.10.29.(목)</p>
+      <ul style="margin:6px 0 0;padding-left:18px;font-size:13px;line-height:1.65">
+        <li>세대구성원 <b>전원</b>이 주택(분양권·입주권 포함)을 소유하지 않아야 합니다.</li>
+        <li>세대구성원 범위: 신청자, 배우자(<b>세대 분리된 배우자 포함</b>), 신청자·배우자의 직계존속, 신청자의 직계비속 및 그 배우자, 배우자의 직계비속 및 그 배우자.</li>
+        <li>태아·외국인 배우자·외국인 직계존비속도 세대구성원에 포함됩니다.</li>
+        <li>미성년자(19세 미만)는 원칙적으로 신청 불가(자녀 있는 미성년 세대주 등 예외).</li>
+        <li>공급대상지역(금정·수영·해운대) 주민등록 여부와 관계없이 <b>1·2순위 자격만 갖추면 신청 가능</b>합니다.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>순위별 자격</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>순위</th><th>대상</th><th>세부 요건</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>1순위<br>우선</td>
+              <td>수급자 · 차상위계층 ·<br>지원대상 한부모가족</td>
+              <td>생계·주거·의료·교육급여 수급자 / 차상위계층 / 한부모가족지원법상 지원대상 한부모가족</td>
+            </tr>
+            <tr>
+              <td>1순위<br>일반</td>
+              <td>장애인</td>
+              <td>장애인등록증 교부자로서 해당 세대 월평균소득이 기준의 <b>70% 이하</b> (지적·정신장애, 심한 뇌병변장애는 배우자 포함)</td>
+            </tr>
+            <tr class="hi">
+              <td>2순위</td>
+              <td>소득 100% 이하</td>
+              <td>해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 <b>100% 이하</b>인 무주택세대구성원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><b>총자산·자동차 기준은 이 공고문에 별도로 없습니다.</b> 매입임대는 국민임대와 달리 순위 판정을 소득·무주택으로 하고, 자산은 소득 산정과 사후 검증(전산조회)에 반영됩니다. 다만 세대원 전원의 소득·재산·주택 보유는 사회보장정보시스템으로 조회됩니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>2026년 기준 월평균소득 상한</h3>
+      <p class="sub">세대구성원 전원 합산 · 세전 금액 (단위: 원/월)</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>구분</th><th class="num">1인</th><th class="num">2인</th><th class="num">3인</th><th class="num">4인</th></tr></thead>
+          <tbody>
+            <tr><td>70% 이하</td><td class="num">3,432,027</td><td class="num">4,693,016</td><td class="num">5,717,900</td><td class="num">6,161,541</td></tr>
+            <tr class="hi"><td><b>100% 이하</b></td><td class="num"><b>4,576,036</b></td><td class="num"><b>6,452,897</b></td><td class="num"><b>8,168,429</b></td><td class="num"><b>8,802,202</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>구분</th><th class="num">5인</th><th class="num">6인</th><th class="num">7인</th></tr></thead>
+          <tbody>
+            <tr><td>70% 이하</td><td class="num">6,528,890</td><td class="num">6,934,384</td><td class="num">7,339,879</td></tr>
+            <tr class="hi"><td><b>100% 이하</b></td><td class="num"><b>9,326,985</b></td><td class="num"><b>9,906,263</b></td><td class="num"><b>10,485,541</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">* 1인가구는 20%p, 2인가구는 10%p 가산한 금액입니다. 가구원수는 세대구성원 전원입니다.<br>
+      * 소득은 근로·사업·재산·기타소득을 합산해 사회보장정보시스템 공적자료로 검증합니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>동일 순위에서의 선정 순서</h3>
+      <ul style="margin:6px 0 0;padding-left:18px;font-size:13.5px;line-height:1.7">
+        <li><b>공급대상지역 거주자</b> (전입일이 빠른 자 우선)</li>
+        <li>→ <b>가구원 수가 많은 자</b></li>
+        <li>→ <b>추첨</b></li>
+      </ul>
+      <p class="note">1순위 안에서는 수급자(생계 → 의료 → 주거 → 교육) → 차상위 → 한부모 → 장애인 순으로 우선공급합니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= 04 서류 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">04</span><h2>필요 서류 체크리스트</h2><span class="hint">공고문 7~8쪽</span></div>
+
+    <div class="card">
+      <div class="prog">
+        <div class="bar"><i id="ckBar2"></i></div>
+        <div class="txt" id="ckTxt">0 / 0</div>
+        <button class="reset" type="button" id="ckReset">초기화</button>
+      </div>
+      <p class="note" style="margin-top:8px">
+        체크 상태는 이 브라우저에 저장됩니다. <b>모든 서류는 공고일(2026.10.29.) 이후 발급분</b>이어야 하고,
+        주민등록표등본·초본·가족관계증명서는 <b>주민등록번호 13자리 전부 표기</b>(예: 123456-1234567)로 발급해야 합니다.
+      </p>
+
+      <div class="group">
+        <div class="gh">공통 제출서류 (필수)</div>
+        <label class="ck"><input type="checkbox" data-id="a1"><span class="t"><b>매입임대주택 공급신청서</b><span class="m">현장에서 수기 작성 — 양식은 접수장소에 비치</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a2"><span class="t"><b>개인정보 수집·이용 및 제3자 제공 동의서</b><span class="m">LH청약플러스에서 내려받아 <b>세대구성원 전원 서명</b>(14세 미만은 보호자). 모든 동의란 체크 필수 — 미제출 시 접수 거부</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a3"><span class="t"><b>신청자 주민등록표등본</b><span class="m">세대주와의 관계, 전입일/변동사유, 세대구성 사유, 이름·주민번호 전부 표기</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a4"><span class="t"><b>신청자 주민등록표초본</b><span class="m">공고일 이후 주소·세대주 변동이 있는 세대구성원이 있을 때 — 과거 주소 이력 포함 발급</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a5"><span class="t"><b>가족관계증명서(상세)</b><span class="m">등본에서 배우자를 확인할 수 없을 때(미혼·이혼·사별·세대분리 등), 배우자가 외국인일 때</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a6"><span class="t"><b>배우자 주민등록표등본</b><span class="m">배우자 세대가 분리돼 있을 때만 추가 제출</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a7"><span class="t"><b>임신진단서·입양관계증명서</b><span class="m">태아·입양자녀를 가구원수에 포함하려는 경우 (해당 시)</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="a8"><span class="t"><b>외국인등록증 사본·국내거소신고증</b><span class="m">외국인 배우자·직계존비속을 포함하는 경우 (해당 시, 등본에 등재돼 있으면 생략)</span></span></label>
+      </div>
+
+      <div class="group">
+        <div class="gh">2순위 (소득 100% 이하)</div>
+        <label class="ck"><input type="checkbox" data-id="b0"><span class="t"><b>추가 입증서류 없음</b><span class="m">공고문상 2순위는 별도 증명서가 없고, 위 공통 서류 + 전산 소득·주택 조회로 심사합니다. (아래 항목은 1순위용)</span></span></label>
+      </div>
+
+      <div class="group">
+        <div class="gh">1순위 해당자 추가 서류</div>
+        <label class="ck"><input type="checkbox" data-id="c1"><span class="t"><b>수급자 증명서</b><span class="m">생계·의료·주거·교육급여 (보장시설 수급자 포함) — 행정복지센터</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="c2"><span class="t"><b>차상위계층 확인서 등</b><span class="m">차상위 확인서, 복지대상급여 신청결과 통보서, 본인부담 경감 대상자 증명서, 자활급여대상자 증명서, 장애수당·장애아동수당·우선돌봄차상위 확인서 등</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="c3"><span class="t"><b>지원대상 한부모가족 증명서</b><span class="m">행정복지센터</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="c4"><span class="t"><b>장애인 증명서 또는 장애인등록증 사본</b><span class="m">장애인 1순위 일반(소득 70% 이하) 신청 시</span></span></label>
+      </div>
+
+      <div class="group">
+        <div class="gh">본인 확인</div>
+        <label class="ck"><input type="checkbox" data-id="d1"><span class="t"><b>신분증</b><span class="m">주민등록증·운전면허증·여권만 인정 (모바일 신분증 불가)</span></span></label>
+        <label class="ck"><input type="checkbox" data-id="d2"><span class="t"><b>도장</b><span class="m">서명으로 대체 가능</span></span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 대리접수 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">05</span><h2>대리접수 준비물</h2><span class="hint">공고문 8쪽</span></div>
+    <div class="card">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>구분</th><th>준비물</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>본인이 직접</b></td>
+              <td>① 본인 신분증 ② 본인 도장(서명 대체 가능)</td>
+            </tr>
+            <tr>
+              <td><b>배우자가 대리</b></td>
+              <td>① 신청자·배우자 각각의 신분증 ② 신청자 도장 ③ 관계 입증서류(주민등록표등본 등)</td>
+            </tr>
+            <tr>
+              <td><b>그 밖의 대리인</b><br><span class="m" style="font-size:11.5px;color:var(--muted)">아래 ① 또는 ② 중 하나</span></td>
+              <td>
+                <b>① 인감증명 방식</b> — 신청자의 인감증명서(본인발급분), 인감도장, 위임장(인감증명서상 도장일 것)<br>
+                <b>② 본인서명 방식</b> — 신청자의 본인서명사실확인서, 신청자가 자필 서명한 위임장(확인서상 서명일 것) <span class="m" style="color:var(--muted)">· 수임인 서명란에 대리인 성명 반드시 명기</span><br>
+                <b>공통</b> — 신청자와 대리인 각각의 신분증
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">대리인이 접수해도 <b>공급신청서·동의서의 서명은 세대구성원 본인</b> 몫입니다(14세 미만은 보호자). 접수 전날까지 서명·도장·발급일자를 한 번에 확인하세요.</p>
+    </div>
+  </section>
+
+  <!-- ================= 06 유의사항 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">06</span><h2>꼭 알아둘 조건</h2></div>
+
+    <details class="acc">
+      <summary><span class="ic">💸</span>임대조건 · 보증금 전환</summary>
+      <div class="body">
+        <ul>
+          <li>임대기간 <b>2년</b>, 재계약 14회 → 최장 30년 거주(자격 유지 시). 65세 이상 고령자·1순위 요건자는 재계약 횟수 제한 없음.</li>
+          <li>보증금을 10만 원 단위로 <b>증액</b>해 월세를 낮출 수 있습니다 — 전환한도 월세의 최대 60%, 이율 연 6% (300만 원 증액 시 월 15,000원 감소).</li>
+          <li>반대로 보증금을 <b>감액</b>하고 월세를 올릴 수 있습니다 — 이율 연 3.5% (300만 원 감액 시 월 8,750원 증가).</li>
+          <li><b>무보증금 월세제도</b>: 생계·주거급여 동시 수급자는 보증금 전액을 월세로 전환하고 주거급여로 지원(주택별 기준임대료 이하 주택에 한함).</li>
+          <li><b>임대보증금 완화제도</b>: 수급자·한부모·저소득 고령자·장애인(소득 70% 이하)·주거지원 시급가구는 월세 12개월분만 보증금으로 내고 차액을 월세로 전환.</li>
+          <li>청소용역비·관리비는 별도 부담입니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="ic">🏠</span>예비자 · 계약 · 입주</summary>
+      <div class="body">
+        <ul>
+          <li>예비자 자격은 <b>이번 공고의 최초 입주에 한정</b>됩니다. 선순위자가 동·호를 지정해 계약하면 낙첨 처리되고, 다음 공고에 다시 신청해야 합니다.</li>
+          <li>계약 순번이 왔을 때 불참·미계약하면 <b>예비자 지위가 상실</b>됩니다.</li>
+          <li>입주지정기간은 통상 계약일로부터 <b>60일 이내</b>. 100세대 이상 재임대 공동주택은 임대차 신고 1개월 후 입주.</li>
+          <li>공고문에 입주예정시기가 따로 적힌 주택은 보수 중인 집이라 입주 시기가 달라질 수 있습니다.</li>
+          <li>주택도시기금 대출을 받았다면 입주 전 상환·증빙 제출이 원칙입니다(목적물 변경 승인 시 예외).</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="ic">⚠️</span>탈락·무효가 되는 경우</summary>
+      <div class="body">
+        <ul>
+          <li>1세대 2건 이상 <b>중복 신청</b> → 전부 무효.</li>
+          <li>신청 내용이 사실과 다르거나 서류와 불일치 → 부적격·당첨 취소.</li>
+          <li>전산검색 부적격 통보 후 <b>소명기간 내 증명서류 미제출</b> → 이의 없는 것으로 간주해 선정 제외.</li>
+          <li>모집공고일 이후 발급분이 아닌 서류, 주민번호가 가려진 등본·초본.</li>
+          <li>매입임대는 <b>전매·전대 불가</b>(위반 시 민·형사 처벌).</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="ic">📄</span>주택 소유 판정에서 무주택으로 인정되는 경우</summary>
+      <div class="body">
+        <p class="m" style="margin:0">주택공급에 관한 규칙 제53조 기준. 아래에 해당하면 무주택으로 보되, 자산(부동산) 가액에는 포함됩니다.</p>
+        <ul>
+          <li>상속으로 공유지분을 취득한 사실이 판명돼 통보일부터 <b>3개월 내 처분</b>한 경우</li>
+          <li>도시지역 외(수도권 제외) 소재 20년 경과 단독주택, 85㎡ 이하 단독주택 등에서 거주하다 이주한 경우</li>
+          <li>분양 목적 건설 주택을 분양 완료했거나 3개월 내 처분한 경우</li>
+          <li><b>20㎡ 이하 주택(또는 분양권) 1호·1세대</b>만 소유한 경우</li>
+          <li>공부상 주택이나 폐가·멸실·타 용도로 사용 중인 건물을 3개월 내 정리한 경우</li>
+          <li>2006.5.8 이전 무허가 건물(연면적 200㎡ 미만·2층 이하)로 지자체 민원회신으로 소명한 경우</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="ic">🔎</span>공고문·목록을 확인하는 곳</summary>
+      <div class="body">
+        <ul>
+          <li>후순위 공급대상주택 목록, 선정결과 발표: <b>LH청약플러스(apply.lh.or.kr)</b> → 청약 → 알려드려요 → 공지사항 → 매입임대/전세임대</li>
+          <li>LH 홈페이지: www.lh.or.kr · 콜센터 1600-1004</li>
+          <li>인터넷 청약은 <b>불가</b>합니다. 이 공고는 방문접수만 됩니다.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ================= 관련 페이지 ================= -->
+  <section>
+    <div class="sec-h"><span class="no">07</span><h2>관련 페이지</h2></div>
+    <div class="card">
+      <h3>수영구 매입임대 16호 지도</h3>
+      <p class="sub">수영구 공급 호실의 위치·면적·보증금·월세를 지도에서 확인</p>
+      <div class="btnrow">
+        <a class="btn teal" href="suyeong-16.html">📍 호실 지도 열기</a>
+        <a class="btn ghost" href="busan-housing-60.html">🏠 부산·기장·김해 60단지</a>
+        <a class="btn ghost" href="index.html">← 홈</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    출처: 한국토지주택공사 부산울산지역본부 「2026년 하반기 일반 매입임대주택 입주자 모집공고」 (2026.10.29.) 원문 기준.<br>
+    일정·기준은 공고문 내용을 그대로 옮긴 참고용 정리이며, 최종 판단은 공고문 원문과 접수처 확인을 따릅니다.<br>
+    <span class="src">개인정보 없이 공개 자료만 담았습니다 · 데이터 기준 2026-11-17</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 1) 다가오는 일정 카운트다운 ---------- */
+  var milestones = [
+    {t:"2026-11-18T15:00", what:"잔여 대상주택(호수) 게시", when:"2026.11.18.(수) 15:00 · LH청약플러스"},
+    {t:"2026-11-25T17:00", what:"1순위 우선공급 선정결과 발표", when:"2026.11.25.(수) 17:00 · LH청약플러스"},
+    {t:"2026-11-26T10:00", what:"주택 현장 열람 시작 (1순위 일반·2순위)", when:"2026.11.26.(목) 10:00 ~ 11.28.(토)"},
+    {t:"2026-12-07T10:00", what:"방문접수 시작 (1순위 일반·2순위)", when:"2026.12.7.(월) 10:00 ~ 12.9.(수) 16:00"},
+    {t:"2027-01-13T17:00", what:"입주자 선정결과 발표", when:"2027.1.13.(수) 17:00 · LH청약플러스"}
+  ].map(function(m){ return {d:new Date(m.t), what:m.what, when:m.when}; });
+
+  var elWhat=document.getElementById("ckWhat"),
+      elWhen=document.getElementById("ckWhen"),
+      elNum =document.getElementById("ckNum"),
+      elBar =document.getElementById("ckBar"),
+      elPrev=document.getElementById("ckPrev");
+
+  function pad(n){ return (n<10?"0":"")+n; }
+
+  function tick(){
+    var now=new Date(), next=null, prev=null, i;
+    for(i=0;i<milestones.length;i++){
+      if(milestones[i].d > now){ next = milestones[i]; break; }
+      prev = milestones[i];
+    }
+    if(!next){
+      elWhat.textContent="모든 일정이 종료되었습니다";
+      elWhen.textContent="LH청약플러스에서 다음 공고를 확인하세요";
+      elNum.innerHTML="공고 종료";
+      elBar.style.width="100%";
+      elPrev.textContent="";
+      return;
+    }
+    var diff = next.d - now;
+    var days = Math.floor(diff/86400000);
+    var hrs  = Math.floor(diff%86400000/3600000);
+    var mins = Math.floor(diff%3600000/60000);
+    var secs = Math.floor(diff%60000/1000);
+
+    elWhat.textContent = next.what;
+    elWhen.textContent = next.when;
+    elNum.innerHTML = (days>0 ? days+"<small>일</small> " : "") +
+                      pad(hrs)+"<small>시간</small> " +
+                      pad(mins)+"<small>분</small> " +
+                      pad(secs)+"<small>초</small>";
+    var from = prev ? prev.d.getTime() : (next.d.getTime() - 7*86400000);
+    var span = next.d.getTime() - from;
+    var pct  = span > 0 ? ((now.getTime() - from) / span) * 100 : 0;
+    elBar.style.width = Math.min(100, Math.max(2, pct)) + "%";
+
+    if(prev){
+      elPrev.textContent = "지난 일정: " + prev.what + " · " +
+        prev.d.getFullYear()+". "+(prev.d.getMonth()+1)+". "+prev.d.getDate()+".";
+    } else {
+      elPrev.textContent = "";
+    }
+  }
+
+  /* ---------- 2) 체크리스트 저장 ---------- */
+  var KEY="lh-maeip-checklist-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".ck input[type=checkbox]"));
+  var bar2 = document.getElementById("ckBar2");
+  var txt  = document.getElementById("ckTxt");
+
+  function load(){
+    var saved={};
+    try{ saved = JSON.parse(localStorage.getItem(KEY)||"{}") || {}; }catch(e){ saved={}; }
+    boxes.forEach(function(b){
+      if(saved[b.dataset.id]){ b.checked=true; }
+      b.closest(".ck").classList.toggle("on", b.checked);
+    });
+  }
+  function save(){
+    var o={};
+    boxes.forEach(function(b){ if(b.checked) o[b.dataset.id]=1; });
+    try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){}
+  }
+  function count(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    txt.textContent = done+" / "+boxes.length;
+    bar2.style.width = (boxes.length? (done/boxes.length*100):0)+"%";
+  }
+  boxes.forEach(function(b){
+    b.addEventListener("change", function(){
+      b.closest(".ck").classList.toggle("on", b.checked);
+      save(); count();
+    });
+  });
+  document.getElementById("ckReset").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked=false; b.closest(".ck").classList.remove("on"); });
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    count();
+  });
+
+  /* ---------- 3) 지난 일정 흐리게 ---------- */
+  function markPast(){
+    var now=Date.now();
+    document.querySelectorAll(".tl li[data-date]").forEach(function(li){
+      if(new Date(li.dataset.date).getTime() < now){ li.classList.add("past"); }
+    });
+  }
+
+  load(); count(); markPast(); tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
