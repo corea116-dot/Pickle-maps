@@ -1,20 +1,22 @@
 # pickle-maps
 
-부산·기장·김해 임대주택 및 수영구 매입임대 인터랙티브 지도 (GitHub Pages).
+부산·기장·김해 임대주택 및 수영구 매입임대 인터랙티브 지도, 광안동 에어비엔비 종합 보드 (GitHub Pages).
 
 ## 주소
 
 - 홈: https://corea116-dot.github.io/Pickle-maps/
 - 부산·기장·김해 60단지: https://corea116-dot.github.io/Pickle-maps/busan-housing-60.html
 - 수영구 매입임대 16호: https://corea116-dot.github.io/Pickle-maps/suyeong-16.html
+- 광안동 에어비엔비 종합 보드: https://corea116-dot.github.io/Pickle-maps/gwangan-airbnb.html
 
 ## 파일
 
 | 파일 | 내용 |
 | --- | --- |
-| `index.html` | 두 지도로 가는 모바일 홈 |
+| `index.html` | 세 문서로 가는 모바일 홈 |
 | `busan-housing-60.html` | 부산·기장·김해 국민임대·행복주택·통합공공임대 60단지 지도 (2026-11-17 기준) |
 | `suyeong-16.html` | 수영구 매입임대 16호 지도 |
+| `gwangan-airbnb.html` | 광안동 에어비엔비 종합 보드 — 수익 시뮬레이터·인허가 체크리스트·인스팅트×뮤즈 대조 (2026-11-17) |
 
 ## 배포 방식
 
