@@ -219,6 +219,16 @@
   footer a{color:var(--muted)}
   footer .src{margin-top:6px}
 
+  @media (max-width:560px){
+    table{min-width:0;font-size:12.2px}
+    th,td{padding:7px 5px}
+    thead th{font-size:11px;white-space:normal}
+    td.num,th.num{white-space:nowrap}
+    .rows{grid-template-columns:64px 1fr}
+    .hero h1{font-size:20px}
+    .clock .num{font-size:20px}
+  }
+
   @media print{
     body{background:#fff;padding:0}
     .topbar,.clock .num,.prog .reset,details.acc > summary::after{display:none}
@@ -672,7 +682,7 @@
                       pad(hrs)+"<small>시간</small> " +
                       pad(mins)+"<small>분</small> " +
                       pad(secs)+"<small>초</small>";
-    var from = prev ? prev.d.getTime() : (next.d.getTime() - 7*86400000);
+    var from = prev ? prev.d.getTime() : new Date("2026-10-29T15:00:00").getTime();
     var span = next.d.getTime() - from;
     var pct  = span > 0 ? ((now.getTime() - from) / span) * 100 : 0;
     elBar.style.width = Math.min(100, Math.max(2, pct)) + "%";
