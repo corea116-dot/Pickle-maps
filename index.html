@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>임대주택 지도</title>
+<style>
+  :root{
+    --navy:#10304f; --ink:#1c3a5c; --muted:#7a8798; --line:#dde4ec; --bg:#eef1f5;
+    --card:#ffffff; --accent:#1f5fd0; --accent2:#0d766e;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --navy:#eaf1f8; --ink:#dbe6f1; --muted:#93a3b5; --line:#26313d; --bg:#12181f; --card:#1a222b; }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%;
+    padding:max(18px, env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom));
+    line-height:1.5;
+  }
+  .wrap{max-width:640px;margin:0 auto}
+  header{padding:6px 4px 18px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  h1{margin:6px 0 6px;font-size:24px;letter-spacing:-.02em}
+  .sub{margin:0;font-size:14.5px;color:var(--muted)}
+  .card{
+    display:block;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;
+    margin:0 0 14px;box-shadow:0 1px 2px rgba(16,48,79,.05);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .card:active{transform:scale(.985);box-shadow:0 0 0 rgba(0,0,0,0)}
+  .card .top{display:flex;align-items:flex-start;gap:12px}
+  .emoji{font-size:26px;line-height:1.1;flex:0 0 auto}
+  .card h2{margin:0 0 4px;font-size:17.5px;letter-spacing:-.01em}
+  .card p{margin:0;font-size:14px;color:var(--muted)}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .tag{font-size:12px;font-weight:600;color:var(--accent);background:rgba(31,95,208,.10);
+       border-radius:999px;padding:4px 9px}
+  .card.b .tag{color:var(--accent2);background:rgba(13,118,110,.12)}
+  .go{margin-top:12px;font-size:13.5px;font-weight:700;color:var(--accent)}
+  .card.b .go{color:var(--accent2)}
+  footer{margin:22px 4px 0;font-size:12.5px;color:var(--muted);line-height:1.65}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Pickle Maps</div>
+    <h1>임대주택 인터랙티브 지도</h1>
+    <p class="sub">핀을 눌러 단지 정보와 지도 링크를 확인하세요. 데이터 기준 2026-11-17.</p>
+  </header>
+
+  <a class="card" href="busan-housing-60.html">
+    <div class="top">
+      <div class="emoji">🏠</div>
+      <div>
+        <h2>부산·기장·김해 임대주택 60단지</h2>
+        <p>국민임대·행복주택·매입임대 전수 조사 지도</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="tag">60단지</span>
+      <span class="tag">보증금·월세</span>
+      <span class="tag">네이버·카카오 길찾기</span>
+    </div>
+    <div class="go">지도 열기 →</div>
+  </a>
+
+  <a class="card b" href="suyeong-16.html">
+    <div class="top">
+      <div class="emoji">📍</div>
+      <div>
+        <h2>수영구 매입임대 16호</h2>
+        <p>수영구 매입임대 16호실 위치·면적·임대조건</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="tag">16호실</span>
+      <span class="tag">수영구</span>
+      <span class="tag">임대조건</span>
+    </div>
+    <div class="go">지도 열기 →</div>
+  </a>
+
+  <footer>
+    지도 타일: OpenStreetMap · Esri World Street Map.<br>
+    각 지도는 인터넷 연결이 필요합니다. 개인정보 없이 공개 자료만 담았습니다.
+  </footer>
+</div>
+</body>
+</html>
