@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#10304f">
+<title>수영구 주거 전략 — 세대분리 · 수급 자격 · 2027 매입임대</title>
+<style>
+  :root{
+    --navy:#0f2b47; --ink:#16324c; --muted:#4a5c70; --line:#cfd9e4; --line2:#e4ebf2;
+    --bg:#eef2f7; --card:#ffffff; --accent:#1554b8; --teal:#08695f; --amber:#9a4f00;
+    --amberbg:#fff3e2; --tealbg:#e7f6f4; --red:#a51c14; --redbg:#fdecea;
+    --soft:#f4f7fb; --shadow:0 1px 3px rgba(15,43,71,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#eef4fa; --ink:#dbe7f3; --muted:#a9bccd; --line:#3a4a5c; --line2:#2b3a49;
+      --bg:#0f151c; --card:#1a232d; --accent:#7fb0f7; --teal:#5fd0c2; --amber:#eab069;
+      --amberbg:#33260f; --tealbg:#12312e; --red:#f0908a; --redbg:#3a1917;
+      --soft:#202b36; --shadow:0 1px 3px rgba(0,0,0,.4);
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{font-size:17px}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%; line-height:1.62; font-size:1rem;
+    padding:max(12px, env(safe-area-inset-top)) 14px calc(44px + env(safe-area-inset-bottom));
+    word-break:keep-all;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+  svg text{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{display:flex;align-items:center;gap:8px;margin:0 0 12px}
+  .home{
+    display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    font-size:.85rem;font-weight:800;padding:9px 15px;box-shadow:var(--shadow);
+  }
+  .home:active{transform:scale(.97)}
+  .topbar .sp{flex:1}
+  .fsbtn{
+    border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:999px;font:inherit;font-size:.85rem;font-weight:800;
+    padding:9px 14px;cursor:pointer;box-shadow:var(--shadow);
+  }
+  .fsbtn:active{transform:scale(.97)}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    background:linear-gradient(160deg,#0f2b47 0%,#16405f 55%,#1b5075 100%);
+    color:#fff;border-radius:20px;padding:22px 20px 20px;margin:0 0 14px;
+    box-shadow:0 6px 22px rgba(15,43,71,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    header.hero{background:linear-gradient(160deg,#132131 0%,#1a3048 60%,#1e3b56 100%);box-shadow:none}
+  }
+  .hero .eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.1em;color:#a8c8e6;text-transform:uppercase}
+  .hero h1{margin:8px 0 10px;font-size:1.62rem;line-height:1.34;letter-spacing:-.02em}
+  .hero p{margin:0;font-size:1rem;color:#d5e5f3;line-height:1.62}
+  .hero .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+  .hero .chip{
+    font-size:.8rem;font-weight:800;color:#e6f1fa;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 12px;
+  }
+
+  /* ---------- summary ---------- */
+  .sumcard{
+    background:var(--card);border:2px solid var(--accent);border-radius:18px;
+    padding:18px 18px 14px;margin:0 0 14px;box-shadow:var(--shadow);
+  }
+  .sumcard .big{font-size:1.12rem;font-weight:800;line-height:1.6;margin:0 0 12px;letter-spacing:-.01em}
+  .sumcard ol{margin:0;padding:0;list-style:none;counter-reset:q}
+  .sumcard li{
+    position:relative;padding:8px 0 8px 40px;font-size:1rem;line-height:1.55;
+    border-top:1px solid var(--line2);counter-increment:q;
+  }
+  .sumcard li::before{
+    content:counter(q);position:absolute;left:0;top:8px;width:27px;height:27px;border-radius:50%;
+    background:var(--accent);color:#fff;font-size:.9rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .sumcard li b{font-weight:800}
+
+  /* ---------- toc ---------- */
+  nav.toc{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 6px}
+  nav.toc a{
+    display:flex;flex-direction:column;justify-content:center;gap:2px;text-decoration:none;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:13px 13px;box-shadow:var(--shadow);color:inherit;min-height:74px;
+  }
+  nav.toc a:last-child{grid-column:span 2}
+  nav.toc a:active{transform:scale(.98)}
+  nav.toc .n{font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.05em}
+  nav.toc .t{font-size:.97rem;font-weight:800;line-height:1.35}
+
+  /* ---------- section ---------- */
+  section{margin:0 0 20px;scroll-margin-top:8px}
+  .sec-h{display:flex;align-items:baseline;gap:10px;margin:26px 4px 12px;flex-wrap:wrap}
+  .sec-h .no{
+    font-size:.8rem;font-weight:800;color:#fff;background:var(--navy);
+    border-radius:8px;padding:3px 9px;letter-spacing:.04em;
+  }
+  @media (prefers-color-scheme: dark){ .sec-h .no{color:#0f151c} }
+  .sec-h h2{margin:0;font-size:1.32rem;letter-spacing:-.02em;line-height:1.3}
+  .sec-h .hint{flex-basis:100%;font-size:.86rem;color:var(--muted);font-weight:600}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:18px 17px;margin:0 0 14px;box-shadow:var(--shadow);
+  }
+  .card > h3{margin:0 0 6px;font-size:1.18rem;letter-spacing:-.01em;line-height:1.35}
+  .card > .sub{margin:0 0 12px;font-size:.92rem;color:var(--muted)}
+  .card p{font-size:1rem;margin:0 0 10px}
+  .card p:last-child{margin-bottom:0}
+  .ez{color:var(--muted);font-weight:600;font-size:.86em}
+
+  /* ---------- figure ---------- */
+  figure{margin:0 0 14px;background:var(--card);border:1px solid var(--line);
+         border-radius:18px;padding:12px 12px 12px;box-shadow:var(--shadow)}
+  .fig-panel{background:#ffffff;border-radius:14px;padding:8px 6px}
+  .fig-panel svg{display:block;width:100%;height:auto}
+  figcaption{font-size:.92rem;color:var(--muted);margin-top:11px;padding:0 4px;line-height:1.62}
+  figcaption b{color:var(--ink)}
+
+  /* ---------- steps ---------- */
+  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;
+        padding:16px 16px 14px 16px;margin:0 0 12px;box-shadow:var(--shadow)}
+  .step .hd{display:flex;align-items:center;gap:11px;margin-bottom:8px}
+  .step .num{
+    flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;
+    font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .step.warm .num{background:#a8600f}
+  .step.cool .num{background:var(--teal)}
+  .step h3{margin:0;font-size:1.14rem;line-height:1.35;letter-spacing:-.01em}
+  .step .when{font-size:.82rem;font-weight:800;color:var(--accent);letter-spacing:.02em}
+  .step.warm .when{color:#a8600f}
+  .step.cool .when{color:var(--teal)}
+  .step ul{margin:6px 0 0;padding:0;list-style:none}
+  .step li{position:relative;padding:6px 0 6px 22px;font-size:.99rem;line-height:1.58}
+  .step li::before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.55}
+  .step.warm li::before{background:#a8600f}
+  .step.cool li::before{background:var(--teal)}
+  .step li b{font-weight:800}
+
+  .warn{background:var(--amberbg);border:1.5px solid rgba(154,79,0,.35);border-radius:16px;
+        padding:15px 16px;margin:0 0 14px}
+  .warn h3{margin:0 0 8px;font-size:1.06rem;color:var(--amber);display:flex;gap:8px;align-items:center}
+  .warn ul{margin:0;padding-left:20px}
+  .warn li{font-size:.97rem;margin:0 0 8px;line-height:1.58}
+  .warn li:last-child{margin-bottom:0}
+
+  /* ---------- tables ---------- */
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0 0}
+  table{border-collapse:collapse;width:100%;font-size:.95rem;table-layout:fixed}
+  th,td{border-bottom:1px solid var(--line2);padding:11px 8px;text-align:left;vertical-align:middle}
+  thead th{background:var(--soft);font-size:.85rem;color:var(--muted);font-weight:800;
+           border-bottom:1.5px solid var(--line)}
+  thead th:first-child{border-radius:10px 0 0 10px}
+  thead th:last-child{border-radius:0 10px 10px 0}
+  tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+  tbody th{font-weight:800;font-size:.92rem;color:var(--ink)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+  tr.hi td,tr.hi th{background:var(--tealbg)}
+  tr.hi td{font-weight:800}
+  tr.dim td,tr.dim th{color:var(--muted)}
+  .cap{font-size:.85rem;color:var(--muted);margin-top:9px;line-height:1.58}
+  .t-2col tbody th{width:38%}
+  .t-3col tbody th{width:30%}
+
+  /* ---------- calculator ---------- */
+  .res{
+    position:sticky;top:0;z-index:6;
+    background:var(--card);border:2px solid var(--accent);border-radius:18px;
+    padding:14px 16px;margin:0 0 14px;box-shadow:0 4px 16px rgba(15,43,71,.14);
+  }
+  .res .row1{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .res .metric{min-width:0}
+  .res .lbl{display:block;font-size:.82rem;font-weight:800;color:var(--muted);line-height:1.3}
+  .res .val{display:block;font-size:1.72rem;font-weight:800;letter-spacing:-.03em;line-height:1.25;
+            font-variant-numeric:tabular-nums;margin-top:2px}
+  .res .val.teal{color:var(--teal)}
+  .res .val.navy{color:var(--navy)}
+  .res .line{margin-top:9px;font-size:.95rem;line-height:1.55;font-weight:700;color:var(--ink)}
+  .res .line.bad{color:var(--red)}
+  .res .inv{margin-top:7px;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .res .inv b{color:var(--ink);font-size:1rem}
+
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .bdg{display:flex;flex-direction:column;gap:1px;border-radius:10px;padding:6px 10px;
+       border:1.5px solid var(--line);background:var(--soft);min-width:0}
+  .bdg b{font-size:.87rem;font-weight:800;line-height:1.2;white-space:nowrap}
+  .bdg i{font-style:normal;font-size:.72rem;color:var(--muted);font-weight:700;white-space:nowrap}
+  .bdg.ok{border-color:rgba(8,105,95,.5);background:var(--tealbg)}
+  .bdg.ok b{color:var(--teal)}
+  .bdg.no{opacity:.62}
+  .bdg.no b{color:var(--red)}
+
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 16px}
+  .seg button{
+    font:inherit;font-size:.98rem;font-weight:800;padding:14px 8px;min-height:52px;
+    border-radius:12px;border:1.5px solid var(--line);background:var(--soft);color:var(--ink);
+    cursor:pointer;line-height:1.25;
+  }
+  .seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .seg button small{display:block;font-size:.74rem;font-weight:700;opacity:.8;margin-top:2px}
+
+  .presets{display:flex;flex-direction:column;gap:9px;margin:0 0 4px}
+  .preset{
+    text-align:left;font:inherit;cursor:pointer;border-radius:14px;padding:13px 14px;
+    border:1.5px solid var(--line);background:var(--soft);color:var(--ink);min-height:62px;
+  }
+  .preset:active{transform:scale(.99)}
+  .preset.on{border-color:var(--accent);background:rgba(21,84,184,.09);box-shadow:inset 0 0 0 1.5px var(--accent)}
+  .preset b{display:block;font-size:1.02rem;font-weight:800;line-height:1.38}
+  .preset span{display:block;font-size:.85rem;color:var(--muted);margin-top:3px;line-height:1.5}
+
+  .fld{padding:13px 0;border-top:1px solid var(--line2)}
+  .fld:first-of-type{border-top:0}
+  .fld .fl{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:9px}
+  .fld label{font-size:1rem;font-weight:800;line-height:1.4}
+  .fld label .ez{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-top:1px}
+  .fld .fv{display:flex;align-items:center;gap:5px;flex:0 0 auto}
+  .fld input[type=number]{
+    width:6.6em;font:inherit;font-size:1.18rem;font-weight:800;text-align:right;
+    padding:9px 10px;min-height:48px;border-radius:11px;border:1.5px solid var(--line);
+    background:var(--card);color:var(--navy);font-variant-numeric:tabular-nums;
+    -moz-appearance:textfield;
+  }
+  .fld input[type=number]::-webkit-outer-spin-button,
+  .fld input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .fld input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(21,84,184,.16)}
+  .fld .u{font-size:.9rem;font-weight:800;color:var(--muted)}
+  .fld input[type=range]{
+    -webkit-appearance:none;appearance:none;width:100%;height:38px;background:transparent;margin:0;display:block;
+  }
+  .fld input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:var(--line2);border:1px solid var(--line)}
+  .fld input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--accent);
+    border:3px solid #fff;box-shadow:0 1px 5px rgba(15,43,71,.35);margin-top:-11px;
+  }
+  .fld input[type=range]::-moz-range-track{height:10px;border-radius:999px;background:var(--line2)}
+  .fld input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--accent);border:3px solid #fff}
+  .fld.off{opacity:.42}
+  .fld.off input{pointer-events:none}
+
+  .kv{margin:12px 0 0;font-size:.93rem}
+  .kv .r{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line2)}
+  .kv .r:last-child{border-bottom:0}
+  .kv .k{color:var(--muted);font-weight:700}
+  .kv .v{font-weight:800;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .kv .r.tot .k{color:var(--ink)}
+  .kv .r.tot .v{color:var(--teal);font-size:1.05rem}
+
+  /* ---------- tips ---------- */
+  .tip{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line2)}
+  .tip:first-of-type{padding-top:4px}
+  .tip:last-of-type{border-bottom:0;padding-bottom:0}
+  .tip .tn{
+    flex:0 0 auto;width:31px;height:31px;border-radius:9px;background:var(--tealbg);color:var(--teal);
+    font-size:.95rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .tip h4{margin:0 0 3px;font-size:1.02rem;font-weight:800;line-height:1.4}
+  .tip p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.6}
+
+  /* ---------- schedule cards ---------- */
+  .sched{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .sched .sc{
+    border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:var(--soft);
+  }
+  .sched .sc h4{margin:0 0 5px;font-size:1.05rem;font-weight:800;line-height:1.35}
+  .sched .sc .when{font-size:.95rem;font-weight:800;color:var(--accent);line-height:1.5}
+  .sched .sc p{margin:4px 0 0;font-size:.9rem;color:var(--muted);line-height:1.55}
+
+  footer{margin:26px 4px 0;font-size:.86rem;color:var(--muted);line-height:1.75}
+  footer a{color:var(--muted)}
+  .srcbox{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 12px}
+  .srcbox h4{margin:0 0 8px;font-size:.95rem;font-weight:800}
+  .srcbox ul{margin:0;padding-left:18px}
+  .srcbox li{font-size:.86rem;color:var(--muted);margin-bottom:5px;line-height:1.55}
+
+  .btnrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+
+  @media (max-width:360px){
+    nav.toc{grid-template-columns:1fr}
+    nav.toc a:last-child{grid-column:auto}
+    .res .val{font-size:1.5rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="home" href="index.html">← 지도 홈</a>
+    <div class="sp"></div>
+    <button class="fsbtn" id="fsBtn" aria-label="글씨 크기 바꾸기">가+ 크게</button>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">2026 – 2027 주거 전략</div>
+    <h1>수영구에서 나라 지원 받고<br>새 집 구하기</h1>
+    <p>세대를 나누면 심사하는 식구가 줄어 소득이 낮아집니다. 그래서 월세 지원을 받고, 그 자격으로 2027년 매입임대에 도전합니다.</p>
+    <div class="chips">
+      <span class="chip">① 세대분리</span>
+      <span class="chip">② 수급·차상위</span>
+      <span class="chip">③ 월세 지원</span>
+      <span class="chip">④ 매입임대</span>
+    </div>
+  </header>
+
+  <div class="sumcard">
+    <p class="big">한 줄로 말하면 이렇습니다.</p>
+    <ol>
+      <li><b>수영구 안에서만</b> 이사하면 거주기간이 그대로 이어집니다. 다른 구로 나가면 처음부터 다시 셉니다.</li>
+      <li>세대를 나누면 <b>누나 월급·예금·차</b>가 심사에서 빠집니다. 다만 <b>아버님은 부부라서</b> 계속 함께 셉니다.</li>
+      <li>월세 30만 원짜리 집이면 <b>한 달 18만 원 안팎</b>을 나라에서 받을 수 있습니다.</li>
+    </ol>
+  </div>
+
+  <nav class="toc">
+    <a href="#s1"><span class="n">01</span><span class="t">3단계 순서</span></a>
+    <a href="#s2"><span class="n">02</span><span class="t">수급·차상위가 뭔가요</span></a>
+    <a href="#s3"><span class="n">03</span><span class="t">두 가지 방법 비교</span></a>
+    <a href="#s4"><span class="n">04</span><span class="t">월세 지원 계산</span></a>
+    <a href="#s5"><span class="n">05</span><span class="t">매입임대는 언제 나오나요</span></a>
+  </nav>
+
+  <!-- ============ 01 ============ -->
+  <section id="s1">
+    <div class="sec-h"><span class="no">01</span><h2>3단계 순서</h2><span class="hint">2026년 11월 → 2027년 4월</span></div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 404" role="img" aria-label="2027년 매입임대 3단계 타임라인">
+        <line x1="36" y1="46" x2="36" y2="306" stroke="#cfd9e4" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="36" cy="46" r="21" fill="#a8600f"/>
+        <text x="36" y="53" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff">1</text>
+        <rect x="68" y="12" width="286" height="108" rx="14" fill="#fff3e2" stroke="#e0a458" stroke-width="2"/>
+        <text x="84" y="42" font-size="13.5" font-weight="800" fill="#9a4f00">2026년 11 ~ 12월</text>
+        <text x="84" y="66" font-size="16.5" font-weight="800" fill="#5c3000">수영구 안에서 이사</text>
+        <text x="84" y="90" font-size="13.5" fill="#6b4a22">전입신고도 따로 → 2인 가구</text>
+        <text x="84" y="109" font-size="13.5" fill="#6b4a22">집주인과 진짜 계약서 필요</text>
+        <circle cx="36" cy="176" r="21" fill="#1554b8"/>
+        <text x="36" y="183" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff">2</text>
+        <rect x="68" y="142" width="286" height="108" rx="14" fill="#eaf1fd" stroke="#1554b8" stroke-width="2"/>
+        <text x="84" y="172" font-size="13.5" font-weight="800" fill="#12408e">2027년 1 ~ 2월</text>
+        <text x="84" y="196" font-size="16.5" font-weight="800" fill="#0f2b47">수급·차상위 신청</text>
+        <text x="84" y="220" font-size="13.5" fill="#3b5570">동 주민센터에 신청서 제출</text>
+        <text x="84" y="239" font-size="13.5" fill="#3b5570">심사에 1~2달 걸려요</text>
+        <circle cx="36" cy="306" r="21" fill="#08695f"/>
+        <text x="36" y="313" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff">3</text>
+        <rect x="68" y="272" width="286" height="108" rx="14" fill="#e7f6f4" stroke="#08695f" stroke-width="2"/>
+        <text x="84" y="302" font-size="13.5" font-weight="800" fill="#08695f">2027년 3 ~ 4월</text>
+        <text x="84" y="326" font-size="16.5" font-weight="800" fill="#063f39">매입임대 1순위 접수</text>
+        <text x="84" y="350" font-size="13.5" fill="#24564f">자격을 먼저 받아두면</text>
+        <text x="84" y="369" font-size="13.5" fill="#24564f">봄 공고부터 바로 도전</text>
+        <text x="180" y="396" text-anchor="middle" font-size="12" fill="#6a7c8d">이 순서를 거꾸로 하면 시간이 더 걸립니다</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 1.</b> 세 단계는 <b>이사 → 신청 → 접수</b> 순서입니다. 이사를 먼저 해야 신청이 되고, 자격이 있어야 접수가 됩니다.</figcaption>
+    </figure>
+
+    <div class="step warm">
+      <div class="hd"><div class="num">1</div><div><div class="when">2026년 11 ~ 12월</div><h3>수영구 안에서 이사하고 세대분리</h3></div></div>
+      <ul>
+        <li><b>같은 수영구 안</b>에서 이사하면 전입기록(초본)의 거주기간이 그대로 이어집니다. 다른 구로 나가면 <b>거주기간이 0부터</b> 다시 시작합니다.</li>
+        <li>세대를 나누면 <b>누나의 월급·예금·차</b>가 심사에서 빠집니다.</li>
+        <li>단, <b>아버님은 법적 배우자</b>라서 세대를 나눠도 <b>2인 가구로 함께</b> 심사합니다.</li>
+        <li>전입신고만 해서는 안 되고, <b>실제로 살고 임대차계약서</b>가 있어야 합니다. 나중에 집으로 확인하러 옵니다.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="hd"><div class="num">2</div><div><div class="when">2027년 1 ~ 2월 (늦어도 이때)</div><h3>기초수급·차상위 신청</h3></div></div>
+      <ul>
+        <li>심사에 <b>1~2개월</b> 걸립니다. 2027년 봄 공고 전에 자격을 받아두려면 <b>1~2월 안에 신청</b>해야 합니다.</li>
+        <li>신청은 <b>주소지 동 주민센터</b>에서 합니다. 신분증, 임대차계약서, 소득·재산 확인서류를 가져가세요.</li>
+        <li>2인 가구는 소득인정액(실제 잡히는 월 소득)이 <b>201만 5,660원 이하</b>면 주거급여를 받습니다.</li>
+      </ul>
+    </div>
+
+    <div class="step cool">
+      <div class="hd"><div class="num">3</div><div><div class="when">2027년 3월 ~</div><h3>매입임대 1순위로 도전</h3></div></div>
+      <ul>
+        <li>수급자·차상위는 <b>1순위</b>입니다. 일반 신청자보다 먼저 뽑힙니다.</li>
+        <li>LH 매입임대는 <b>해마다 2번(4월 말·10월 말)</b>과 수시 모집이 있습니다.</li>
+        <li>만 65세 이상은 <b>재계약 횟수 제한이 없어</b> 사실상 평생 거주할 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section id="s2">
+    <div class="sec-h"><span class="no">02</span><h2>기초수급·차상위가 뭔가요?</h2><span class="hint">어려운 말 빼고 한 줄씩</span></div>
+
+    <div class="card">
+      <h3>나라에서 주는 도움은 네 가지입니다</h3>
+      <p>버는 돈이 적을수록 <b>더 많은 도움</b>을 받습니다. 아래로 갈수록 조건이 까다롭고, 위로 갈수록 조금 더 벌어도 됩니다.</p>
+      <div class="tbl-wrap">
+        <table class="t-3col">
+          <colgroup><col style="width:26%"><col><col style="width:31%"></colgroup>
+          <thead><tr><th>혜택</th><th>쉬운 풀이</th><th style="text-align:right">2인 기준</th></tr></thead>
+          <tbody>
+            <tr><th>생계급여</th><td>생활비를 <b>현금</b>으로 줍니다</td><td class="num">134만 4천 원</td></tr>
+            <tr><th>의료급여</th><td><b>병원비</b>를 거의 안 냅니다</td><td class="num">167만 9,717원</td></tr>
+            <tr><th>주거급여</th><td><b>월세</b>를 대신 내줍니다</td><td class="num">201만 5,660원</td></tr>
+            <tr><th>차상위계층</th><td>수급자 <b>바로 위</b> 계층.<br>임대주택 <b>1순위</b> 자격이 생깁니다</td><td class="num">209만 9,646원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">‘2인 기준’은 <b>소득인정액(실제 잡히는 월 소득)</b>이 이 금액보다 적으면 받는다는 뜻입니다. 2026년 기준.</p>
+    </div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 344" role="img" aria-label="2인 가구 기준 혜택별 소득 한도 막대 그래프">
+        <text x="8" y="18" font-size="12.5" font-weight="700" fill="#4a5c70">2인 가구 — 막대 끝(선)보다 소득이 적으면 받습니다</text>
+
+        <text x="8" y="46" font-size="14" font-weight="800" fill="#0f2b47">생계급여 <tspan font-size="12" font-weight="600" fill="#6a7c8d">생활비 현금</tspan></text>
+        <rect x="8" y="54" width="344" height="26" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="54" width="220" height="26" rx="7" fill="#08695f"/>
+        <text x="18" y="72" font-size="12.5" font-weight="800" fill="#ffffff">134만 4천 원 이하</text>
+
+        <text x="8" y="118" font-size="14" font-weight="800" fill="#0f2b47">의료급여 <tspan font-size="12" font-weight="600" fill="#6a7c8d">병원비</tspan></text>
+        <rect x="8" y="126" width="344" height="26" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="126" width="275" height="26" rx="7" fill="#1554b8"/>
+        <text x="18" y="144" font-size="12.5" font-weight="800" fill="#ffffff">168만 원 이하</text>
+
+        <text x="8" y="190" font-size="14" font-weight="800" fill="#0f2b47">주거급여 <tspan font-size="12" font-weight="600" fill="#6a7c8d">월세 지원</tspan></text>
+        <rect x="8" y="198" width="344" height="26" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="198" width="330" height="26" rx="7" fill="#a8600f"/>
+        <text x="18" y="216" font-size="12.5" font-weight="800" fill="#ffffff">201만 5,660원 이하</text>
+
+        <text x="8" y="262" font-size="14" font-weight="800" fill="#0f2b47">차상위계층 <tspan font-size="12" font-weight="600" fill="#6a7c8d">임대 1순위</tspan></text>
+        <rect x="8" y="270" width="344" height="26" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="270" width="344" height="26" rx="7" fill="#6b4b9e"/>
+        <text x="18" y="288" font-size="12.5" font-weight="800" fill="#ffffff">210만 원 이하</text>
+
+        <line x1="280" y1="30" x2="280" y2="300" stroke="#a51c14" stroke-width="2" stroke-dasharray="5 5"/>
+        <rect x="238" y="304" width="86" height="22" rx="6" fill="#fdecea"/>
+        <text x="281" y="319" text-anchor="middle" font-size="11.5" font-weight="800" fill="#a51c14">예: 166만</text>
+        <text x="8" y="334" font-size="11.5" fill="#6a7c8d">점선(166만)이면 의료·주거·차상위는 되고, 생계급여만 안 됩니다.</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 2.</b> 빨간 점선이 이 집의 소득이라고 보면, <b>막대가 점선보다 긴 혜택만</b> 받을 수 있습니다. 166만 원이면 생계급여만 못 받습니다.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 340" role="img" aria-label="소득인정액을 구하는 계산 공식">
+        <rect x="6" y="6" width="348" height="232" rx="14" fill="#f4f7fb" stroke="#cfd9e4" stroke-width="1.5"/>
+
+        <rect x="14" y="16" width="332" height="54" rx="10" fill="#ffffff" stroke="#dde4ec" stroke-width="1.5"/>
+        <text x="26" y="38" font-size="14" font-weight="800" fill="#0f2b47">① 엄마 월급</text>
+        <text x="332" y="38" text-anchor="end" font-size="15.5" font-weight="800" fill="#08695f">126만 원</text>
+        <text x="26" y="58" font-size="11.5" fill="#6a7c8d">200만 − 20만 = 180만 × 70%</text>
+
+        <circle cx="180" cy="79" r="11" fill="#cfd9e4"/>
+        <text x="180" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#0f2b47">+</text>
+
+        <rect x="14" y="90" width="332" height="54" rx="10" fill="#ffffff" stroke="#dde4ec" stroke-width="1.5"/>
+        <text x="26" y="112" font-size="14" font-weight="800" fill="#0f2b47">② 연금</text>
+        <text x="332" y="112" text-anchor="end" font-size="15.5" font-weight="800" fill="#08695f">40만 원</text>
+        <text x="26" y="132" font-size="11.5" fill="#6a7c8d">기초·국민연금은 100% 그대로 잡힘</text>
+
+        <circle cx="180" cy="153" r="11" fill="#cfd9e4"/>
+        <text x="180" y="158" text-anchor="middle" font-size="15" font-weight="800" fill="#0f2b47">+</text>
+
+        <rect x="14" y="164" width="332" height="54" rx="10" fill="#ffffff" stroke="#dde4ec" stroke-width="1.5"/>
+        <text x="26" y="186" font-size="14" font-weight="800" fill="#0f2b47">③ 예금 · 집 재산</text>
+        <text x="332" y="186" text-anchor="end" font-size="15.5" font-weight="800" fill="#08695f">0원</text>
+        <text x="26" y="206" font-size="11.5" fill="#6a7c8d">기본재산액 7,700만 원 이하면 0원</text>
+
+        <path d="M180 240 L180 254" stroke="#8fa3b8" stroke-width="2.5"/>
+        <path d="M171 250 L180 262 L189 250 Z" fill="#8fa3b8"/>
+
+        <rect x="6" y="264" width="348" height="68" rx="14" fill="#0f2b47"/>
+        <text x="180" y="288" text-anchor="middle" font-size="12.5" fill="#bfd6ea">= 최종 판단 금액 (소득인정액)</text>
+        <text x="180" y="318" text-anchor="middle" font-size="24" font-weight="800" fill="#ffffff">166만 원</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 3.</b> 계산은 이 세 가지를 더하면 끝입니다. <b>월급은 20만 원을 빼고 70%만</b>, <b>연금은 그대로</b>, <b>재산은 월 소득으로 바꿔서</b> 더합니다.</figcaption>
+    </figure>
+
+    <div class="card">
+      <h3>재산은 이렇게 봅니다</h3>
+      <div class="kv">
+        <div class="r"><span class="k">집 보증금</span><span class="v">7,700만 원까지 0원</span></div>
+        <div class="r"><span class="k">예금·보험 해약환급금</span><span class="v">전세 5,000만이면<br>3,450만 원까지 0원</span></div>
+        <div class="r tot"><span class="k">차가 있으면</span><span class="v">차 값 100% 잡힘</span></div>
+      </div>
+      <p class="cap">보증금 500만 원짜리 집이면 예금은 <b>7,200만 원</b>까지 재산 0원으로 봅니다(기본재산액 7,700만 − 보증금 환산 475만 + 생활준비금 500만). 차는 값이 그대로 잡혀서 <b>기준을 넘기기 쉽습니다.</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section id="s3">
+    <div class="sec-h"><span class="no">03</span><h2>두 가지 방법, 어느 쪽이 유리?</h2><span class="hint">같은 가족인데 심사하는 식구 수가 다릅니다</span></div>
+
+    <div class="card">
+      <h3>방법은 두 가지입니다</h3>
+      <p><b>경우 A</b>는 지금처럼 <b>누나가 세대주</b>이고 엄마·아빠가 세대원인 경우(3인), <b>경우 B</b>는 <b>엄마가 세대주</b>로 수영구 안에서 따로 나가는 경우(2인)입니다.</p>
+    </div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 412" role="img" aria-label="경우 A 누나 세대주 3인과 경우 B 엄마 세대주 2인 비교">
+        <rect x="6" y="6" width="170" height="252" rx="14" fill="#fff3e2" stroke="#e0a458" stroke-width="2"/>
+        <text x="91" y="34" text-anchor="middle" font-size="15.5" font-weight="800" fill="#9a4f00">경우 A</text>
+        <text x="91" y="54" text-anchor="middle" font-size="12.5" fill="#7a5a33">누나가 세대주 (3인)</text>
+        <rect x="16" y="66" width="150" height="30" rx="8" fill="#ffffff" stroke="#e0a458" stroke-width="1.5"/>
+        <text x="91" y="86" text-anchor="middle" font-size="12.5" font-weight="800" fill="#7a3e00">누나 (세대주)</text>
+        <rect x="16" y="102" width="150" height="30" rx="8" fill="#ffffff" stroke="#e0a458" stroke-width="1.5"/>
+        <text x="91" y="122" text-anchor="middle" font-size="12.5" font-weight="800" fill="#7a3e00">엄마 (세대원)</text>
+        <rect x="16" y="138" width="150" height="30" rx="8" fill="#ffffff" stroke="#e0a458" stroke-width="1.5"/>
+        <text x="91" y="158" text-anchor="middle" font-size="12.5" font-weight="800" fill="#7a3e00">아빠 (세대원)</text>
+        <text x="91" y="188" text-anchor="middle" font-size="12.5" font-weight="800" fill="#a51c14">3명 소득·재산 모두 합산</text>
+        <rect x="16" y="200" width="150" height="46" rx="10" fill="#fdecea"/>
+        <text x="91" y="220" text-anchor="middle" font-size="11.5" fill="#a51c14">생계 기준</text>
+        <text x="91" y="238" text-anchor="middle" font-size="14" font-weight="800" fill="#a51c14">171만 5천 원</text>
+
+        <rect x="184" y="6" width="170" height="252" rx="14" fill="#e7f6f4" stroke="#08695f" stroke-width="2"/>
+        <text x="269" y="34" text-anchor="middle" font-size="15.5" font-weight="800" fill="#063f39">경우 B</text>
+        <text x="269" y="54" text-anchor="middle" font-size="12.5" fill="#24564f">엄마가 세대주 (2인)</text>
+        <rect x="194" y="66" width="150" height="30" rx="8" fill="#ffffff" stroke="#08695f" stroke-width="1.5"/>
+        <text x="269" y="86" text-anchor="middle" font-size="12.5" font-weight="800" fill="#063f39">엄마 (세대주)</text>
+        <rect x="194" y="102" width="150" height="30" rx="8" fill="#ffffff" stroke="#08695f" stroke-width="1.5"/>
+        <text x="269" y="122" text-anchor="middle" font-size="12.5" font-weight="800" fill="#063f39">아빠 (배우자)</text>
+        <rect x="194" y="138" width="150" height="30" rx="8" fill="#f2f4f6" stroke="#a8b4c0" stroke-width="1.5" stroke-dasharray="6 5"/>
+        <text x="269" y="158" text-anchor="middle" font-size="12.5" font-weight="800" fill="#a51c14">누나 (세대 밖)</text>
+        <text x="269" y="188" text-anchor="middle" font-size="12.5" font-weight="800" fill="#08695f">엄마+아빠만 2인 합산</text>
+        <rect x="194" y="200" width="150" height="46" rx="10" fill="#d7efec"/>
+        <text x="269" y="220" text-anchor="middle" font-size="11.5" fill="#08695f">생계 기준</text>
+        <text x="269" y="238" text-anchor="middle" font-size="14" font-weight="800" fill="#08695f">134만 4천 원</text>
+
+        <rect x="6" y="272" width="348" height="62" rx="12" fill="#0f2b47"/>
+        <text x="180" y="298" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">같은 가족 · 같은 돈, 기준만 낮아집니다</text>
+        <text x="180" y="320" text-anchor="middle" font-size="12" fill="#bfd6ea">생계 171.5만 → 134.4만 / 차상위 268만 → 210만</text>
+
+        <rect x="6" y="346" width="348" height="52" rx="12" fill="#e9eff6"/>
+        <text x="180" y="368" text-anchor="middle" font-size="12.5" fill="#4a5c70">수영구 안에서 이사하면</text>
+        <text x="180" y="389" text-anchor="middle" font-size="14" font-weight="800" fill="#0f2b47">전입일(거주기간) 그대로 이어짐</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 4.</b> 경우 B에서도 <b>아빠는 배우자라서</b> 주소가 달라도 함께 2인으로 셉니다. 대신 <b>누나는 완전히 빠집니다.</b></figcaption>
+    </figure>
+
+    <div class="card">
+      <h3>나란히 비교</h3>
+      <p class="sub">2026년 월 소득 기준. 금액보다 적으면 해당 혜택을 받습니다.</p>
+      <div class="tbl-wrap">
+        <table class="t-3col">
+          <colgroup><col style="width:33%"><col><col></colgroup>
+          <thead><tr><th>구분</th><th>경우 A<br>누나 세대주 · 3인</th><th>경우 B<br>엄마 세대주 · 2인</th></tr></thead>
+          <tbody>
+            <tr><th>누구를 보나</th><td>누나 + 엄마 + 아빠<br><b>전부 합산</b></td><td>엄마 + 아빠만<br><b>누나 제외</b></td></tr>
+            <tr><th>생계급여</th><td class="num">171.5만 원</td><td class="num">134.4만 원</td></tr>
+            <tr><th>의료급여</th><td class="num">214.4만 원</td><td class="num">168.0만 원</td></tr>
+            <tr><th>주거급여<br><span class="ez">임대 1순위</span></th><td class="num">257.2만 원</td><td class="num">201.6만 원</td></tr>
+            <tr class="hi"><th>차상위<br><span class="ez">임대 1순위</span></th><td class="num">268.0만 원</td><td class="num">210.0만 원</td></tr>
+            <tr><th>월세 지원 상한</th><td class="num">32.7만 원</td><td class="num">27.5만 원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">의료급여 기준액은 2026년 기준 중위소득의 40%입니다(2인 167만 9,717원 / 3인 214만 3,614원). 주거급여·차상위가 되면 <b>매입임대 1순위</b>가 되고, 그 심사에서는 <b>세대 밖으로 나간 누나의 소득·재산을 보지 않습니다.</b></p>
+    </div>
+
+    <div class="card" style="border-color:rgba(8,105,95,.45)">
+      <h3>경우 B가 유리한 까닭</h3>
+      <ul style="margin:0;padding-left:20px;font-size:1rem;line-height:1.7">
+        <li><b>누나 월급·예금·차가 빠집니다.</b> 이것이 가장 큰 차이입니다.</li>
+        <li><b>수영구 안 이사</b>라서 전입일과 거주기간이 그대로 이어집니다.</li>
+        <li><b>500/30 원룸</b>에 들어가면 월세 지원을 받을 수 있습니다(다음 항목에서 계산).</li>
+        <li>기준이 낮아지는 만큼 <b>차상위·주거급여</b>를 받을 가능성이 커집니다.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="border-color:rgba(165,28,20,.35)">
+      <h3>경우 B의 주의점</h3>
+      <ul style="margin:0;padding-left:20px;font-size:1rem;line-height:1.7">
+        <li><b>실제로 분가</b>해야 합니다. 전입신고만 옮기면 실태조사에서 걸립니다.</li>
+        <li><b>임대차계약서</b>가 있어야 합니다. 가족끼리 계약한 것으로 보이면 인정되지 않습니다.</li>
+        <li><b>아버님</b>은 주소가 달라도 계속 합산됩니다. 아버님 소득이 크면 2인 기준을 넘을 수 있습니다.</li>
+        <li>경우 A로 남으면 누나 소득까지 더해져 <b>기준을 넘기 쉽습니다.</b></li>
+      </ul>
+    </div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 508" role="img" aria-label="세대분리 전 3인 가구와 세대분리 후 2인 가구 구조도" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <symbol id="per" viewBox="0 0 40 56">
+            <circle cx="20" cy="13" r="12"/>
+            <path d="M4 54C4 39 11 32 20 32s16 7 16 22z"/>
+          </symbol>
+        </defs>
+        <rect x="6" y="6" width="348" height="168" rx="16" fill="#fff3e2" stroke="#e0a458" stroke-width="2"/>
+        <text x="180" y="34" text-anchor="middle" font-size="17" font-weight="800" fill="#7a3e00">지금 — 3명이 한 세대</text>
+        <use href="#per" xlink:href="#per" x="46" y="50" width="34" height="48" fill="#a8600f"/>
+        <use href="#per" xlink:href="#per" x="163" y="50" width="34" height="48" fill="#a8600f"/>
+        <use href="#per" xlink:href="#per" x="280" y="50" width="34" height="48" fill="#a8600f"/>
+        <text x="63" y="118" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7a3e00">어머님</text>
+        <text x="180" y="118" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7a3e00">아버님</text>
+        <text x="297" y="118" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7a3e00">누나</text>
+        <rect x="18" y="132" width="324" height="30" rx="9" fill="#fdecea"/>
+        <text x="180" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#a51c14">누나 월급·예금·차까지 다 합산</text>
+
+        <rect x="6" y="186" width="348" height="54" rx="14" fill="#0f2b47"/>
+        <text x="180" y="211" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">수영구 안에서 이사 + 세대분리 신고</text>
+        <text x="180" y="231" text-anchor="middle" font-size="13" fill="#a8c8e6">택시로 10분 거리여도 수영구면 됩니다</text>
+        <path d="M170 240 L190 240 L180 252 Z" fill="#0f2b47"/>
+
+        <rect x="6" y="258" width="348" height="186" rx="16" fill="#e7f6f4" stroke="#08695f" stroke-width="2"/>
+        <text x="180" y="286" text-anchor="middle" font-size="17" font-weight="800" fill="#063f39">이사 후 — 2인 가구로 심사</text>
+        <rect x="16" y="298" width="200" height="132" rx="12" fill="#ffffff" stroke="#08695f" stroke-width="1.8"/>
+        <use href="#per" xlink:href="#per" x="50" y="308" width="30" height="42" fill="#08695f"/>
+        <use href="#per" xlink:href="#per" x="128" y="308" width="30" height="42" fill="#08695f"/>
+        <text x="65" y="370" text-anchor="middle" font-size="14" font-weight="700" fill="#063f39">어머님</text>
+        <text x="143" y="370" text-anchor="middle" font-size="14" font-weight="700" fill="#063f39">아버님</text>
+        <text x="116" y="394" text-anchor="middle" font-size="13.5" font-weight="800" fill="#08695f">부부라서 함께 심사</text>
+        <text x="116" y="414" text-anchor="middle" font-size="13" fill="#4a5c70">→ 2인 가구</text>
+        <rect x="226" y="298" width="118" height="132" rx="12" fill="#f2f4f6" stroke="#a8b4c0" stroke-width="1.8" stroke-dasharray="7 6"/>
+        <text x="285" y="324" text-anchor="middle" font-size="14.5" font-weight="800" fill="#4a5c70">누나</text>
+        <text x="285" y="344" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6a7c8d">세대 밖</text>
+        <text x="285" y="372" text-anchor="middle" font-size="14" font-weight="800" fill="#a51c14">월급 ×</text>
+        <text x="285" y="394" text-anchor="middle" font-size="14" font-weight="800" fill="#a51c14">예금 ×</text>
+        <text x="285" y="416" text-anchor="middle" font-size="14" font-weight="800" fill="#a51c14">차 ×</text>
+
+        <rect x="6" y="456" width="348" height="46" rx="12" fill="#e9eff6"/>
+        <text x="180" y="475" text-anchor="middle" font-size="12.5" fill="#4a5c70">수영구 전입일 (거주기간)</text>
+        <text x="180" y="493" text-anchor="middle" font-size="14.5" font-weight="800" fill="#0f2b47">이사해도 그대로 이어져요 (안 끊김)</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 5.</b> 점선 상자에 있는 누나의 소득·재산은 심사에서 <b>빠집니다.</b> 부부는 <b>2인으로 계속 함께</b> 셉니다. 수영구에서 이사만 하면 <b>거주기간은 이어집니다.</b></figcaption>
+    </figure>
+
+    <div class="warn">
+      <h3>⚠️ 이것만은 꼭 지키세요</h3>
+      <ul>
+        <li><b>가족끼리 임대차계약</b>을 하면 주거급여가 안 됩니다. 부양의무자(자식)와의 계약은 인정되지 않습니다.</li>
+        <li>전입신고만 옮기고 <b>실제로 살지 않으면</b> 실태조사에서 걸려 지원이 끊깁니다.</li>
+        <li>이사는 <b>수영구 안</b>에서 하세요. 구를 벗어나면 거주기간이 끊깁니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section id="s4">
+    <div class="sec-h"><span class="no">04</span><h2>월세 지원금 — 얼마나 받나요?</h2><span class="hint">월세 30만 원 · 보증금 500만 원 집 기준</span></div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 356" role="img" aria-label="소득 구간별 월세 지원 비율 막대 그래프">
+        <text x="8" y="20" font-size="14.5" font-weight="800" fill="#0f2b47">① 연금만 40만 원 (소득 40만)</text>
+        <rect x="8" y="28" width="344" height="30" rx="8" fill="#e4ebf2"/>
+        <rect x="8" y="28" width="315" height="30" rx="8" fill="#08695f"/>
+        <text x="14" y="68" font-size="13.5" font-weight="800" fill="#08695f">지원 27.5만 원</text>
+        <text x="352" y="68" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 2.5만 원</text>
+        <text x="8" y="104" font-size="14.5" font-weight="800" fill="#0f2b47">② 월급 200 + 연금 40 (소득 166만)</text>
+        <rect x="8" y="112" width="344" height="30" rx="8" fill="#e4ebf2"/>
+        <rect x="8" y="112" width="206" height="30" rx="8" fill="#08695f"/>
+        <text x="14" y="152" font-size="13.5" font-weight="800" fill="#08695f">지원 18.0만 원</text>
+        <text x="352" y="152" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 12.0만 원</text>
+        <text x="8" y="188" font-size="14.5" font-weight="800" fill="#0f2b47">③ 딱 커트라인 201.6만</text>
+        <rect x="8" y="196" width="344" height="30" rx="8" fill="#e4ebf2"/>
+        <rect x="8" y="196" width="84" height="30" rx="8" fill="#08695f"/>
+        <text x="14" y="236" font-size="13.5" font-weight="800" fill="#08695f">지원 7.3만 원</text>
+        <text x="352" y="236" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 22.7만 원</text>
+        <text x="8" y="272" font-size="14.5" font-weight="800" fill="#6a7c8d">④ 기준을 넘으면 (210만)</text>
+        <rect x="8" y="280" width="344" height="30" rx="8" fill="#dfe4ea"/>
+        <text x="14" y="320" font-size="13.5" font-weight="800" fill="#6a7c8d">지원 0원</text>
+        <text x="352" y="320" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 30만 원</text>
+        <text x="180" y="346" text-anchor="middle" font-size="12" fill="#6a7c8d">초록색이 나라에서 주는 돈, 회색이 내가 내는 돈</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 6.</b> 소득이 조금 늘어도 지원금은 <b>빠르게 줄어듭니다</b>. 201만 5,660원을 넘으면 <b>한 푼도 못 받습니다</b>.</figcaption>
+    </figure>
+
+    <div class="res" id="resCard">
+      <div class="row1">
+        <div class="metric">
+          <span class="lbl">나라에서 주는 월세 지원</span>
+          <span class="val teal" id="oGrant">18.0만 원</span>
+        </div>
+        <div class="metric">
+          <span class="lbl">내가 내는 월세</span>
+          <span class="val navy" id="oOut">12.0만 원</span>
+        </div>
+      </div>
+      <div class="line" id="oLine">월세 30만 원 중 18만 원을 지원받고, 12만 원을 냅니다.</div>
+      <div class="inv">소득인정액 <b id="oInv">166.0만 원</b> <span class="ez">(실제 잡히는 월 소득)</span></div>
+      <div class="badges" id="oBadges"></div>
+    </div>
+
+    <div class="card">
+      <h3>내 숫자로 바로 계산해 보세요</h3>
+      <p class="sub">슬라이더를 밀거나 숫자를 눌러 고치면 <b>위의 결과가 바로 바뀝니다</b>.</p>
+
+      <div class="seg" id="segHh" role="group" aria-label="가구 형태">
+        <button type="button" data-hh="2" class="on">2인 가구<small>어머님 + 아버님</small></button>
+        <button type="button" data-hh="3">3인 가구<small>누나까지 함께</small></button>
+      </div>
+
+      <div class="presets" id="presets">
+        <button type="button" class="preset on" data-p="1">
+          <b>① 월급 200 + 연금 40 (흔한 경우)</b>
+          <span>소득인정액 166만 → 월 18만 원 지원, 내 부담 12만 원</span>
+        </button>
+        <button type="button" class="preset" data-p="2">
+          <b>② 연금만 40 (월급 없음)</b>
+          <span>소득인정액 40만 → 월 27.5만 원 전액 지원, 내 부담 2.5만 원</span>
+        </button>
+        <button type="button" class="preset" data-p="3">
+          <b>③ 3인 유지 (누나 소득 합산)</b>
+          <span>누나 월급 250까지 더해지면 기준 초과 → 지원 0원</span>
+        </button>
+      </div>
+
+      <div id="fields"></div>
+
+      <p class="cap" style="margin-top:14px">2026년 기준·부산(3급지) 가정의 <b>추정치</b>입니다. 실제 심사 결과에 따라 달라질 수 있습니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>내역 자세히 보기</h3>
+      <div class="kv" id="oBreak"></div>
+    </div>
+
+    <div class="card">
+      <h3>소득별로 얼마 받나요?</h3>
+      <p class="sub">월세 30만 원·보증금 500만 원 집에 살 때 (2인 가구)</p>
+      <div class="tbl-wrap">
+        <table class="t-3col">
+          <colgroup><col style="width:38%"><col><col></colgroup>
+          <thead><tr><th>소득인정액</th><th style="text-align:right">나라 지원</th><th style="text-align:right">내가 내는 돈</th></tr></thead>
+          <tbody>
+            <tr class="hi"><th>134만 원 이하</th><td class="num">27만 5,000원</td><td class="num">2만 5,000원</td></tr>
+            <tr><th>166만 원</th><td class="num">18만 원</td><td class="num">12만 원</td></tr>
+            <tr><th>180만 원</th><td class="num">13만 8,000원</td><td class="num">16만 2,000원</td></tr>
+            <tr><th>201만 원</th><td class="num">7만 5,000원</td><td class="num">22만 5,000원</td></tr>
+            <tr class="dim"><th>210만 원 (기준 초과)</th><td class="num">0원</td><td class="num">30만 원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">2인 가구 주거급여 기준은 <b>201만 5,660원</b>입니다. 이 선을 넘으면 지원이 0원이 됩니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>합법적으로 재산을 줄이는 방법 4가지</h3>
+      <p class="sub">재산은 <b>월 소득으로 환산</b>되어 심사에 들어갑니다. 아래는 제도가 인정하는 공제입니다.</p>
+      <div class="tip">
+        <div class="tn">1</div>
+        <div>
+          <h4>보증금은 1.04%만 소득으로 칩니다</h4>
+          <p>게다가 부산은 <b>기본재산액 7,700만 원</b>까지는 재산 환산이 0원입니다. 보증금 500만 원짜리 집이면 재산 때문에 소득이 늘지 않습니다.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tn">2</div>
+        <div>
+          <h4>병원비·수술비 영수증을 모아두세요</h4>
+          <p>꼭 필요한 지출은 소득에서 빼줍니다. 영수증을 버리지 말고 모아두면 심사 때 도움이 됩니다.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tn">3</div>
+        <div>
+          <h4>3년 이상 장기저축은 공제됩니다</h4>
+          <p>해마다 <b>500만 원, 최대 1,500만 원</b>까지 빼줍니다. 다만 3년을 채워야 하니 서두르지 마세요.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tn">4</div>
+        <div>
+          <h4>누나와 세대를 나누세요</h4>
+          <p>누나의 소득·예금·차가 통째로 빠집니다. 이게 이 전략의 <b>가장 큰 효과</b>입니다.</p>
+        </div>
+      </div>
+      <div class="warn" style="margin-top:14px;margin-bottom:0">
+        <h3>⚠️ 현금을 갑자기 빼면 안 됩니다</h3>
+        <ul>
+          <li>큰 돈을 <b>현금으로 인출</b>하거나 <b>가족에게 이체</b>하면 <b>처분재산</b>으로 보고 소득에 더해집니다. 오히려 손해입니다.</li>
+          <li>재산을 줄이려고 꼼수를 쓰면 <b>지원이 끊기고 환수</b>될 수 있습니다. 제도가 인정하는 공제만 쓰세요.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>들어간 뒤에 소득이 늘면 어떻게 되나요?</h3>
+      <div class="kv">
+        <div class="r"><span class="k">계약 기간</span><span class="v">2년</span></div>
+        <div class="r"><span class="k">수급자에서 탈락해도</span><span class="v">2년 계약은 유지</span></div>
+        <div class="r"><span class="k">재계약 조건</span><span class="v">소득 75% 이하</span></div>
+        <div class="r tot"><span class="k">만 65세 이상</span><span class="v">재계약 횟수 무제한</span></div>
+      </div>
+      <p class="cap">월 소득이 <b>286만 ~ 362만 원</b> 정도까지는 할증된 임대료로 재계약할 수 있습니다. 65세 이상은 횟수 제한이 없어 사실상 평생 거주가 가능합니다.</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section id="s5">
+    <div class="sec-h"><span class="no">05</span><h2>매입임대는 언제 나오나요?</h2><span class="hint">해마다 이 시기에 공고가 뜹니다</span></div>
+
+    <div class="card">
+      <div class="sched">
+        <div class="sc">
+          <h4>LH 일반 매입임대</h4>
+          <div class="when">해마다 2번 · 4월 말 / 10월 말 (＋수시)</div>
+          <p>물량이 가장 많습니다. 1순위(수급자·차상위)로 지원하면 먼저 뽑힙니다.</p>
+        </div>
+        <div class="sc">
+          <h4>BMC 매입임대</h4>
+          <div class="when">해마다 1번 · 3월 중순 ~ 하순</div>
+          <p>다만 <b>2025·2026년은 수영구가 빠졌습니다.</b> 2027년 공고를 확인해야 합니다.</p>
+        </div>
+        <div class="sc">
+          <h4>BMC 재개발임대 아파트</h4>
+          <div class="when">해마다 8월</div>
+          <p>보증금 <b>2,300~2,460만 원</b> / 월 <b>21~22만 원</b>대. 아파트형이라 쾌적합니다.</p>
+        </div>
+      </div>
+      <p class="cap">2026년 공고 기준입니다. 매년 일정이 조금씩 달라지므로 공고문을 꼭 확인하세요.</p>
+    </div>
+
+    <div class="card">
+      <h3>수영구 안에서 먼저 살다가 갈아타기</h3>
+      <p>수영구 매입임대는 <b>보증금 200만 ~ 1,100만 원, 월 2만 6천 ~ 17만 원</b>대입니다. 아파트형은 보증금이 크고 공고가 드물기 때문에, <b>괜찮은 저층 매입임대에 먼저 들어간 뒤</b> 다음 공고에서 아파트형으로 옮기는 편이 안전합니다.</p>
+      <p>거주 중에도 국민임대·행복주택 신청과 예비자 대기는 계속할 수 있습니다.</p>
+      <div class="btnrow">
+        <a class="home" href="suyeong-16.html" style="border-color:rgba(8,105,95,.4);color:var(--teal)">수영구 매입임대 16호 보기 →</a>
+        <a class="home" href="suyeong-guide.html">2026년 2차 일정·서류 →</a>
+      </div>
+    </div>
+
+    <div class="srcbox">
+      <h4>숫자와 규정의 출처</h4>
+      <ul>
+        <li>2026년 기준 중위소득 32·40·48% (생계·의료·주거급여) 및 차상위 기준</li>
+        <li>2026년 주거급여 사업안내 — 부산 3급지 기준임대료, 자기부담률 30%</li>
+        <li>소득인정액 산정 — 근로소득 공제, 주거용재산 1.04%, 금융재산 6.26%/4.17%, 기본재산액 7,700만 원</li>
+        <li>LH·BMC 매입임대 모집 일정 (2026년 공고 기준)</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    이 페이지는 <b>공개 자료만</b>으로 만든 일반 안내입니다. 개인정보는 담지 않았습니다.<br>
+    계산 결과는 추정치이며, 실제 수급 자격과 지원금은 주민센터·LH 심사로 정해집니다.<br>
+    <a href="index.html">지도 홈으로</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- 글씨 크기 ---------- */
+  var SIZES = ['17px','19.5px','22px'], LABELS = ['가+ 크게','가++ 더 크게','가 기본'];
+  var fsIdx = 0;
+  try { var saved = localStorage.getItem('sy-fs'); if (saved !== null) fsIdx = Math.max(0, Math.min(2, parseInt(saved,10)||0)); } catch(e){}
+  var fsBtn = document.getElementById('fsBtn');
+  function applyFs(){
+    document.documentElement.style.fontSize = SIZES[fsIdx];
+    if (fsBtn) fsBtn.textContent = LABELS[fsIdx];
+    try { localStorage.setItem('sy-fs', String(fsIdx)); } catch(e){}
+  }
+  if (fsBtn) fsBtn.addEventListener('click', function(){ fsIdx = (fsIdx+1) % SIZES.length; applyFs(); });
+  applyFs();
+
+  /* ---------- 계산 코어 ---------- */
+  var W = 10000;
+  var STD = {
+    2: { saeng:1343773, uiryo:1679717, jugeo:2015660, chasang:2099646, cap:275000 },
+    3: { saeng:1714892, uiryo:2143614, jugeo:2572337, chasang:2679518, cap:327000 }
+  };
+  var BASE_PROP = 77000000, SAVINGS = 5000000;
+  var R_HOUSE = 0.0104, R_FIN_SUP = 0.0626, R_FIN_CHA = 0.0417;
+
+  function computeCalc(s){
+    var n = s.hh === 3 ? 3 : 2, st = STD[n];
+    var wageOld = (s.wageOld||0)*W, wageGen = (n===3 ? (s.wageGen||0)*W : 0), pension = (s.pension||0)*W;
+    var earnOld = Math.max(0, wageOld - 200000) * 0.7;
+    var earnGen = wageGen * 0.7;
+    var income = earnOld + earnGen + pension;
+
+    var deposit = (s.deposit||0)*W, rent = (s.rent||0)*W, finance = (s.finance||0)*W, debt = (s.debt||0)*W;
+
+    var houseVal = deposit * 0.95;
+    var houseOver = Math.max(0, houseVal - BASE_PROP);
+    var houseIncome = houseOver * R_HOUSE;
+    var usedBase = Math.min(BASE_PROP, houseVal);
+    var remainBase = BASE_PROP - usedBase;
+    var finBase = Math.max(0, finance - SAVINGS - remainBase - debt);
+    var finSup = finBase * R_FIN_SUP, finCha = finBase * R_FIN_CHA;
+
+    var invSup = income + houseIncome + finSup;
+    var invCha = income + houseIncome + finCha;
+
+    var inv, status, rateUsed;
+    if (invSup <= st.saeng) { inv = invSup; status='saeng'; rateUsed='수급자 6.26%'; }
+    else if (invCha <= st.chasang) { inv = invCha; status='chasang'; rateUsed='차상위 4.17%'; }
+    else { inv = invCha; status='over'; rateUsed='차상위 4.17%'; }
+
+    var pass = {
+      saeng: inv <= st.saeng, uiryo: inv <= st.uiryo,
+      jugeo: inv <= st.jugeo, chasang: inv <= st.chasang
+    };
+
+    var actualRent = rent + deposit * 0.04 / 12;
+    var selfPay = inv > st.saeng ? (inv - st.saeng) * 0.3 : 0;
+    var grant = 0;
+    if (pass.jugeo) {
+      grant = Math.max(0, Math.min(st.cap, actualRent) - selfPay);
+      if (grant > rent) grant = rent;
+    }
+    var outOfPocket = Math.max(0, rent - grant);
+
+    return {
+      n:n, st:st, status:status, rateUsed:rateUsed,
+      earnOld:earnOld, earnGen:earnGen, pension:pension, income:income,
+      houseVal:houseVal, houseIncome:houseIncome, remainBase:remainBase,
+      finBase:finBase, finIncome:(status==='saeng'?finSup:finCha),
+      inv:inv, pass:pass, actualRent:actualRent, selfPay:selfPay,
+      grant:grant, outOfPocket:outOfPocket, rent:rent, deposit:deposit
+    };
+  }
+
+  /* ---------- 표시 도구 ---------- */
+  function num(n){ return Math.round(n).toLocaleString('ko-KR'); }
+  function man(n){
+    if (Math.abs(n) < 1) return '0원';
+    var v = n / W;
+    if (v >= 1000) return num(n) + '원';
+    var s = (Math.round(v*10)/10).toFixed(1);
+    if (s.slice(-2) === '.0') s = s.slice(0,-2);
+    return s + '만 원';
+  }
+  function manShort(n){
+    var v = n / W;
+    var s = (Math.round(v*10)/10).toFixed(1);
+    if (s.slice(-2) === '.0') s = s.slice(0,-2);
+    return s + '만';
+  }
+  function won(n){ return num(n) + '원'; }
+
+  /* ---------- 필드 ---------- */
+  var FIELDS = [
+    { id:'wageOld', t:'65세 이상 어르신 월급', ez:'(20만 원은 빼고 30%만 소득으로 침)', min:0, max:400, step:5 },
+    { id:'wageGen', t:'일반 성인 월급', ez:'(3인 가구일 때만 합산)', min:0, max:600, step:5, only3:true },
+    { id:'pension', t:'연금 (기초·국민)', ez:'(100% 그대로 소득으로 침)', min:0, max:150, step:5 },
+    { id:'deposit', t:'집 보증금', ez:'(예: 500만 원이면 500)', min:0, max:10000, step:100 },
+    { id:'rent', t:'한 달 월세', ez:'', min:0, max:100, step:1 },
+    { id:'finance', t:'예금·적금·주식', ez:'(순수 보장성 보험은 빼요)', min:0, max:5000, step:100 },
+    { id:'debt', t:'은행 대출·빚', ez:'', min:0, max:5000, step:100 }
+  ];
+
+  var S = { hh:2, wageOld:200, wageGen:0, pension:40, deposit:500, rent:30, finance:0, debt:0 };
+  var PRESETS = {
+    1: { hh:2, wageOld:200, wageGen:0, pension:40, deposit:500, rent:30, finance:0, debt:0 },
+    2: { hh:2, wageOld:0,   wageGen:0, pension:40, deposit:500, rent:30, finance:0, debt:0 },
+    3: { hh:3, wageOld:200, wageGen:250, pension:40, deposit:5000, rent:0, finance:0, debt:0 }
+  };
+
+  var fieldsBox = document.getElementById('fields');
+  var html = '';
+  for (var i=0;i<FIELDS.length;i++){
+    var f = FIELDS[i];
+    html += '<div class="fld' + (f.only3?' only3':'') + '" data-f="'+f.id+'">'
+         +  '<div class="fl"><label for="in_'+f.id+'">'+f.t+(f.ez?' <span class="ez">'+f.ez+'</span>':'')+'</label>'
+         +  '<div class="fv"><input type="number" inputmode="numeric" id="in_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'"><span class="u">만원</span></div></div>'
+         +  '<input type="range" id="rg_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'">'
+         +  '</div>';
+  }
+  fieldsBox.innerHTML = html;
+
+  var els = {};
+  FIELDS.forEach(function(f){
+    var nEl = document.getElementById('in_'+f.id), rEl = document.getElementById('rg_'+f.id);
+    els[f.id] = { n:nEl, r:rEl };
+    nEl.addEventListener('input', function(){
+      var v = parseFloat(nEl.value); if (isNaN(v)) v = 0;
+      v = Math.max(f.min, Math.min(f.max, v));
+      S[f.id] = v; rEl.value = v; markPreset(-1); render();
+    });
+    nEl.addEventListener('blur', function(){ syncAll(); });
+    rEl.addEventListener('input', function(){
+      var v = parseFloat(rEl.value); if (isNaN(v)) v = 0;
+      S[f.id] = v; nEl.value = v; markPreset(-1); render();
+    });
+  });
+
+  function syncAll(){
+    FIELDS.forEach(function(f){ els[f.id].n.value = S[f.id]; els[f.id].r.value = S[f.id]; });
+    var opts = document.querySelectorAll('.fld.only3');
+    for (var i=0;i<opts.length;i++) opts[i].classList.toggle('off', S.hh !== 3);
+    var segs = document.querySelectorAll('#segHh button');
+    for (var j=0;j<segs.length;j++) segs[j].classList.toggle('on', Number(segs[j].dataset.hh) === S.hh);
+  }
+
+  var presetBtns = document.querySelectorAll('.preset');
+  function markPreset(idx){
+    for (var i=0;i<presetBtns.length;i++){
+      presetBtns[i].classList.toggle('on', Number(presetBtns[i].dataset.p) === idx);
+    }
+  }
+  for (var p=0;p<presetBtns.length;p++){
+    presetBtns[p].addEventListener('click', function(){
+      var k = Number(this.dataset.p), cfg = PRESETS[k];
+      for (var key in cfg) S[key] = cfg[key];
+      markPreset(k); syncAll(); render();
+    });
+  }
+
+  var segBtns = document.querySelectorAll('#segHh button');
+  for (var q=0;q<segBtns.length;q++){
+    segBtns[q].addEventListener('click', function(){
+      S.hh = Number(this.dataset.hh);
+      markPreset(-1); syncAll(); render();
+    });
+  }
+
+  /* ---------- 렌더 ---------- */
+  var oGrant = document.getElementById('oGrant'), oOut = document.getElementById('oOut'),
+      oLine = document.getElementById('oLine'), oInv = document.getElementById('oInv'),
+      oBadges = document.getElementById('oBadges'), oBreak = document.getElementById('oBreak');
+
+  function render(){
+    var r = computeCalc(S);
+    oGrant.textContent = (r.grant > 0 ? man(r.grant) : '0원');
+    oOut.textContent = man(r.outOfPocket);
+    oInv.textContent = man(r.inv);
+
+    if (r.status === 'over') {
+      oLine.className = 'line bad';
+      oLine.textContent = '소득인정액이 기준(' + manShort(r.st.jugeo) + ' 원)을 넘어 지원이 없습니다.';
+    } else if (r.grant <= 0) {
+      oLine.className = 'line bad';
+      oLine.textContent = '지원금이 0원입니다. 월세가 낮거나 소득이 기준에 가깝습니다.';
+    } else {
+      oLine.className = 'line';
+      oLine.textContent = '월세 ' + man(r.rent) + ' 중 ' + man(r.grant) + '을 지원받고, '
+                        + man(r.outOfPocket) + '을 냅니다.';
+    }
+
+    var caps = [
+      ['생계급여', r.st.saeng, r.pass.saeng],
+      ['의료급여', r.st.uiryo, r.pass.uiryo],
+      ['주거급여', r.st.jugeo, r.pass.jugeo],
+      ['차상위',   r.st.chasang, r.pass.chasang]
+    ];
+    var bh = '';
+    for (var i=0;i<caps.length;i++){
+      var ok = caps[i][2];
+      bh += '<span class="bdg ' + (ok?'ok':'no') + '"><b>' + caps[i][0] + (ok?' ✓':' ✗') + '</b>'
+         +  '<i>' + manShort(caps[i][1]) + ' 이하</i></span>';
+    }
+    oBadges.innerHTML = bh;
+
+    var rows = [
+      ['한 달 소득 (월급·연금)', won(r.income)],
+      ['근로소득 계산분', won(r.earnOld + r.earnGen)],
+      ['연금 반영분', won(r.pension)],
+      ['보증금 재산 환산', won(r.houseIncome)],
+      ['예금 재산 환산', won(r.finIncome)],
+      ['= 소득인정액', won(r.inv)],
+      ['지원 상한 (기준임대료)', won(r.st.cap)],
+      ['실제 임차료 (월세 + 보증금 환산)', won(r.actualRent)],
+      ['내 몫 (자기부담분)', won(r.selfPay)],
+      ['= 나라 지원금', won(r.grant)],
+      ['= 내가 내는 월세', won(r.outOfPocket)]
+    ];
+    var kb = '';
+    for (var j=0;j<rows.length;j++){
+      var isTot = rows[j][0].charAt(0) === '=';
+      kb += '<div class="r' + (isTot?' tot':'') + '"><span class="k">' + rows[j][0] + '</span><span class="v">' + rows[j][1] + '</span></div>';
+    }
+    kb += '<div class="r"><span class="k">재산 환산률</span><span class="v">' + r.rateUsed + '</span></div>';
+    oBreak.innerHTML = kb;
+  }
+
+  syncAll();
+  render();
+})();
+</script>
+</body>
+</html>
