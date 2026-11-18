@@ -320,7 +320,7 @@
 
   /* ---------- 06 · 실전 체크리스트 ---------- */
   .chk{display:block;margin:6px 0 0}
-  .chk .it{position:relative;display:block;padding:15px 0 15px 46px;border-top:1px solid var(--line2);cursor:pointer}
+  .chk .it{position:relative;padding:15px 0 15px 46px;border-top:1px solid var(--line2)}
   .chk .it:first-child{border-top:0;padding-top:6px}
   .chk .it input{position:absolute;left:0;top:13px;width:32px;height:32px;margin:0;opacity:0;cursor:pointer;z-index:2}
   .chk .bx{position:absolute;left:0;top:13px;width:32px;height:32px;border:2.5px solid var(--line);border-radius:9px;background:var(--card)}
@@ -328,12 +328,11 @@
   .chk .it input:checked + .bx{background:var(--teal);border-color:var(--teal)}
   .chk .it input:checked + .bx::after{opacity:1}
   .chk .it input:focus-visible + .bx{outline:3px solid rgba(21,84,184,.35);outline-offset:2px}
-  .chk .tx{display:block}
-  .chk .t{display:block;font-size:1.07rem;font-weight:800;line-height:1.42;letter-spacing:-.01em}
-  .chk .it input:checked ~ .tx .t{color:var(--muted)}
-  .chk .b{display:block;font-size:.99rem;line-height:1.62;margin-top:5px}
-  .chk .b b{font-weight:800}
-  .chk .b .alone{margin-left:-46px;margin-top:12px}
+  .chk label.t{display:block;font-size:1.07rem;font-weight:800;line-height:1.42;letter-spacing:-.01em;cursor:pointer}
+  .chk .it input:checked ~ label.t{color:var(--muted)}
+  .chk p.b{display:block;font-size:.99rem;line-height:1.62;margin:5px 0 0}
+  .chk p.b b{font-weight:800}
+  .chk .alone{margin:12px 0 0}
   .chkbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 0;padding:13px 0 0;border-top:1px solid var(--line2)}
   .chkbar .cnt{font-size:.92rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
   .chkbar .cnt.all{color:var(--teal)}
@@ -1072,66 +1071,52 @@
       <p class="sub">주민센터에 가기 전에 하나씩 눌러 체크해 두세요. 체크한 것은 이 기기에 저장됩니다.</p>
 
       <div class="chk">
-        <label class="it">
-          <input type="checkbox" data-k="a1">
+        <div class="it">
+          <input type="checkbox" id="chk-a1" data-k="a1">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">1. '통합신청'으로 넣으세요</span>
-            <span class="b">생계급여만 따로 신청하지 말고 <b>생계·의료·주거·교육 통합신청</b>으로 넣습니다. 생계급여가 아슬아슬하게 안 되더라도 <b>월세 지원(주거급여)과 의료급여</b>를 다시 신청하지 않고 한 번에 받습니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-a1">1. '통합신청'으로 넣으세요</label>
+          <p class="b">생계급여만 따로 신청하지 말고 <b>생계·의료·주거·교육 통합신청</b>으로 넣습니다. 생계급여가 아슬아슬하게 안 되더라도 <b>월세 지원(주거급여)과 의료급여</b>를 다시 신청하지 않고 한 번에 받습니다.</p>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="a2">
+        <div class="it">
+          <input type="checkbox" id="chk-a2" data-k="a2">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">2. 제3자와 쓴 계약서 + 확정일자</span>
-            <span class="b">가족·친인척 집이나 <b>주소만 옮기는 것은 안 됩니다.</b> 실제로 살면서 집주인이 제3자인 계약서에 <b>확정일자</b>를 받고, <b>월세 이체 내역</b>을 남기세요. 재산 심사와 주거급여 모두 이 계약서로 확인합니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-a2">2. 제3자와 쓴 계약서 + 확정일자</label>
+          <p class="b">가족·친인척 집이나 <b>주소만 옮기는 것은 안 됩니다.</b> 실제로 살면서 집주인이 제3자인 계약서에 <b>확정일자</b>를 받고, <b>월세 이체 내역</b>을 남기세요. 재산 심사와 주거급여 모두 이 계약서로 확인합니다.</p>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="a3">
+        <div class="it">
+          <input type="checkbox" id="chk-a3" data-k="a3">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">3. 신청 전에 돈을 옮기지 마세요</span>
-            <span class="b">예금을 크게 인출하거나 가족에게 이체하면, 병원비·빚 상환 같은 <b>영수증으로 증명하지 못하는 만큼은 '처분재산'</b>으로 잡혀 재산이 있는 것으로 계산됩니다. 자녀가 <b>매달 일정한 돈</b>을 보내면 '이전소득'으로 잡혀 소득인정액이 올라갑니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-a3">3. 신청 전에 돈을 옮기지 마세요</label>
+          <p class="b">예금을 크게 인출하거나 가족에게 이체하면, 병원비·빚 상환 같은 <b>영수증으로 증명하지 못하는 만큼은 '처분재산'</b>으로 잡혀 재산이 있는 것으로 계산됩니다. 자녀가 <b>매달 일정한 돈</b>을 보내면 '이전소득'으로 잡혀 소득인정액이 올라갑니다.</p>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="a4">
+        <div class="it">
+          <input type="checkbox" id="chk-a4" data-k="a4">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">4. 재산이 0원으로 잡히는 선을 지키세요</span>
-            <span class="b">월세 30만 원·보증금 500만 원 집이면 아래 선까지는 재산 때문에 소득이 늘지 않습니다. 넘는 돈부터는 매달 소득으로 더해집니다.</span>
-            <span class="b">
-              <span class="alone">
-                <h4>둘을 합쳐 약 8,200만 원까지 → 재산 환산 0원</h4>
-                <p>보증금 <b>500만 원</b> + 예금·저축성보험 <b>7,700만 원</b> = 약 <b>8,200만 원</b>까지는 재산에서 잡히는 소득이 <b>0원</b>입니다. 부산 기본재산액 <b>7,700만 원</b>과 금융재산 생활준비금 <b>500만 원</b>을 빼주기 때문입니다.</p>
-                <p>이 선을 넘으면 넘는 돈이 <b>매달 6.26%</b>씩 소득에 더해집니다. <b>1,000만 원당 한 달 62만 6천 원</b>이 소득으로 잡힙니다.</p>
-              </span>
-            </span>
-          </span>
-        </label>
+          <label class="t" for="chk-a4">4. 재산이 0원으로 잡히는 선을 지키세요</label>
+          <p class="b">월세 30만 원·보증금 500만 원 집이면 아래 선까지는 재산 때문에 소득이 늘지 않습니다. 넘는 돈부터는 매달 소득으로 더해집니다.</p>
+          <div class="alone">
+            <h4>둘을 합쳐 약 8,200만 원까지 → 재산 환산 0원</h4>
+            <p>보증금 <b>500만 원</b> + 예금·저축성보험 <b>7,700만 원</b> = 약 <b>8,200만 원</b>까지는 재산에서 잡히는 소득이 <b>0원</b>입니다. 부산 기본재산액 <b>7,700만 원</b>과 금융재산 생활준비금 <b>500만 원</b>을 빼주기 때문입니다.</p>
+            <p>이 선을 넘으면 넘는 돈이 <b>매달 6.26%</b>씩 소득에 더해집니다. <b>1,000만 원당 한 달 62만 6천 원</b>이 소득으로 잡힙니다.</p>
+          </div>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="a5">
+        <div class="it">
+          <input type="checkbox" id="chk-a5" data-k="a5">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">5. 만 65세 이상은 일하러 나가지 않아도 됩니다</span>
-            <span class="b">생계급여는 원래 18~64세면 자활근로(일)에 나가야 줍니다. <b>만 65세 이상은 '근로능력 없음'</b>으로 보아 <b>자활 조건 없이</b> 일반 생계급여를 받습니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-a5">5. 만 65세 이상은 일하러 나가지 않아도 됩니다</label>
+          <p class="b">생계급여는 원래 18~64세면 자활근로(일)에 나가야 줍니다. <b>만 65세 이상은 '근로능력 없음'</b>으로 보아 <b>자활 조건 없이</b> 일반 생계급여를 받습니다.</p>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="a6">
+        <div class="it">
+          <input type="checkbox" id="chk-a6" data-k="a6">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">6. 신청은 미루지 마세요 — 신청한 달부터 나옵니다</span>
-            <span class="b">심사는 <b>30~60일</b> 걸리지만, 통과하면 <b>신청한 날이 속한 달부터 거슬러</b> 받습니다. 다음 달로 미루면 그 한 달 치가 그냥 없어집니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-a6">6. 신청은 미루지 마세요 — 신청한 달부터 나옵니다</label>
+          <p class="b">심사는 <b>30~60일</b> 걸리지만, 통과하면 <b>신청한 날이 속한 달부터 거슬러</b> 받습니다. 다음 달로 미루면 그 한 달 치가 그냥 없어집니다.</p>
+        </div>
       </div>
 
       <div class="chkbar"><span class="cnt">0 / 6 완료</span></div>
@@ -1151,28 +1136,24 @@
       <p class="sub">안 알리고 나중에 걸리면, 그동안 받은 돈을 돌려내야 합니다.</p>
 
       <div class="chk">
-        <label class="it">
-          <input type="checkbox" data-k="b1">
+        <div class="it">
+          <input type="checkbox" id="chk-b1" data-k="b1">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">1. 변동신고 의무</span>
-            <span class="b">월급·예금·<b>주소</b>·가구원이 바뀌면 <b>지체 없이</b> 주민센터에 신고합니다. 숨기고 있다가 걸리면 <b>받은 급여를 환수</b>합니다.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-b1">1. 변동신고 의무</label>
+          <p class="b">월급·예금·<b>주소</b>·가구원이 바뀌면 <b>지체 없이</b> 주민센터에 신고합니다. 숨기고 있다가 걸리면 <b>받은 급여를 환수</b>합니다.</p>
+        </div>
 
-        <label class="it">
-          <input type="checkbox" data-k="b2">
+        <div class="it">
+          <input type="checkbox" id="chk-b2" data-k="b2">
           <span class="bx" aria-hidden="true"></span>
-          <span class="tx">
-            <span class="t">2. 해외 체류 60일 · 장기입원</span>
-            <span class="b">해외에 <b>60일을 넘게</b> 머물거나, 병원에 <b>3개월 중 30일 이상</b> 입원하면 생계급여가 <b>멈추거나 깎입니다.</b> 오래 집을 비우게 되면 미리 알리세요.</span>
-          </span>
-        </label>
+          <label class="t" for="chk-b2">2. 해외 체류 60일 · 장기입원</label>
+          <p class="b">해외에 <b>60일을 넘게</b> 머물거나, 병원에 <b>3개월 중 30일 이상</b> 입원하면 생계급여가 <b>멈추거나 깎입니다.</b> 오래 집을 비우게 되면 미리 알리세요.</p>
+        </div>
       </div>
 
       <div class="chkbar"><span class="cnt">0 / 2 완료</span></div>
 
-      <div class="alone" style="margin-left:0">
+      <div class="alone">
         <h4>걱정 마세요 — 월세 지원은 생활비 현금을 깎지 않습니다</h4>
         <p>주거급여(월세 지원)는 소득으로 잡히지 않습니다. 그래서 두 가지를 <b>각각 100%</b> 받습니다.</p>
       </div>
