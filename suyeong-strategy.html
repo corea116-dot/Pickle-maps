@@ -1099,7 +1099,8 @@
   }
   function won(n){ return num(n) + '원'; }
   function manCheon(n){
-    var v = Math.round(n), m = Math.floor(v/W), th = Math.floor((v%W)/1000);
+    var v = Math.round(n), m = Math.floor(v/W), th = Math.round((v%W)/1000);
+    if (th >= 10) { m += 1; th = 0; }
     return th > 0 ? m + '만 ' + th + '천' : m + '만';
   }
 
