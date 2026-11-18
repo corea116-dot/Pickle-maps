@@ -337,7 +337,7 @@
   .chkbar .cnt{font-size:.92rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
   .chkbar .cnt.all{color:var(--teal)}
   .chkbar.flat{border-top:0;padding-top:0;margin-top:2px;justify-content:flex-end}
-  .mini{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:10px;font:inherit;font-size:.85rem;font-weight:800;padding:9px 13px;cursor:pointer}
+  .mini{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;font:inherit;font-size:.85rem;font-weight:800;padding:9px 15px;cursor:pointer}
   .mini:active{transform:scale(.97)}
 
   footer{margin:26px 4px 0;font-size:.86rem;color:var(--muted);line-height:1.75}
@@ -1159,12 +1159,9 @@
       </div>
     </div>
 
-    <div class="chkbar flat" style="margin-bottom:14px">
-      <button class="mini" id="chkReset" type="button">체크 표시 모두 지우기</button>
-    </div>
-
-    <div class="btnrow" style="margin-top:0">
+    <div class="btnrow">
       <a class="home" href="#s4">04 · 내 숫자로 다시 계산 →</a>
+      <button class="mini" id="chkReset" type="button">체크 표시 모두 지우기</button>
     </div>
   </section>
 
