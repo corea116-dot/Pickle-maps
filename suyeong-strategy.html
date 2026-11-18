@@ -96,6 +96,7 @@
   nav.toc a:active{transform:scale(.98)}
   nav.toc .n{font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.05em}
   nav.toc .t{font-size:.97rem;font-weight:800;line-height:1.35}
+  nav.toc a.wide{grid-column:1/-1}
 
   /* ---------- section ---------- */
   section{margin:0 0 20px;scroll-margin-top:8px}
@@ -317,6 +318,29 @@
   .sched .sc .when{font-size:.95rem;font-weight:800;color:var(--accent);line-height:1.5}
   .sched .sc p{margin:4px 0 0;font-size:.9rem;color:var(--muted);line-height:1.55}
 
+  /* ---------- 06 · 실전 체크리스트 ---------- */
+  .chk{display:block;margin:6px 0 0}
+  .chk .it{position:relative;display:block;padding:15px 0 15px 46px;border-top:1px solid var(--line2);cursor:pointer}
+  .chk .it:first-child{border-top:0;padding-top:6px}
+  .chk .it input{position:absolute;left:0;top:13px;width:32px;height:32px;margin:0;opacity:0;cursor:pointer;z-index:2}
+  .chk .bx{position:absolute;left:0;top:13px;width:32px;height:32px;border:2.5px solid var(--line);border-radius:9px;background:var(--card)}
+  .chk .bx::after{content:"";position:absolute;left:9px;top:7px;width:11px;height:6px;border-left:3.5px solid #fff;border-bottom:3.5px solid #fff;transform:rotate(-45deg);opacity:0}
+  .chk .it input:checked + .bx{background:var(--teal);border-color:var(--teal)}
+  .chk .it input:checked + .bx::after{opacity:1}
+  .chk .it input:focus-visible + .bx{outline:3px solid rgba(21,84,184,.35);outline-offset:2px}
+  .chk .tx{display:block}
+  .chk .t{display:block;font-size:1.07rem;font-weight:800;line-height:1.42;letter-spacing:-.01em}
+  .chk .it input:checked ~ .tx .t{color:var(--muted)}
+  .chk .b{display:block;font-size:.99rem;line-height:1.62;margin-top:5px}
+  .chk .b b{font-weight:800}
+  .chk .b .alone{margin-left:-46px;margin-top:12px}
+  .chkbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 0;padding:13px 0 0;border-top:1px solid var(--line2)}
+  .chkbar .cnt{font-size:.92rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+  .chkbar .cnt.all{color:var(--teal)}
+  .chkbar.flat{border-top:0;padding-top:0;margin-top:2px;justify-content:flex-end}
+  .mini{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:10px;font:inherit;font-size:.85rem;font-weight:800;padding:9px 13px;cursor:pointer}
+  .mini:active{transform:scale(.97)}
+
   footer{margin:26px 4px 0;font-size:.86rem;color:var(--muted);line-height:1.75}
   footer a{color:var(--muted)}
   .srcbox{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 12px}
@@ -393,7 +417,8 @@
     <a href="#s3"><span class="n">03</span><span class="t">두 가지 방법 비교</span></a>
     <a href="#s4"><span class="n">04</span><span class="t">월세 지원 계산</span></a>
     <a href="#s5"><span class="n">05</span><span class="t">월급 한도·생활비 현금</span></a>
-    <a href="#s6"><span class="n">06</span><span class="t">매입임대는 언제 나오나요</span></a>
+    <a href="#s6"><span class="n">06</span><span class="t">신청 전·후 체크리스트</span></a>
+    <a class="wide" href="#s7"><span class="n">07</span><span class="t">매입임대는 언제 나오나요</span></a>
   </nav>
 
   <!-- ============ 01 ============ -->
@@ -1040,7 +1065,131 @@
 
   <!-- ============ 06 ============ -->
   <section id="s6">
-    <div class="sec-h"><span class="no">06</span><h2>매입임대는 언제 나오나요?</h2><span class="hint">해마다 이 시기에 공고가 뜹니다</span></div>
+    <div class="sec-h"><span class="no">06</span><h2>신청 전·후 실전 체크리스트</h2><span class="hint">뮤즈·인스팅트 교차 검증으로 확인한, 놓치기 쉬운 것</span></div>
+
+    <div class="card" data-chkcard>
+      <h3>신청 전·당일 — 이 여섯 개만 챙기세요</h3>
+      <p class="sub">주민센터에 가기 전에 하나씩 눌러 체크해 두세요. 체크한 것은 이 기기에 저장됩니다.</p>
+
+      <div class="chk">
+        <label class="it">
+          <input type="checkbox" data-k="a1">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">1. '통합신청'으로 넣으세요</span>
+            <span class="b">생계급여만 따로 신청하지 말고 <b>생계·의료·주거·교육 통합신청</b>으로 넣습니다. 생계급여가 아슬아슬하게 안 되더라도 <b>월세 지원(주거급여)과 의료급여</b>를 다시 신청하지 않고 한 번에 받습니다.</span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="a2">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">2. 제3자와 쓴 계약서 + 확정일자</span>
+            <span class="b">가족·친인척 집이나 <b>주소만 옮기는 것은 안 됩니다.</b> 실제로 살면서 집주인이 제3자인 계약서에 <b>확정일자</b>를 받고, <b>월세 이체 내역</b>을 남기세요. 재산 심사와 주거급여 모두 이 계약서로 확인합니다.</span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="a3">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">3. 신청 전에 돈을 옮기지 마세요</span>
+            <span class="b">예금을 크게 인출하거나 가족에게 이체하면, 병원비·빚 상환 같은 <b>영수증으로 증명하지 못하는 만큼은 '처분재산'</b>으로 잡혀 재산이 있는 것으로 계산됩니다. 자녀가 <b>매달 일정한 돈</b>을 보내면 '이전소득'으로 잡혀 소득인정액이 올라갑니다.</span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="a4">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">4. 재산이 0원으로 잡히는 선을 지키세요</span>
+            <span class="b">월세 30만 원·보증금 500만 원 집이면 아래 선까지는 재산 때문에 소득이 늘지 않습니다. 넘는 돈부터는 매달 소득으로 더해집니다.</span>
+            <span class="b">
+              <span class="alone">
+                <h4>둘을 합쳐 약 8,200만 원까지 → 재산 환산 0원</h4>
+                <p>보증금 <b>500만 원</b> + 예금·저축성보험 <b>7,700만 원</b> = 약 <b>8,200만 원</b>까지는 재산에서 잡히는 소득이 <b>0원</b>입니다. 부산 기본재산액 <b>7,700만 원</b>과 금융재산 생활준비금 <b>500만 원</b>을 빼주기 때문입니다.</p>
+                <p>이 선을 넘으면 넘는 돈이 <b>매달 6.26%</b>씩 소득에 더해집니다. <b>1,000만 원당 한 달 62만 6천 원</b>이 소득으로 잡힙니다.</p>
+              </span>
+            </span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="a5">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">5. 만 65세 이상은 일하러 나가지 않아도 됩니다</span>
+            <span class="b">생계급여는 원래 18~64세면 자활근로(일)에 나가야 줍니다. <b>만 65세 이상은 '근로능력 없음'</b>으로 보아 <b>자활 조건 없이</b> 일반 생계급여를 받습니다.</span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="a6">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">6. 신청은 미루지 마세요 — 신청한 달부터 나옵니다</span>
+            <span class="b">심사는 <b>30~60일</b> 걸리지만, 통과하면 <b>신청한 날이 속한 달부터 거슬러</b> 받습니다. 다음 달로 미루면 그 한 달 치가 그냥 없어집니다.</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="chkbar"><span class="cnt">0 / 6 완료</span></div>
+    </div>
+
+    <div class="warn">
+      <h3>⚠️ 가족 집에서 살면 월세 지원이 안 나옵니다</h3>
+      <ul>
+        <li>집주인이 <b>자녀·친인척(부양의무자)</b>이면 계약서를 써도 <b>주거급여(월세 지원)</b> 대상이 아닙니다.</li>
+        <li><b>주소만 옮기고</b> 실제로는 다른 곳에서 사는 것이 확인되면 <b>세대분리가 인정되지 않아</b> 생계급여도 함께 무너집니다.</li>
+        <li>그래서 집을 구할 때부터 <b>'남의 집'에서 실제로 사는 구조</b>를 만들어야 합니다.</li>
+      </ul>
+    </div>
+
+    <div class="card" data-chkcard>
+      <h3>수급 받은 뒤 — 바뀌면 바로 알리세요</h3>
+      <p class="sub">안 알리고 나중에 걸리면, 그동안 받은 돈을 돌려내야 합니다.</p>
+
+      <div class="chk">
+        <label class="it">
+          <input type="checkbox" data-k="b1">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">1. 변동신고 의무</span>
+            <span class="b">월급·예금·<b>주소</b>·가구원이 바뀌면 <b>지체 없이</b> 주민센터에 신고합니다. 숨기고 있다가 걸리면 <b>받은 급여를 환수</b>합니다.</span>
+          </span>
+        </label>
+
+        <label class="it">
+          <input type="checkbox" data-k="b2">
+          <span class="bx" aria-hidden="true"></span>
+          <span class="tx">
+            <span class="t">2. 해외 체류 60일 · 장기입원</span>
+            <span class="b">해외에 <b>60일을 넘게</b> 머물거나, 병원에 <b>3개월 중 30일 이상</b> 입원하면 생계급여가 <b>멈추거나 깎입니다.</b> 오래 집을 비우게 되면 미리 알리세요.</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="chkbar"><span class="cnt">0 / 2 완료</span></div>
+
+      <div class="alone" style="margin-left:0">
+        <h4>걱정 마세요 — 월세 지원은 생활비 현금을 깎지 않습니다</h4>
+        <p>주거급여(월세 지원)는 소득으로 잡히지 않습니다. 그래서 두 가지를 <b>각각 100%</b> 받습니다.</p>
+      </div>
+    </div>
+
+    <div class="chkbar flat" style="margin-bottom:14px">
+      <button class="mini" id="chkReset" type="button">체크 표시 모두 지우기</button>
+    </div>
+
+    <div class="btnrow" style="margin-top:0">
+      <a class="home" href="#s4">04 · 내 숫자로 다시 계산 →</a>
+    </div>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section id="s7">
+    <div class="sec-h"><span class="no">07</span><h2>매입임대는 언제 나오나요?</h2><span class="hint">해마다 이 시기에 공고가 뜹니다</span></div>
 
     <div class="card">
       <div class="sched">
@@ -1081,6 +1230,9 @@
         <li>2026년 국민기초생활보장 사업안내 — 생계·의료급여 부양의무자 기준(소득 1억 3천만 원·일반재산 12억 원 초과), 주거급여·차상위는 부양의무자 기준 없음</li>
         <li>소득인정액 산정 — 근로소득 공제, 주거용재산 1.04%, 금융재산 6.26%/4.17%, 기본재산액 7,700만 원</li>
         <li>소득인정액에는 소득(근로·사업·재산·이전소득)만 들어갑니다 — 생계·주거급여 같은 기초생활보장 급여는 소득으로 보지 않습니다(「국민기초생활 보장법」 제2조·시행령 제5조). 그래서 월세 지원을 받아도 생활비 현금이 깎이지 않습니다</li>
+        <li>2026년 국민기초생활보장 사업안내 — 생계·의료·주거·교육 통합신청, 수급자 변동신고 의무, 해외 체류 60일 초과·3개월 중 30일 이상 입원 시 지급 정지·감액, 만 65세 이상 자활사업 미적용(근로능력 없음)</li>
+        <li>처분재산·이전소득 산정 — 신청 전 예금 인출·가족 이체는 증명되지 않는 만큼 재산으로 보고, 자녀의 정기 송금은 이전소득으로 봄</li>
+        <li>주거급여 — 부양의무자(자녀·친인척) 소유 주택 거주는 임차가구로 보지 않음</li>
         <li>LH·BMC 매입임대 모집 일정 (2026년 공고 기준)</li>
       </ul>
     </div>
@@ -1344,6 +1496,51 @@
 
   syncAll();
   render();
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  var KEY = 'sy-chk';
+  var boxes = document.querySelectorAll('.chk input[type=checkbox]');
+  if (!boxes.length) return;
+
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ saved = {}; }
+  for (var i=0;i<boxes.length;i++){
+    var k = boxes[i].getAttribute('data-k');
+    if (k && saved[k]) boxes[i].checked = true;
+    boxes[i].addEventListener('change', function(){
+      var key = this.getAttribute('data-k');
+      saved[key] = this.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e){}
+      count();
+    });
+  }
+
+  function count(){
+    var cards = document.querySelectorAll('[data-chkcard]');
+    for (var c=0;c<cards.length;c++){
+      var ins = cards[c].querySelectorAll('.chk input[type=checkbox]');
+      var n = 0;
+      for (var j=0;j<ins.length;j++) if (ins[j].checked) n++;
+      var el = cards[c].querySelector('.chkbar .cnt');
+      if (el) {
+        el.textContent = n + ' / ' + ins.length + ' 완료';
+        el.className = 'cnt' + (n === ins.length ? ' all' : '');
+      }
+    }
+  }
+
+  var reset = document.getElementById('chkReset');
+  if (reset) reset.addEventListener('click', function(){
+    for (var i=0;i<boxes.length;i++) boxes[i].checked = false;
+    saved = {};
+    try { localStorage.removeItem(KEY); } catch(e){}
+    count();
+  });
+
+  count();
 })();
 </script>
 </body>
