@@ -93,7 +93,6 @@
     background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:13px 13px;box-shadow:var(--shadow);color:inherit;min-height:74px;
   }
-  nav.toc a:last-child{grid-column:span 2}
   nav.toc a:active{transform:scale(.98)}
   nav.toc .n{font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.05em}
   nav.toc .t{font-size:.97rem;font-weight:800;line-height:1.35}
@@ -172,6 +171,9 @@
   .cap{font-size:.85rem;color:var(--muted);margin-top:9px;line-height:1.58}
   .t-2col tbody th{width:38%}
   .t-3col tbody th{width:30%}
+  .t-4col tbody th{width:24%}
+  .t4{font-size:.9rem}
+  .t4 th,.t4 td{padding:10px 6px}
 
   /* ---------- calculator ---------- */
   .res{
@@ -190,6 +192,13 @@
   .res .line.bad{color:var(--red)}
   .res .inv{margin-top:7px;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
   .res .inv b{color:var(--ink);font-size:1rem}
+
+  .res .saeng{margin-top:10px;padding-top:10px;border-top:1px solid var(--line2)}
+  .res .saeng .saeng-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .res .saeng .lbl{font-size:.86rem;font-weight:800;color:var(--ink)}
+  .res .saeng .val{font-size:1.45rem;color:var(--teal);margin-top:0}
+  .res .saeng .note{display:block;font-size:.82rem;color:var(--muted);font-weight:700;margin-top:2px;line-height:1.45}
+  .res .saeng.zero .val{color:var(--red)}
 
   .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
   .bdg{display:flex;flex-direction:column;gap:1px;border-radius:10px;padding:6px 10px;
@@ -328,7 +337,8 @@
     <a href="#s2"><span class="n">02</span><span class="t">수급·차상위가 뭔가요</span></a>
     <a href="#s3"><span class="n">03</span><span class="t">두 가지 방법 비교</span></a>
     <a href="#s4"><span class="n">04</span><span class="t">월세 지원 계산</span></a>
-    <a href="#s5"><span class="n">05</span><span class="t">매입임대는 언제 나오나요</span></a>
+    <a href="#s5"><span class="n">05</span><span class="t">월급 한도·생활비 현금</span></a>
+    <a href="#s6"><span class="n">06</span><span class="t">매입임대는 언제 나오나요</span></a>
   </nav>
 
   <!-- ============ 01 ============ -->
@@ -714,12 +724,19 @@
       </div>
       <div class="line" id="oLine">월세 30만 원 중 18만 원을 지원받고, 12만 원을 냅니다.</div>
       <div class="inv">소득인정액 <b id="oInv">166.0만 원</b> <span class="ez">(실제 잡히는 월 소득)</span></div>
+      <div class="saeng zero" id="oSaengBox">
+        <div class="saeng-h">
+          <span class="lbl">예상 생활비 현금 (생계급여)</span>
+          <span class="val" id="oSaeng">0원</span>
+        </div>
+        <span class="note" id="oSaengNote">생계기준 134만 4천 원을 넘어 0원입니다</span>
+      </div>
       <div class="badges" id="oBadges"></div>
     </div>
 
     <div class="card">
       <h3>내 숫자로 바로 계산해 보세요</h3>
-      <p class="sub">슬라이더를 밀거나 숫자를 눌러 고치면 <b>위의 결과가 바로 바뀝니다</b>.</p>
+      <p class="sub">슬라이더를 밀거나 숫자를 눌러 고치면 <b>위의 결과가 바로 바뀝니다</b>. 월급·연금을 움직이면 <b>예상 생활비 현금(생계급여)까지 한꺼번에</b> 다시 계산됩니다.</p>
 
       <div class="seg" id="segHh" role="group" aria-label="가구 형태">
         <button type="button" data-hh="2" class="on">2인 가구<small>어머님 + 아버님</small></button>
@@ -729,11 +746,11 @@
       <div class="presets" id="presets">
         <button type="button" class="preset on" data-p="1">
           <b>① 월급 200 + 연금 40 (흔한 경우)</b>
-          <span>소득인정액 166만 → 월 18만 원 지원, 내 부담 12만 원</span>
+          <span>소득인정액 166만 → 월세 18만 원, 생활비 현금 0원</span>
         </button>
         <button type="button" class="preset" data-p="2">
           <b>② 연금만 40 (월급 없음)</b>
-          <span>소득인정액 40만 → 월 27.5만 원 전액 지원, 내 부담 2.5만 원</span>
+          <span>소득인정액 40만 → 월세 27.5만 원, 생활비 현금 94.4만 원</span>
         </button>
         <button type="button" class="preset" data-p="3">
           <b>③ 3인 유지 (누나 소득 합산)</b>
@@ -824,7 +841,121 @@
 
   <!-- ============ 05 ============ -->
   <section id="s5">
-    <div class="sec-h"><span class="no">05</span><h2>매입임대는 언제 나오나요?</h2><span class="hint">해마다 이 시기에 공고가 뜹니다</span></div>
+    <div class="sec-h"><span class="no">05</span><h2>엄마 월급, 어디까지 받나요?</h2><span class="hint">경우 B(엄마 세대주·2인) · 연금 40만 원 포함</span></div>
+
+    <div class="card">
+      <h3>받을 수 있는 혜택마다 선이 다릅니다</h3>
+      <p>엄마가 세대주로 나가면 심사하는 식구는 <b>엄마와 아빠 두 사람</b>입니다. 아빠 소득이 0원이고 재산도 잡히지 않는다고 보면, 엄마가 버는 월급에 따라 받을 수 있는 것이 이렇게 갈립니다. 여기에 <b>연금 40만 원</b>이 매달 소득으로 함께 잡힙니다.</p>
+      <div class="tbl-wrap">
+        <table class="t-3col">
+          <colgroup><col style="width:33%"><col><col style="width:35%"></colgroup>
+          <thead><tr><th>받으려는 것</th><th>쉬운 풀이</th><th style="text-align:right">엄마 세전 월급</th></tr></thead>
+          <tbody>
+            <tr class="hi"><th>생활비 현금<br><span class="ez">생계급여</span></th><td>생활비를 <b>현금</b>으로 받음</td><td class="num">약 154만 원<br>미만</td></tr>
+            <tr><th>월세 지원<br><span class="ez">주거급여</span></th><td><b>월세</b>를 대신 내줌</td><td class="num">약 250만 원<br>이하</td></tr>
+            <tr><th>임대 1순위<br><span class="ez">차상위계층</span></th><td>공공임대에서 <b>먼저</b> 뽑힘</td><td class="num">약 262만 원<br>이하</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">세 혜택은 <b>하나를 고르는 게 아니라 각각 따로</b> 봅니다. 월급 200만 원이면 생활비 현금은 못 받지만, 월세 지원과 임대 1순위는 됩니다.</p>
+    </div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 290" role="img" aria-label="연금 40만 원 포함 시 혜택별 엄마 월급 한도 막대 그래프 — 생활비 현금 154만, 월세 지원 250만, 임대 1순위 262만">
+        <text x="8" y="18" font-size="12.5" font-weight="700" fill="#4a5c70">연금 40만 원을 받는 경우 — 월급이 막대보다 적으면 받습니다</text>
+
+        <text x="8" y="48" font-size="14" font-weight="800" fill="#0f2b47">생활비 현금 <tspan font-size="12" font-weight="600" fill="#6a7c8d">생계급여</tspan></text>
+        <rect x="8" y="56" width="344" height="28" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="56" width="190" height="28" rx="7" fill="#08695f"/>
+        <text x="18" y="75" font-size="12.5" font-weight="800" fill="#ffffff">월급 154만 원 미만</text>
+
+        <text x="8" y="118" font-size="14" font-weight="800" fill="#0f2b47">월세 지원 <tspan font-size="12" font-weight="600" fill="#6a7c8d">주거급여</tspan></text>
+        <rect x="8" y="126" width="344" height="28" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="126" width="308" height="28" rx="7" fill="#a8600f"/>
+        <text x="18" y="145" font-size="12.5" font-weight="800" fill="#ffffff">월급 250만 원 이하</text>
+
+        <text x="8" y="188" font-size="14" font-weight="800" fill="#0f2b47">임대 1순위 <tspan font-size="12" font-weight="600" fill="#6a7c8d">차상위계층</tspan></text>
+        <rect x="8" y="196" width="344" height="28" rx="7" fill="#e4ebf2"/>
+        <rect x="8" y="196" width="323" height="28" rx="7" fill="#6b4b9e"/>
+        <text x="18" y="215" font-size="12.5" font-weight="800" fill="#ffffff">월급 262만 원 이하</text>
+
+        <text x="8" y="250" font-size="11.5" fill="#6a7c8d">생활비 현금이 가장 먼저 끊기고, 임대 1순위가 가장 늦게까지 남습니다.</text>
+        <text x="8" y="270" font-size="11.5" fill="#6a7c8d">월급이 154만 ~ 250만 원이면 생활비 현금만 못 받습니다.</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 7.</b> 세 줄은 <b>각각 따로 보는 선</b>입니다. 월급이 짧은 막대보다 적으면 그 혜택을 받고, 넘으면 <b>그 혜택만</b> 못 받습니다. 연금 40만 원이 이미 소득에 들어가 있어서 선이 이만큼 당겨집니다.</figcaption>
+    </figure>
+
+    <div class="card">
+      <h3>월급별로 실제로 받는 돈</h3>
+      <p class="sub">연금 40만 원은 그대로, 엄마 월급만 바뀔 때 (2인 · 재산 0원 가정)</p>
+      <p>생활비 현금은 나라가 정한 <b>생계기준 1,343,773원(2인)</b>에서 <b>소득인정액</b>을 뺀 만큼입니다. 모자란 만큼만 현금으로 메워 주기 때문에, 월급이 늘면 현금은 그만큼 줄어듭니다.</p>
+      <div class="tbl-wrap">
+        <table class="t4 t-4col">
+          <colgroup><col style="width:22%"><col style="width:26%"><col style="width:27%"><col style="width:25%"></colgroup>
+          <thead><tr><th>엄마 월급</th><th style="text-align:right">잡히는 소득<br><span class="ez">소득인정액</span></th><th style="text-align:right">생활비 현금<br><span class="ez">생계급여</span></th><th style="text-align:right">월세 지원<br><span class="ez">주거급여</span></th></tr></thead>
+          <tbody>
+            <tr><th>0원</th><td class="num">40.0만</td><td class="num">94.4만</td><td class="num">27.5만</td></tr>
+            <tr><th>100만</th><td class="num">96.0만</td><td class="num">38.4만</td><td class="num">27.5만</td></tr>
+            <tr><th>130만</th><td class="num">117.0만</td><td class="num">17.4만</td><td class="num">27.5만</td></tr>
+            <tr class="hi"><th>155만</th><td class="num">134.5만</td><td class="num">0원</td><td class="num">27.5만</td></tr>
+            <tr><th>200만</th><td class="num">166.0만</td><td class="num">0원</td><td class="num">18.0만</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">숫자는 <b>만 원</b> 단위이고, 월세는 <b>월세 30만 원·보증금 500만 원</b> 집 기준입니다. 월급 154만 원을 넘으면 생활비 현금은 0원이 되지만, <b>월세 지원과 임대 1순위는 그대로</b>입니다.</p>
+    </div>
+
+    <figure>
+      <div class="fig-panel">
+      <svg viewBox="0 0 360 372" role="img" aria-label="엄마 월급별로 받는 생활비 현금과 월세 지원을 겹쳐 그린 막대 그래프">
+        <text x="8" y="18" font-size="12.5" font-weight="700" fill="#4a5c70">한 달에 받는 돈 (연금 40만 원 포함)</text>
+        <text x="8" y="38" font-size="11" font-weight="700" fill="#8fa3b8">엄마 월급</text>
+
+        <text x="8" y="70" font-size="13" font-weight="800" fill="#0f2b47">0원</text>
+        <rect x="88" y="52" width="151" height="26" rx="6" fill="#08695f"/>
+        <rect x="239" y="52" width="44" height="26" rx="6" fill="#a8600f"/>
+        <text x="289" y="70" font-size="13" font-weight="800" fill="#08695f">122만</text>
+
+        <text x="8" y="128" font-size="13" font-weight="800" fill="#0f2b47">100만</text>
+        <rect x="88" y="110" width="61" height="26" rx="6" fill="#08695f"/>
+        <rect x="149" y="110" width="44" height="26" rx="6" fill="#a8600f"/>
+        <text x="199" y="128" font-size="13" font-weight="800" fill="#08695f">66만</text>
+
+        <text x="8" y="186" font-size="13" font-weight="800" fill="#0f2b47">130만</text>
+        <rect x="88" y="168" width="28" height="26" rx="6" fill="#08695f"/>
+        <rect x="116" y="168" width="44" height="26" rx="6" fill="#a8600f"/>
+        <text x="166" y="186" font-size="13" font-weight="800" fill="#08695f">45만</text>
+
+        <text x="8" y="244" font-size="13" font-weight="800" fill="#0f2b47">155만</text>
+        <rect x="88" y="226" width="44" height="26" rx="6" fill="#a8600f"/>
+        <text x="138" y="244" font-size="13" font-weight="800" fill="#08695f">27.5만</text>
+
+        <text x="8" y="302" font-size="13" font-weight="800" fill="#0f2b47">200만</text>
+        <rect x="88" y="284" width="29" height="26" rx="6" fill="#a8600f"/>
+        <text x="123" y="302" font-size="13" font-weight="800" fill="#08695f">18만</text>
+
+        <rect x="8" y="324" width="13" height="13" rx="3" fill="#08695f"/>
+        <text x="27" y="335" font-size="11.5" fill="#4a5c70">생활비 현금 — 손에 쥐는 돈</text>
+        <rect x="8" y="346" width="13" height="13" rx="3" fill="#a8600f"/>
+        <text x="27" y="357" font-size="11.5" fill="#4a5c70">월세 지원 — 집주인에게 가는 돈</text>
+      </svg>
+      </div>
+      <figcaption><b>그림 8.</b> 초록(현금)이 확 줄어도 주황(월세)은 남아 있어서, <b>받는 돈이 한꺼번에 끊기지는 않습니다.</b> 다만 현금으로 손에 쥐는 돈은 월급 154만 원에서 0원이 됩니다.</figcaption>
+    </figure>
+
+    <div class="card" style="border-color:rgba(154,79,0,.35)">
+      <h3>연금 40만 원은 어떻게 잡히나요?</h3>
+      <p>기초연금이든 국민연금이든 <b>100% 그대로 소득으로 잡힙니다</b>. 그래서 연금을 받으면 생활비 현금은 그만큼 줄어듭니다.</p>
+      <p>예를 들어 월급 130만 원일 때 — 연금 40만 원이 있으면 생활비 현금이 <b>17만 4천 원</b>, 연금이 없으면 <b>57만 4천 원</b>입니다. 둘을 합치면 <b>똑같이 57만 4천 원</b>입니다.</p>
+      <p class="cap">연금은 없던 돈을 더 주는 게 아니라, 생활비 현금을 <b>대신 채우는 셈</b>입니다. 어느 쪽이든 <b>합쳐서 134만 4천 원(생계기준)</b>이 선이고, 월급 154만 원을 넘으면 두 가지를 합쳐도 그 선을 넘습니다.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section id="s6">
+    <div class="sec-h"><span class="no">06</span><h2>매입임대는 언제 나오나요?</h2><span class="hint">해마다 이 시기에 공고가 뜹니다</span></div>
 
     <div class="card">
       <div class="sched">
@@ -967,6 +1098,10 @@
     return s + '만';
   }
   function won(n){ return num(n) + '원'; }
+  function manCheon(n){
+    var v = Math.round(n), m = Math.floor(v/W), th = Math.floor((v%W)/1000);
+    return th > 0 ? m + '만 ' + th + '천' : m + '만';
+  }
 
   /* ---------- 필드 ---------- */
   var FIELDS = [
@@ -1047,13 +1182,27 @@
   /* ---------- 렌더 ---------- */
   var oGrant = document.getElementById('oGrant'), oOut = document.getElementById('oOut'),
       oLine = document.getElementById('oLine'), oInv = document.getElementById('oInv'),
-      oBadges = document.getElementById('oBadges'), oBreak = document.getElementById('oBreak');
+      oBadges = document.getElementById('oBadges'), oBreak = document.getElementById('oBreak'),
+      oSaeng = document.getElementById('oSaeng'), oSaengNote = document.getElementById('oSaengNote'),
+      oSaengBox = document.getElementById('oSaengBox');
 
   function render(){
     var r = computeCalc(S);
+    var saengCash = Math.max(0, r.st.saeng - r.inv);
+
     oGrant.textContent = (r.grant > 0 ? man(r.grant) : '0원');
     oOut.textContent = man(r.outOfPocket);
     oInv.textContent = man(r.inv);
+
+    oSaeng.textContent = (saengCash > 0 ? man(saengCash) : '0원');
+    if (saengCash > 0) {
+      oSaengBox.className = 'saeng';
+      oSaengNote.textContent = '생계기준 ' + manCheon(r.st.saeng) + ' 원에서 모자란 '
+                             + man(saengCash) + '을 현금으로 받습니다';
+    } else {
+      oSaengBox.className = 'saeng zero';
+      oSaengNote.textContent = '소득인정액이 생계기준(' + manCheon(r.st.saeng) + ' 원)을 넘어 0원입니다';
+    }
 
     if (r.status === 'over') {
       oLine.className = 'line bad';
@@ -1088,6 +1237,8 @@
       ['보증금 재산 환산', won(r.houseIncome)],
       ['예금 재산 환산', won(r.finIncome)],
       ['= 소득인정액', won(r.inv)],
+      ['생계기준 (생활비 현금 선)', won(r.st.saeng)],
+      ['= 생활비 현금 (생계급여)', won(saengCash)],
       ['지원 상한 (기준임대료)', won(r.st.cap)],
       ['실제 임차료 (월세 + 보증금 환산)', won(r.actualRent)],
       ['내 몫 (자기부담분)', won(r.selfPay)],
