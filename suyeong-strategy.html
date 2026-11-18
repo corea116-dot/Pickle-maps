@@ -154,6 +154,22 @@
   .warn li{font-size:.97rem;margin:0 0 8px;line-height:1.58}
   .warn li:last-child{margin-bottom:0}
 
+  /* ---------- kin (자녀 소득·재산) ---------- */
+  .kin{border:2px solid var(--teal)}
+  .kin > h3{font-size:1.24rem}
+  .kin .blk{border:1px solid var(--line2);border-radius:14px;padding:13px 14px;margin:12px 0 0}
+  .kin .blk h4{margin:0 0 6px;font-size:1.08rem;font-weight:800;line-height:1.4}
+  .kin .blk p{font-size:1rem;margin:0 0 8px}
+  .kin .blk p:last-child{margin-bottom:0}
+  .kin .blk ul{margin:6px 0 0;padding-left:20px}
+  .kin .blk li{font-size:1rem;line-height:1.6;margin:0 0 7px}
+  .kin .blk li:last-child{margin-bottom:0}
+  .kin .blk.never{background:var(--tealbg);border-color:rgba(8,105,95,.35)}
+  .kin .blk.never h4{color:var(--teal)}
+  .kin .blk.only{background:var(--amberbg);border-color:rgba(154,79,0,.30)}
+  .kin .blk.only h4{color:var(--amber)}
+  .kin .gloss{font-size:.92rem;color:var(--muted);margin:0 0 2px;line-height:1.6}
+
   /* ---------- tables ---------- */
   .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0 0}
   table{border-collapse:collapse;width:100%;font-size:.95rem;table-layout:fixed}
@@ -955,6 +971,29 @@
       <p>기초연금이든 국민연금이든 <b>100% 그대로 소득으로 잡힙니다</b>. 그래서 연금을 받으면 생활비 현금은 그만큼 줄어듭니다.</p>
       <p>예를 들어 월급 130만 원일 때 — 연금 40만 원이 있으면 생활비 현금이 <b>17만 4천 원</b>, 연금이 없으면 <b>57만 4천 원</b>입니다. 둘을 합치면 <b>똑같이 57만 4천 원</b>입니다.</p>
       <p class="cap">연금은 없던 돈을 더 주는 게 아니라, 생활비 현금을 <b>대신 채우는 셈</b>입니다. 어느 쪽이든 <b>합쳐서 134만 4천 원(생계기준)</b>이 선이고, 월급 154만 원을 넘으면 두 가지를 합쳐도 그 선을 넘습니다.</p>
+    </div>
+
+    <div class="card kin">
+      <h3>자녀(따로 사는 아들·딸) 소득·재산도 보나요?</h3>
+      <p class="gloss">부양의무자 = 자녀처럼 부양할 책임이 있는 가족을 말합니다. 혜택마다 이걸 보는지가 다릅니다.</p>
+      <p>결론부터 말하면 <b>거의 안 봅니다.</b> 다만 <b>생활비 현금(생계급여)만</b> 예외로 봅니다.</p>
+
+      <div class="blk never">
+        <h4>월세 지원 · 임대 1순위 → 전혀 안 봅니다</h4>
+        <p><b>부양의무자 기준이 아예 없습니다.</b> 자녀가 얼마를 벌든, 집이 있든 상관없이 받을 수 있습니다.</p>
+      </div>
+
+      <div class="blk only">
+        <h4>생활비 현금(생계급여) → 이것만 예외로 봅니다</h4>
+        <p>따로 사는 <b>자녀(1촌 직계혈족)와 그 배우자</b> 중 <b>한 명이라도</b> 아래를 넘으면 <b>생활비 현금은 탈락</b>입니다.</p>
+        <ul>
+          <li>연 소득 <b>1억 3천만 원 초과</b> <span class="ez">(세전 월 약 1,084만 원)</span></li>
+          <li>일반재산(부동산 등) <b>12억 원 초과</b></li>
+        </ul>
+        <p style="margin-top:9px">둘 다 그 아래면 <b>자녀 소득·재산은 안 봅니다.</b></p>
+      </div>
+
+      <p class="cap">2026년 기준입니다. 병원비(의료급여)도 생활비 현금과 같은 자녀 기준을 봅니다.</p>
     </div>
   </section>
 
