@@ -192,6 +192,20 @@
   .t-4col tbody th{width:24%}
   .t4{font-size:.9rem}
   .t4 th,.t4 td{padding:10px 6px}
+  /* 08 · 최근 3년 추이 표 — 4칸 고정, 모바일·큰 글씨에서도 숫자 잘림 없이 */
+  .t-trend{font-size:min(.9rem,14px);table-layout:fixed}
+  .t-trend th,.t-trend td{padding:9px 5px;line-height:1.42;word-break:keep-all}
+  .t-trend thead th{font-size:min(.8rem,12.5px);text-align:center;letter-spacing:-.02em}
+  .t-trend thead th:first-child{text-align:left}
+  .t-trend tbody th{font-size:min(.86rem,13.5px);width:34%}
+  .t-trend td{text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+  .t-trend td.na{color:var(--muted);font-weight:600}
+  @media (max-width:480px){
+    .t-trend{font-size:min(.82rem,12.5px)}
+    .t-trend thead th{font-size:min(.74rem,11.5px)}
+    .t-trend tbody th{font-size:min(.8rem,12px)}
+    .t-trend th,.t-trend td{padding:8px 3px}
+  }
 
   /* 좁은 화면에서 글씨를 키워도 표 숫자가 잘리거나 붙어 읽히지 않게 폰트 상한 */
   @media (max-width:480px){
@@ -1346,6 +1360,29 @@
     </div>
 
     <div class="card">
+      <h3>최근 3년 수영구 매입임대 실제 공고량</h3>
+      <p class="sub">공고일 기준입니다. LH 청약플러스·BMC 청약센터 공고문을 피클·뮤즈·인스팅트가 각각 따로 조사해 맞춘 값입니다(2026-11-19).</p>
+      <div class="tbl-wrap">
+        <table class="t-trend">
+          <colgroup><col style="width:34%"><col><col><col></colgroup>
+          <thead>
+            <tr><th scope="col">구분</th><th scope="col">2024년</th><th scope="col">2025년</th><th scope="col">2026년</th></tr>
+          </thead>
+          <tbody>
+            <tr class="hi"><th scope="row">일반·고령자<br><span class="ez">어머님 대상</span></th><td>0호</td><td>27호</td><td>48호</td></tr>
+            <tr><th scope="row">동부권 일반 예비</th><td class="na">–</td><td>100명</td><td>120명</td></tr>
+            <tr><th scope="row">LH 전체</th><td>151호</td><td>121호</td><td class="na">미집계*</td></tr>
+            <tr><th scope="row">BMC 전체</th><td>41호</td><td>20~37호</td><td class="na">미조사</td></tr>
+            <tr><th scope="row">수영구 합계</th><td>192호</td><td>141~158호</td><td class="na">미집계*</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap"><b>*</b> 2026년은 LH 일반·고령자 공고(4월 29일 23호 + 10월 29일 25호)만 확인해 집계했습니다. 청년·신혼 몫은 빠져 있어 전체는 이보다 큽니다. 2025년 27호는 4월 29일 14호 + 9월 4일 13호이고, 2024년은 일반·고령자 공고에 수영구가 한 번도 들어가지 않았습니다.</p>
+      <p class="cap"><b>BMC를 범위로 적은 이유</b> — BMC는 구별 호수를 공시하지 않고 단지 단위로 모집합니다. 2025년은 청년 1차 17호 + 청년 2차 3~20호(조사관 간 차이가 남은 항목)로 20~37호입니다. BMC 일반 매입임대는 2024·2025년 모두 수영구 0호였습니다.</p>
+      <p class="cap">전체 물량의 70~80% 이상이 청년·신혼 몫입니다. 어머님이 노릴 수 있는 <b>일반·고령자</b>는 2024년 0호 → 2025년 27호 → 2026년 48호로 늘었지만 해마다 기복이 큽니다. <b>LH 상반기(4~5월)·하반기(9~10월) 정기 공고에 수영구가 들어가는지</b>가 핵심이고, 2024년처럼 아예 빠지는 해도 있었습니다. 예비입주자 모집인원(동부권 100·120명, 2025년 BMC 재개발 15명)은 실제 공급 호수가 아니라 대기 순번 규모입니다.</p>
+    </div>
+
+    <div class="card">
       <h3>수영구 안에서 먼저 살다가 갈아타기</h3>
       <p>수영구 매입임대는 2026년 2차 공고 기준 <b>보증금 105만 ~ 1,113만 원 · 월 임대료 1만 6,470 ~ 17만 6,470원</b>입니다(25호 전체 기준, 승강기 있는 혼합형 1호만 월 24만 3,510원). 아파트형은 보증금이 크고 공고가 드물기 때문에, <b>괜찮은 저층 매입임대에 먼저 들어간 뒤</b> 다음 공고에서 아파트형으로 옮기는 편이 안전합니다.</p>
       <p><b>지금은 잔여 0호입니다.</b> 2026년 2차는 <b>1순위(우선) 접수(11.10~11.12)</b> 이후 <b>2026-11-18 확인 기준 잔여 0호</b>로 마감 표기되어, 12월 1순위(일반)·2순위 접수는 열리지 않습니다(최종 공고·발표 11.25 재확인 권장). 다음 정기모집은 <b>2027년 4월 말 공고 → 5월 중순 1순위 접수</b>가 예상입니다.</p>
@@ -1368,6 +1405,7 @@
         <li>처분재산·이전소득 산정 — 신청 전 예금 인출·가족 이체는 증명되지 않는 만큼 재산으로 보고, 자녀의 정기 송금은 이전소득으로 봄</li>
         <li>주거급여 — 1촌 직계혈족(부모·자녀) 및 그 배우자 소유 주택 거주는 임차가구로 보지 않음(사망한 1촌 직계혈족의 배우자 제외)</li>
         <li>LH·BMC 매입임대 모집 일정 (2026년 공고 기준)</li>
+        <li>2024·2025년 수영구 매입임대 공고 호수 — LH 청약플러스·BMC청약센터 공고문 원문을 3인(피클·뮤즈·인스팅트)이 독립 조사해 교차검증(2026-11-19). 공고일 기준이며 예비입주자 모집인원은 호수와 구분</li>
       </ul>
     </div>
   </section>
