@@ -120,6 +120,46 @@
   .card p:last-child{margin-bottom:0}
   .ez{color:var(--muted);font-weight:600;font-size:.86em}
 
+  /* ---------- 07 · 어머님 핵심 안내 ---------- */
+  .card.key{border:2.5px solid rgba(8,105,95,.55)}
+  .card.key > h3{color:var(--teal);font-size:1.24rem;line-height:1.38}
+  .card.key .alone.lead{border-width:2px}
+  .card.key .alone.lead h4{font-size:1.1rem;line-height:1.46}
+  .card.key .alone.lead h4 mark{background:rgba(8,105,95,.15);color:var(--teal);padding:0 3px;border-radius:4px}
+  .card.key ul{margin:8px 0 0;padding-left:20px}
+  .card.key ul li{font-size:1rem;line-height:1.62;margin:0 0 8px}
+  .card.key ul li:last-child{margin-bottom:0}
+  .exbox{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 15px;margin:14px 0 0}
+  .exbox > h4{margin:0 0 4px;font-size:1.06rem;font-weight:800;line-height:1.42;color:var(--ink)}
+  .exbox .zero{display:block;margin:12px 0 0;background:var(--tealbg);border:1.5px solid rgba(8,105,95,.45);border-radius:12px;padding:11px 13px;font-size:1.05rem;font-weight:800;color:var(--teal);line-height:1.45}
+  table.ex{font-size:min(.92rem,14.5px)}
+  table.ex thead th{font-size:min(.8rem,12.5px);letter-spacing:-.02em}
+  table.ex tbody th{font-size:min(.88rem,13.5px)}
+  table.ex td.num{font-size:min(.92rem,14.5px)}
+  table.ex tbody td:nth-child(2),table.ex thead th:nth-child(2){border-right:1px solid var(--line)}
+  @media (max-width:480px){
+    table.ex{font-size:min(.84rem,12.5px)}
+    table.ex thead th{font-size:min(.74rem,11.5px)}
+    table.ex tbody th{font-size:min(.8rem,12px)}
+    table.ex td.num{font-size:min(.84rem,12.5px)}
+    .card.key .alone.lead h4{font-size:1.05rem}
+  }
+  @media (max-width:360px){
+    table.ex td.num{white-space:normal;word-break:keep-all;line-height:1.35}
+  }
+
+  /* ---------- 08 · 지역 비교 표 ---------- */
+  .t-reg{font-size:min(.86rem,13px)}
+  .t-reg th,.t-reg td{padding:9px 4px;line-height:1.44}
+  .t-reg tbody th{font-size:min(.84rem,12.5px)}
+  .t-reg thead th{font-size:min(.78rem,12px)}
+  @media (max-width:480px){
+    .t-reg{font-size:min(.79rem,12px)}
+    .t-reg tbody th{font-size:min(.76rem,11.5px)}
+    .t-reg thead th{font-size:min(.72rem,11px)}
+    .t-reg th,.t-reg td{padding:8px 3px}
+  }
+
   /* ---------- figure ---------- */
   figure{margin:0 0 14px;background:var(--card);border:1px solid var(--line);
          border-radius:18px;padding:12px 12px 12px;box-shadow:var(--shadow)}
@@ -955,7 +995,8 @@
         <div class="tn">3</div>
         <div>
           <h4>3년 이상 장기저축은 공제됩니다</h4>
-          <p>해마다 <b>500만 원, 최대 1,500만 원</b>까지 빼줍니다. 다만 3년을 채워야 하니 서두르지 마세요.</p>
+          <p><b>3년을 채워야 받는 게 아닙니다.</b> 3년 이상 만기 상품(정기예·적금, 주택부금, 저축성 보험, 펀드, 연금신탁, ISA)에 <b>어머님 이름으로</b> 넣어두면, <b>가입한 해(또는 수급자로 결정된 해)부터 바로</b> 해마다 <b>500만 원</b>씩 — 첫해 500만, 둘째 해 누적 1,000만, 셋째 해 <b>최대 1,500만 원</b>까지 재산에서 빠집니다.</p>
+          <p>넣어둔 돈이 없어지는 게 아니라 <b>심사 계산에서만</b> 빠지는 것입니다(세금 공제가 아닙니다). 다만 <b>중간에 해지하면 그다음 달부터 공제가 끊기고</b> 그 돈이 다시 재산으로 잡히니 3년은 그대로 두세요(2026년 사업안내 p.148).</p>
         </div>
       </div>
       <div class="tip">
@@ -1290,7 +1331,65 @@
 
   <!-- ============ 07 ============ -->
   <section id="s7">
-    <div class="sec-h"><span class="no">07</span><h2>자주 묻는 실전 질문</h2><span class="hint">신청 시점 · 밀린 돈 · 소득이 줄었을 때</span></div>
+    <div class="sec-h"><span class="no">07</span><h2>자주 묻는 실전 질문</h2><span class="hint">공공임대 월세 · 보험 · 용돈 · 신청 시점 · 변동신고</span></div>
+
+    <div class="card key">
+      <h3>어머님, 이건 꼭 보세요 — 공공임대에 들어가면 월세는 누가 내나요?</h3>
+      <p class="sub">기초수급자(주거급여)가 기장교리 국민임대·행복주택에 들어갈 때 · 2026년 기준</p>
+
+      <div class="alone lead">
+        <h4>결론 — 네, <mark>보증금을 가장 낮추고 월세를 가장 높이는 것</mark>이 제일 유리합니다.</h4>
+        <p>보증금을 낮추면 월세가 조금 오릅니다. 그런데 <b>오른 월세까지 나라가 다 내줍니다.</b> 그래서 어머님 통장에서 나가는 월세가 <b>0원</b>이 됩니다.</p>
+      </div>
+
+      <h3 style="margin-top:16px">왜 그런가요? — 세 가지만 기억하세요</h3>
+      <ul>
+        <li><b>공공임대는 돈이 오는 곳이 다릅니다.</b> LH·부산도시공사 집에 살면 주거급여가 어머님 통장이 아니라 <b>LH 계좌로 바로</b> 들어갑니다.</li>
+        <li><b>계약서에 적힌 월세까지만 내줍니다.</b> 월세보다 더 나오지도 않고, 남는 돈을 현금으로 돌려주지도 않습니다(주거급여 실시에 관한 고시 제17조).</li>
+        <li><b>그래서 월세가 낮으면 손해입니다.</b> 보증금을 낮춰 월세를 올리면 그만큼 나라가 내주는 돈이 커집니다. 보증금은 집을 뺄 때 <b>돌려받는 돈</b>이라 손해가 아닙니다.</li>
+      </ul>
+
+      <h3 style="margin-top:16px">얼마까지 내주나요? (2026년 부산)</h3>
+      <div class="tbl-wrap">
+        <table class="t-2col">
+          <colgroup><col style="width:58%"><col></colgroup>
+          <thead><tr><th>기준임대료 — 나라가 내주는 월세 상한</th><th style="text-align:right">한 달</th></tr></thead>
+          <tbody>
+            <tr><th>1인 가구</th><td class="num">24만 7,000원</td></tr>
+            <tr><th>2인 가구<br><span class="ez">어머님 + 아버님</span></th><td class="num">27만 5,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">부산은 전역이 <b>3급지</b>라 수영구·기장·해운대 어디든 같습니다(김해·양산은 4급지로 1인 21만 2,000원·2인 23만 8,000원). <b>소득인정액이 생계급여 기준(2인 134만 3,773원) 이하</b>이면 이 상한 안쪽 월세는 <b>전액</b> 나옵니다. 기준을 넘으면 넘는 금액의 30%만 어머님이 냅니다.</p>
+
+      <div class="exbox">
+        <h4>예시 — 기장교리 36형 (11월 30일 접수 · 국민임대)</h4>
+        <div class="tbl-wrap" style="margin-top:10px">
+          <table class="ex t-3col">
+            <colgroup><col style="width:40%"><col><col></colgroup>
+            <thead><tr><th></th><th style="text-align:right">그대로 계약</th><th style="text-align:right">보증금 가장 낮게</th></tr></thead>
+            <tbody>
+              <tr><th>보증금</th><td class="num">1,288만 5,000원</td><td class="num">388만 5,000원</td></tr>
+              <tr><th>월세</th><td class="num">117,650원</td><td class="num">약 143,900원</td></tr>
+              <tr class="hi"><th>주거급여로 나오는 돈</th><td class="num">117,650원</td><td class="num">143,900원</td></tr>
+              <tr class="hi"><th>어머님이 내는 월세</th><td class="num">0원</td><td class="num">0원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:11px 0 0;font-size:.97rem">보증금을 <b>900만 원</b> 낮추면 월세가 <b>2만 6,250원</b> 오릅니다(900만 원 × 연 3.5% ÷ 12개월). 그래도 <b>14만 3,900원</b>은 1인 상한 24만 7,000원보다 한참 낮아서 <b>월세 전액이 주거급여로 LH에 들어갑니다.</b></p>
+        <span class="zero">어머님 통장에서 나가는 월세 = 0원</span>
+        <p class="cap">보증금 388만 5,000원은 나중에 집을 뺄 때 돌려받는 돈입니다. 관리비·전기·가스·수도는 본인 부담입니다.</p>
+      </div>
+
+      <div class="warn" style="margin-top:14px">
+        <h3>⚠️ 계약할 때 이렇게 하세요</h3>
+        <ul>
+          <li>LH에 <b>“보증금은 가장 낮게, 월세는 그만큼 올려주세요”</b>라고 말하세요. 낮출 수 있는 한도는 단지·형마다 다릅니다(기장교리 36형은 900만 원).</li>
+          <li>주거급여는 기초수급 <b>신청할 때 함께(통합신청)</b> 넣으세요. 따로 넣으면 늦어집니다.</li>
+          <li>국민임대·행복주택 <b>둘 다 같은 규칙</b>입니다. 최종 금액은 LH 계약 안내서와 수영구청 결정으로 정해집니다.</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="card">
       <h3>Q1. 이사한 달에 바로 신청해도 되나요?</h3>
@@ -1330,7 +1429,59 @@
     </div>
 
     <div class="card">
-      <p class="cap">근거 — 보건복지부 「2026년 국민기초생활보장 사업안내」(신청일이 급여개시일 p.28·p.240, 변동신고·소급 불가 제4편 p.226), 「국민기초생활 보장법」 제27조·제37조, 주거급여법 시행규칙 제3조제3항. 뮤즈·인스팅트 교차 검증(2026-11-18~19)으로 확인한 내용이고, 최종 판정은 수영구청이 합니다.</p>
+      <h3>Q4. 누나가 계약자인 보험(피보험자는 어머님)은 어머님 재산인가요?</h3>
+      <p><b>아니요, 0원입니다.</b> 보험을 해지하면 돌려받는 돈(<b>해약환급금</b>)은 <b>계약자</b>의 재산입니다. 피보험자가 어머님이라는 것만으로는 어머님 재산에 잡히지 않습니다(사업안내 p.94). 보험료를 누가 냈는지도 상관없습니다.</p>
+      <div class="alone">
+        <h4>두 가지만 조심하세요</h4>
+        <p><b>①</b> 최근 1년 안에 어머님이 <b>보험금을 직접 받은</b> 것이 있으면 그 돈은 어머님 금융재산으로 잡힙니다(받는 사람 기준).</p>
+        <p><b>②</b> 생계급여는 부양의무자 기준이 원칙적으로 없어졌지만, 따로 사는 딸(누나)의 <b>연 소득이 1억 3,000만 원</b>을 넘거나 <b>일반재산이 12억 원</b>을 넘으면 부양의무자로 심사에 들어옵니다. 또 <b>의료급여를 함께 신청하면</b> 자녀 소득·재산을 따로 심사하기 때문에, 그때는 누나 보험의 해약환급금도 재산으로 잡힙니다.</p>
+      </div>
+      <p class="cap">준비할 것 — 보험증권(계약자·피보험자·수익자가 적힌 것)과 누나가 따로 산다는 확인(전입·임대차계약).</p>
+    </div>
+
+    <div class="card">
+      <h3>Q5. 세금 신고도 없고 4대보험도 없이 통장으로 받는 월급은 소득으로 잡히나요?</h3>
+      <p><b>잡힐 수 있습니다.</b> 국세청·건강보험 자료에는 안 떠도, 신청할 때와 그 뒤 <b>연 2회 확인조사</b>에서 계좌를 봅니다. 계좌당 <b>10만 원 이상</b>이면 조회되고, 입출금 통장은 <b>최근 3개월 입금 총액</b>까지 확인됩니다. 같은 곳에서 매달 같은 무렵 반복해서 들어오는 돈은 담당자가 확인하러 나옵니다.</p>
+      <div class="why-cmp">
+        <div class="b up2">
+          <p class="tt">미리 신고하면</p>
+          <span class="amt">56만 원</span>
+          <p class="br">월급 100만 원이어도 — 65세 이상 공제 20만 원 + 남은 80만 원의 30% 공제(24만 원) = <b>56만 원만</b> 소득으로 잡힙니다</p>
+        </div>
+        <div class="b">
+          <p class="tt">숨기다 걸리면</p>
+          <span class="amt">전액</span>
+          <p class="br">공제 없이 확인소득 전액(2026년 최저임금 일급 82,560원 × 일한 날수)으로 잡히고, 부정수급이면 받은 돈 환수와 형사처벌까지 갑니다</p>
+        </div>
+      </div>
+      <p style="margin-top:12px">그래서 <b>신고하는 쪽이 훨씬 안전하고 유리합니다.</b> 신청 전에 주민센터에서 “이 정도면 수급이 되나요” 한 번 상담해 보세요.</p>
+    </div>
+
+    <div class="card">
+      <h3>Q6. 자식이 주는 용돈도 소득으로 잡히나요?</h3>
+      <p><b>불규칙하면 대부분 0원입니다.</b> 최근 1년 동안 <b>6회 미만</b>이면 원칙적으로 소득에 넣지 않습니다(1년 합계가 2인 가구 기준 <b>209만 9,646원</b>을 넘는 부분만 잡힙니다).</p>
+      <p><b>6회 이상</b> 정기적으로 받아도, 한 달 합계가 기준 중위소득의 <b>15%</b> 이하면 0원이고 넘는 부분만 소득이 됩니다.</p>
+      <div class="tbl-wrap">
+        <table class="t-2col">
+          <colgroup><col style="width:40%"><col></colgroup>
+          <thead><tr><th>가구</th><th>한 달에 이만큼까지는 0원</th></tr></thead>
+          <tbody>
+            <tr><th>1인 가구</th><td class="num">38만 4,636원</td></tr>
+            <tr><th>2인 가구</th><td class="num">62만 9,894원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">그래서 명절·생일 용돈이나 한 달 30만 원 정도는 소득으로 잡히지 않습니다. 다만 받은 돈이 통장에 그대로 쌓이면 <b>예금(재산)</b>으로는 잡힐 수 있습니다(소액이면 환산액은 거의 0원).</p>
+    </div>
+
+    <div class="card">
+      <h3>Q7. 사는 곳에 따라 신청할 수 있는 집과 급여가 달라지나요?</h3>
+      <p><b>매입임대는 권역이 있습니다.</b> 부산에 살면 <b>부산·울산권 공고만</b> 신청할 수 있습니다. 김해·양산은 공고일 전에 그 지역으로 전입해야 하고, 권역 밖에서 넣으면 무효입니다. 다만 부산 안에서는 구를 가리지 않아 <b>수영구에 살아도 금정·해운대 주택</b>에 넣을 수 있습니다. 그 구에 사는지는 신청 자격이 아니라 <b>같은 순위 안의 우선순위</b>만 좌우합니다.</p>
+      <p><b>급여는 구가 달라도 같습니다.</b> 생계·주거급여 기준과 기본재산액(부산 7,700만 원), 기준임대료(부산 전역 3급지 · 1인 24만 7,000원 · 2인 27만 5,000원)가 부산 어느 구든 똑같습니다. 김해·양산은 4급지라 기준임대료가 더 낮습니다.</p>
+    </div>
+
+    <div class="card">
+      <p class="cap">근거 — 보건복지부 「2026년 국민기초생활보장 사업안내」(신청일이 급여개시일 p.28·p.240, 변동신고·소급 불가 제4편 p.226, 해약환급금 계약자 기준 p.94, 장기금융저축공제 p.148, 부양의무자 고소득·고재산 예외 p.170~174), 「국민기초생활 보장법」 제27조·제37조·시행령 제36조(금융정보 범위), 「주거급여법 시행규칙」 제3조제3항, 「주거급여 실시에 관한 고시」 제7조·제17조, 국토교통부 고시 제2025-506호(2026년 주거급여 기준임대료). 뮤즈·인스팅트 교차 검증(2026-11-18~20)으로 확인한 내용이고, 최종 판정은 수영구청이 합니다.</p>
     </div>
   </section>
 
@@ -1369,17 +1520,41 @@
             <tr><th scope="col">구분</th><th scope="col">2024년</th><th scope="col">2025년</th><th scope="col">2026년</th></tr>
           </thead>
           <tbody>
-            <tr class="hi"><th scope="row">일반·고령자<br><span class="ez">어머님 대상</span></th><td>0호</td><td>27호</td><td>48호</td></tr>
+            <tr class="hi"><th scope="row">일반·고령자<br><span class="ez">어머님 대상</span></th><td>7호</td><td>27호</td><td>48호</td></tr>
             <tr><th scope="row">동부권 일반 예비</th><td class="na">–</td><td>100명</td><td>120명</td></tr>
-            <tr><th scope="row">LH 전체</th><td>151호</td><td>121호</td><td class="na">미집계*</td></tr>
+            <tr><th scope="row">LH 전체</th><td>158호</td><td>121호</td><td class="na">미집계*</td></tr>
             <tr><th scope="row">BMC 전체</th><td>41호</td><td>20~37호</td><td class="na">미조사</td></tr>
-            <tr><th scope="row">수영구 합계</th><td>192호</td><td>141~158호</td><td class="na">미집계*</td></tr>
+            <tr><th scope="row">수영구 합계</th><td>199호</td><td>141~158호</td><td class="na">미집계*</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cap"><b>*</b> 2026년은 LH 일반·고령자 공고(4월 29일 23호 + 10월 29일 25호)만 확인해 집계했습니다. 청년·신혼 몫은 빠져 있어 전체는 이보다 큽니다. 2025년 27호는 4월 29일 14호 + 9월 4일 13호이고, 2024년은 일반·고령자 공고에 수영구가 한 번도 들어가지 않았습니다.</p>
+      <p class="cap"><b>*</b> 2026년은 LH 일반·고령자 공고(4월 29일 23호 + 10월 29일 25호)만 확인해 집계했습니다. 청년·신혼 몫은 빠져 있어 전체는 이보다 큽니다. 2025년 27호는 4월 29일 14호 + 9월 4일 13호입니다. <b>2024년 7호는 10월 11일 [전국] 2차 기존주택 등 매입임대 공고</b>(금정 7·기장 10·수영 7·해운대 20 = 부산 44호)이고, 부산 지역 목록에는 뜨지 않고 전국 공고에만 있던 물량이라 처음 조사에서 빠졌습니다(2026-11-20 정정).</p>
       <p class="cap"><b>BMC를 범위로 적은 이유</b> — BMC는 구별 호수를 공시하지 않고 단지 단위로 모집합니다. 2025년은 청년 1차 17호 + 청년 2차 3~20호(조사관 간 차이가 남은 항목)로 20~37호입니다. BMC 일반 매입임대는 2024·2025년 모두 수영구 0호였습니다.</p>
-      <p class="cap">전체 물량의 70~80% 이상이 청년·신혼 몫입니다. 어머님이 노릴 수 있는 <b>일반·고령자</b>는 2024년 0호 → 2025년 27호 → 2026년 48호로 늘었지만 해마다 기복이 큽니다. <b>LH 상반기(4~5월)·하반기(9~10월) 정기 공고에 수영구가 들어가는지</b>가 핵심이고, 2024년처럼 아예 빠지는 해도 있었습니다. 예비입주자 모집인원(동부권 100·120명, 2025년 BMC 재개발 15명)은 실제 공급 호수가 아니라 대기 순번 규모입니다.</p>
+      <p class="cap">전체 물량의 70~80% 이상이 청년·신혼 몫입니다. 어머님이 노릴 수 있는 <b>일반·고령자</b>는 2024년 7호 → 2025년 27호 → 2026년 48호로 늘었지만 해마다 기복이 큽니다. <b>LH 상반기(4~5월)·하반기(9~10월) 정기 공고에 수영구가 들어가는지</b>가 핵심이고, 2024년처럼 거의 나오지 않는 해(7호)도 있었습니다. 예비입주자 모집인원(동부권 100·120명, 2025년 BMC 재개발 15명)은 실제 공급 호수가 아니라 대기 순번 규모입니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>부산 · 기장 · 김해를 한눈에 (2024년 · 2025년 실제 공고)</h3>
+      <p class="sub">공고일 기준입니다. ‘호’는 실제 집(공급호수), ‘예비 ∼명’은 대기 순번이라 둘은 다른 숫자입니다.</p>
+      <div class="tbl-wrap">
+        <table class="t-reg t-3col">
+          <colgroup><col style="width:23%"><col><col></colgroup>
+          <thead><tr><th>지역</th><th>2024년</th><th>2025년</th></tr></thead>
+          <tbody>
+            <tr><th>부산 전체<br><span class="ez">LH+BMC</span></th><td>1,802호<br><span class="ez">일반 실주택 305호<br>+ 예비 520명</span></td><td>1,442호<br><span class="ez">일반 실주택 150호<br>+ 예비 810명</span></td></tr>
+            <tr class="hi"><th>수영구</th><td>7호</td><td>27호<br><span class="ez">+ 예비 100명</span></td></tr>
+            <tr><th>기장군</th><td>일반 32호<br><span class="ez">+ 예비 35명</span></td><td>일반 0호<br><span class="ez">+ 예비 30명<br>(리츠 7호 별도)</span></td></tr>
+            <tr><th>김해시</th><td>205호<br><span class="ez">일반 59호<br>+ 예비 200명</span></td><td>225호<br><span class="ez">일반 36호<br>+ 예비 285명</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">2026년 수영구는 <b>48호 + 예비 120명</b>입니다(위 표). 부산 전체는 2025년에 20% 줄었고, 줄어든 곳은 청년 몫입니다.</p>
+      <ul style="margin:10px 0 0;padding-left:20px">
+        <li style="font-size:.97rem;line-height:1.6">부산에서 어머님이 노릴 <b>일반·고령자 실주택</b>은 2024~2025년 2년 합계로 <b>동래 94호 · 부산진 67호 · 연제 55호</b>처럼 서부권에 몰려 있습니다.</li>
+        <li style="font-size:.97rem;line-height:1.6">수영구는 <b>7호 → 27호 + 예비 100명 → 48호 + 예비 120명</b>으로 늘었습니다.</li>
+        <li style="font-size:.97rem;line-height:1.6">기장군은 2025년 <b>일반 실주택 0호</b>였고, 청년·신혼은 2년 내리 0호입니다(부산 16개 구·군 중 2년 합계 13위).</li>
+        <li style="font-size:.97rem;line-height:1.6">김해시는 매년 1~2월 시 단위 예비 모집이 큽니다. 다만 부산에 살면 지역 우선순위에서 밀리고, 공고일 전에 전입하지 않으면 신청 자체가 무효입니다.</li>
+      </ul>
     </div>
 
     <div class="card">
