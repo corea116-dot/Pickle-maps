@@ -279,8 +279,6 @@
     td.num{word-break:keep-all}
     .t4{font-size:min(.9rem,13.5px)}
     .t4 thead th{font-size:min(.78rem,12px)}
-    .res .val{font-size:min(1.72rem,30px)}
-    .res .saeng .val{font-size:min(1.45rem,25px)}
     .t-2col tbody th{width:42%}
   }
 
@@ -335,11 +333,13 @@
     background:var(--card);border:2px solid var(--accent);border-radius:18px;
     padding:14px 16px;margin:0 0 14px;box-shadow:0 4px 16px rgba(15,43,71,.14);
   }
-  .res .row1{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .res .metric{min-width:0}
+  .res .row1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  .res .metric{min-width:0;display:flex;flex-direction:column}
   .res .lbl{display:block;font-size:.82rem;font-weight:800;color:var(--muted);line-height:1.3}
-  .res .val{display:block;font-size:1.72rem;font-weight:800;letter-spacing:-.03em;line-height:1.25;
-            font-variant-numeric:tabular-nums;margin-top:2px}
+  /* 금액은 '27.5만 원'이 '27.5만 / 원'으로 쪼개지지 않게 한 덩어리로 둔다 */
+  .res .val{display:block;font-size:1.72rem;font-weight:800;letter-spacing:-.045em;line-height:1.25;
+            font-variant-numeric:tabular-nums;margin-top:auto;padding-top:2px;white-space:nowrap}
+  .nb{white-space:nowrap}
   .res .val.teal{color:var(--teal)}
   .res .val.navy{color:var(--navy)}
   .res .line{margin-top:9px;font-size:.95rem;line-height:1.55;font-weight:700;color:var(--ink)}
@@ -348,9 +348,9 @@
   .res .inv b{color:var(--ink);font-size:1rem}
 
   .res .saeng{margin-top:10px;padding-top:10px;border-top:1px solid var(--line2)}
-  .res .saeng .saeng-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-  .res .saeng .lbl{font-size:.86rem;font-weight:800;color:var(--ink)}
-  .res .saeng .val{font-size:1.45rem;color:var(--teal);margin-top:0}
+  .res .saeng .saeng-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;row-gap:2px}
+  .res .saeng .lbl{font-size:.86rem;font-weight:800;color:var(--ink);min-width:0}
+  .res .saeng .val{font-size:1.45rem;color:var(--teal);margin-top:0;flex:0 0 auto}
   .res .saeng .note{display:block;font-size:.82rem;color:var(--muted);font-weight:700;margin-top:2px;line-height:1.45}
   .res .saeng.zero .val{color:var(--red)}
   /* 결과 카드는 화면에 붙잡지 않고 스크롤 흐름에 그대로 둡니다 — 아래 본문·표를 가리지 않게 */
@@ -492,6 +492,9 @@
     .t5 thead th .ez{font-size:.94em}
     .t5 thead th:first-child{letter-spacing:-.03em}
     .t5 .tot{font-size:min(.82rem,15.5px)}
+    /* 금액이 결과 카드 두 칸 안에서 한 줄로 들어가게 — 큰 글씨(22px)에서도 '27.5만 원'이 쪼개지지 않음 */
+    .res .val{font-size:min(1.5rem,7vw)}
+    .res .saeng .val{font-size:min(1.35rem,6.5vw)}
   }
   @media (max-width:370px){
     .t5{font-size:min(.74rem,14px)}
@@ -558,11 +561,11 @@
     <div class="card key">
       <h3>먼저 이 다섯 줄만 보세요</h3>
       <div class="alone lead">
-        <h4>수영구 수영동 <mark>세영힐스테이 22채</mark>가 새로 나왔습니다.</h4>
+        <h4>수영구 수영동 <mark>세영힐스테이</mark> 22채가 새로 나왔습니다.</h4>
         <p>접수는 <b>11월 30일(월) ~ 12월 2일(수)</b>. <b>주민등록지 행정복지센터에 직접 가서</b> 냅니다(인터넷 접수는 없습니다).</p>
         <p>보증금 <b>551만 7,000원</b> · 월세 <b>27만 1,420 ~ 29만 1,950원</b>입니다. 시중 시세의 <b>40% 수준</b>입니다.</p>
         <p>어머님은 <b>2순위</b>로 넣고, 배점은 9점 만점에 <b>8점 예상</b>입니다.</p>
-        <p><b>기장교리 36형과 같이 넣어도 됩니다.</b> 두 건 모두 유효하고, 둘 다 되면 한 곳만 계약합니다.</p>
+        <p><b>기장교리 36형과 같이 넣어도 됩니다.</b> 두 건 모두 유효하고, 둘 다 되면 한 곳만 계약합니다. 기장교리 36형 접수는 <b>11. 30.(월) 10:00~16:00</b>, <b>부산기장교리 관리사무소</b>(부산 기장군 기장읍 차성로 397번길 7 · 051-722-1623)에서 합니다.</p>
       </div>
 
       <h3 style="margin-top:16px">공고 내용 한 장으로</h3>
@@ -646,7 +649,7 @@
       <div class="tbl-wrap">
         <table class="t-2col">
           <colgroup><col style="width:44%"><col></colgroup>
-          <thead><tr><th>등본 식구</th><th style="text-align:right">세전 월 소득 상한</th></tr></thead>
+          <thead><tr><th>등본 식구</th><th style="text-align:right">세전 월 소득 상한<br><span class="ez">도시근로자<br>월평균 50%</span></th></tr></thead>
           <tbody>
             <tr><th>1인</th><td class="num">266만 9,354원</td></tr>
             <tr><th>2인</th><td class="num">351만 9,762원</td></tr>
@@ -654,7 +657,7 @@
           </tbody>
         </table>
       </div>
-      <p class="cap">2026년 기준 도시근로자 월평균소득의 <b>50%</b>입니다. 식구가 많을수록 선이 높아집니다.</p>
+      <p class="cap">2026년 기준 <b>도시근로자 월평균소득의 50%</b>입니다(3인 이상 가구 기준). 식구가 적으면 선이 낮아집니다 — <b>1인 가구는 50%에 +20%p를 더해 70%, 2인 가구는 +10%p를 더해 60%</b>를 적용하고, 위 표의 금액은 그 가산이 이미 반영된 값입니다. 아래 §05의 <b>2인 가구 기준</b>(생계 134만 3,773원 등)과는 가구 수가 달라 숫자가 다릅니다.<br><b>이 표는 ‘3인 가구(어머님 댁) 상한’</b>입니다 — 어머님 댁은 <b>3인 기준 408만 4,215원</b>이 넘으면 안 되는 선입니다.</p>
 
       <h3 style="margin-top:16px">재산은 영구임대 기준으로 봅니다</h3>
       <div class="dl">
@@ -689,12 +692,15 @@
             <tr><th>위치</th><td>수영동</td><td>기장읍 교리</td></tr>
             <tr><th>평수</th><td>전용 29㎡ · 방 1</td><td>전용 36㎡</td></tr>
             <tr><th>보증금</th><td class="num">551만 7,000원</td><td class="num">1,288만 5,000원</td></tr>
-            <tr><th>월세</th><td class="num">27만 1,420 ~<br>29만 1,950원</td><td class="num">11만 7,650원</td></tr>
+            <tr><th>월세</th><td class="num">27만 1,420원<br>~ 29만 1,950원</td><td class="num">11만 7,650원</td></tr>
+            <tr><th>접수</th><td>11. 30.~12. 2.<br>주민등록지<br>행정복지센터</td><td>11. 30.(월)<br>10:00~16:00<br><b>기장교리<br>관리사무소</b></td></tr>
             <tr><th>3인 소득 상한</th><td class="num">408만 원<br><span class="ez">50% 이하</span></td><td class="num">571만 원<br><span class="ez">70% 이하</span></td></tr>
             <tr class="hi"><th>어머님 순위</th><td>2순위</td><td>3순위</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="cap"><b>접수처</b> — 기장교리 36형은 <b>11. 30.(월) 10:00~16:00</b>에 <b>부산기장교리 관리사무소</b>(부산 기장군 기장읍 차성로 397번길 7 · 051-722-1623)에서 접수합니다(1·2·3순위 같은 날). 수영구 고령자 매입임대는 주민등록지 행정복지센터입니다.</p>
+      <p class="cap">위 표의 <b>‘3인 소득 상한’은 3인 가구 기준</b>입니다. 반면 아래 기장교리 월세 이야기에 나오는 <b>생계기준 134만 3,773원은 2인 가구 기준</b>입니다 — 3인 가구 생계기준은 171만 4,892원으로 선이 더 높습니다.</p>
       <p class="cap">기장교리 36형은 <b>기장군에 사는 사람이 1순위</b>, 해운대·금정·울산 울주·경남 양산이 2순위이고, <b>수영구에 살면 3순위</b>입니다(공고문). 36형은 보증금 1,288만 5,000원에 월 11만 7,650원이고, <b>보증금을 900만 원 낮춰 388만 5,000원</b>으로 하면 월세가 <b>14만 3,900원</b>이 됩니다. 다만 이렇게 나가는 월세가 0원이 되는 것은 <b>소득인정액이 생계기준(2인 134만 3,773원) 이하일 때</b>이고, 그 선을 넘으면 (소득인정액 − 134만 3,773원)의 30%만큼은 본인이 냅니다(07번 기장교리 카드 참고). 소득 선은 국민임대가 높지만, 순위에서는 수영구가 유리합니다.</p>
     </div>
 
@@ -822,16 +828,17 @@
       <div class="tbl-wrap">
         <table class="t-3col">
           <colgroup><col style="width:26%"><col><col style="width:31%"></colgroup>
-          <thead><tr><th>혜택</th><th>쉬운 풀이</th><th style="text-align:right">2인 기준</th></tr></thead>
+          <thead><tr><th>혜택</th><th>쉬운 풀이</th><th style="text-align:right">2인 가구 기준</th></tr></thead>
           <tbody>
             <tr><th>생계급여<br><span class="ez">생활비 현금 받는 기준</span></th><td>생활비를 <b>현금</b>으로 줍니다</td><td class="num">134만 3,773원</td></tr>
             <tr><th>의료급여</th><td><b>병원비</b>를 거의 안 냅니다</td><td class="num">167만 9,717원</td></tr>
             <tr><th>주거급여</th><td><b>월세</b>를 대신 내줍니다</td><td class="num">201만 5,660원</td></tr>
-            <tr><th>차상위계층</th><td>수급자 <b>바로 위</b> 계층.<br><b>LH 매입임대 1순위</b> 자격이 생깁니다<br><span class="ez">(국민임대 1순위와 다름)</span></td><td class="num">209만 9,646원</td></tr>
+            <tr><th>차상위계층</th><td>수급자 <b>바로 위</b> 계층.<br><b>LH 매입임대 1순위</b> 자격이 생깁니다<br><span class="ez">(국민임대 1순위와 다름)</span></td><td class="num">209만 9,646원<span class="ez" style="display:block;font-weight:700;white-space:normal">중위소득 50%</span></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cap">‘2인 기준’은 <b>소득인정액(실제 잡히는 월 소득)</b>이 이 금액보다 적으면 받는다는 뜻입니다. 2026년 기준.</p>
+      <p class="cap">‘2인 가구 기준’은 <b>소득인정액(실제 잡히는 월 소득)</b>이 이 금액보다 적으면 받는다는 뜻입니다. 2026년 기준. 식구가 다르면 선도 달라집니다(<b>3인 가구</b>는 생계 171만 4,892원 · 의료 214만 3,614원 · 주거 257만 2,337원 · 차상위 267만 9,518원).</p>
+      <p class="cap"><b>209만 9,646원은 중위소득 50%</b>라서 <b>교육급여 선정기준과 같은 금액</b>입니다. 다만 <b>차상위계층 확인서는 이것만으로 바로 나오지 않습니다</b> — 주민센터에 따로 신청해 소득·재산 조사를 거쳐야 하고, 본인부담 경감·장애수당 같은 세부 사업은 각각 다른 요건을 더 봅니다. LH 매입임대 1순위 판정도 LH가 서류로 따로 합니다.</p>
     </div>
 
     <div class="card">
@@ -924,7 +931,7 @@
         <div class="r"><span class="k">예금·보험 해약환급금</span><span class="v">전세 5,000만이면<br>3,450만 원까지 0원</span></div>
         <div class="r tot"><span class="k">차가 있으면</span><span class="v">차 값 100% 잡힘</span></div>
       </div>
-      <p class="cap">보증금 500만 원짜리 집이면 예금은 <b>7,725만 원</b>까지 재산 0원으로 봅니다(기본재산액 7,700만 − 보증금 환산 475만 + 생활준비금 500만). 차는 값이 그대로 잡혀서 <b>기준을 넘기기 쉽습니다.</b> 다만 <b>배기량 2,000cc 미만 승용차</b>이면서 <b>연식 10년 이상이거나 차량가액 500만 원 미만</b>이면 일반재산으로 보아 <b>월 4.17%</b>만 소득으로 잡습니다. 생업용 1대와 장애인 이동용 차량은 재산 산정에서 아예 빠집니다.</p>
+      <p class="cap">보증금 500만 원짜리 집이면 예금은 <b>7,725만 원</b>까지 재산 0원으로 봅니다(기본재산액 7,700만 − 보증금 환산 475만 + 생활준비금 500만). 차는 값이 그대로 잡혀서 <b>기준을 넘기기 쉽습니다.</b> 다만 <b>배기량 2,000cc 미만 승용차</b>이면서 <b>연식 10년 이상이거나 차량가액 500만 원 미만</b>이면 일반재산으로 보아 <b>월 4.17%</b>만 소득으로 잡습니다. 생업용 1대와 <b>심한 등록장애인 본인 직접 이동용 차량(배기량 2,000cc 미만, 가구당 1대)</b>은 재산 산정에서 아예 빠집니다.</p>
     </div>
   </section>
 
@@ -1090,7 +1097,7 @@
 
   <!-- ============ 04 ============ -->
   <section id="s4">
-    <div class="sec-h"><span class="no">04</span><h2>주거급여(월세 지원) — 얼마나 받나요?</h2><span class="hint">민간 집 월세 30만 원 · 보증금 500만 원 기준</span></div>
+    <div class="sec-h"><span class="no">04</span><h2>주거급여(월세 지원) — 얼마나 받나요?</h2><span class="hint">민간 집 월세 30만 원 · 보증금 500만 원 · <b>2인 가구 기준</b>(3인으로 바꿔 계산 가능)</span></div>
 
     <figure>
       <div class="fig-panel">
@@ -1253,7 +1260,7 @@
 
   <!-- ============ 05 ============ -->
   <section id="s5">
-    <div class="sec-h"><span class="no">05</span><h2>엄마 월급, 어디까지 받나요?</h2><span class="hint">경우 B(엄마 세대주·2인) · 연금 40만 원 포함</span></div>
+    <div class="sec-h"><span class="no">05</span><h2>엄마 월급, 어디까지 받나요?</h2><span class="hint">경우 B(엄마 세대주) · <b>2인 가구 기준</b> · 연금 40만 원 포함</span></div>
 
     <div class="card">
       <h3>받을 수 있는 혜택마다 선이 다릅니다</h3>
@@ -1269,6 +1276,7 @@
           </tbody>
         </table>
       </div>
+      <p class="cap"><b>이 05번의 표·계산은 모두 2인 가구(어머님+아버님) 기준</b>입니다. 그래서 맨 위 NEW의 <b>3인 가구 소득 상한 408만 4,215원</b>과 숫자가 다릅니다 — 가구 수가 다르면 선도 달라집니다.</p>
       <p class="cap">세 혜택은 <b>하나를 고르는 게 아니라 각각 따로</b> 봅니다. 월급 200만 원이면 생활비 현금은 못 받지만, 월세 지원과 LH 매입임대 1순위는 됩니다.</p>
     </div>
 
@@ -1302,7 +1310,7 @@
 
     <div class="card">
       <h3>월급별로 실제로 받는 생계급여·주거급여</h3>
-      <p class="sub">연금 40만 원은 그대로, 엄마 월급만 바뀔 때 (2인 · 재산 0원 가정)</p>
+      <p class="sub">연금 40만 원은 그대로, 엄마 월급만 바뀔 때 (<b>2인 가구</b> · 재산 0원 가정)</p>
       <p>생활비 현금은 나라가 정한 <b>생계기준 1,343,773원(2인)</b>에서 <b>소득인정액</b>을 뺀 만큼입니다. 모자란 만큼만 현금으로 메워 주기 때문에, 월급이 늘면 현금은 그만큼 줄어듭니다.</p>
 
       <div class="alone">
@@ -1326,8 +1334,8 @@
       </div>
       <p class="cap">숫자는 <b>만 원</b> 단위이고, 월세는 <b>월세 30만 원·보증금 500만 원</b> 집 기준입니다. <b>합계는 생활비 현금과 월세 지원을 더한 값</b>으로, 두 줄이 서로 깎지 않습니다. 월급 154.8만 원을 넘으면 생활비 현금은 0원이 되지만, <b>월세 지원과 LH 매입임대 1순위는 그대로</b>입니다.</p>
       <p class="cap"><b>원 단위까지 보면</b> — 월급 100만 원 줄은 생활비 현금 <b>383,780원</b>(383,773원을 10원 단위로 올림) + 월세 지원 <b>275,000원</b> = <b>658,780원</b>입니다.<br>
-        <sup>†</sup> 155만 원 줄은 잡히는 소득(134만 5,000원)이 생계기준(134만 3,773원)을 1,227원 넘습니다. 자기부담분은 368.1원의 10원 미만을 버린 <b>360원</b>이고, 지급액은 10원 단위로 올린 <b>274,640원</b>입니다(표에는 읽기 쉽게 27.5만으로 적었습니다).</p>
-      <p class="cap"><b>끊기는 지점</b> — 월급이 <b>약 154만 8,247원</b>을 넘으면 생활비 현금이 0원이 되고, <b>약 250만 8,086원</b>을 넘으면 월세 지원도 0원이 됩니다(연금 40만 원·재산 0원 기준). 경계 바로 위(월급 155만 원)에서는 월세 지원이 360원 줄어드는 정도라, <b>끊겨도 거의 그대로</b>입니다.</p>
+        <sup>†</sup> 155만 원 줄은 잡히는 소득(134만 5,000원)이 생계기준(134만 3,773원)을 1,227원 넘습니다. 자기부담분은 368.1원을 <b>1원 단위에서 올린 369원</b>이고, 지급액은 10원 단위로 올린 <b>274,640원</b>입니다(표에는 읽기 쉽게 27.5만으로 적었습니다). 자기부담분은 <b>1원 미만 올림</b>, 지급액은 <b>10원 미만 올림</b>입니다(「주거급여 실시에 관한 고시」 제7조④).</p>
+      <p class="cap"><b>끊기는 지점</b> — 월급이 <b>약 154만 8,247원</b>을 넘으면 생활비 현금이 0원이 되고, <b>약 250만 8,086원</b>을 넘으면 월세 지원도 0원이 됩니다(연금 40만 원·재산 0원 기준). 경계 바로 위(월급 155만 원)에서는 월세 지원이 369원 줄어드는 정도라, <b>끊겨도 거의 그대로</b>입니다.</p>
     </div>
 
     <figure>
@@ -1600,6 +1608,7 @@
 
       <div class="exbox">
         <h4>예시 — 기장교리 36형 (11월 30일 접수 · 국민임대)</h4>
+        <p style="margin:8px 0 0;font-size:.97rem"><b>접수 — 11. 30.(월) 10:00~16:00 · 부산기장교리 관리사무소</b>(부산 기장군 기장읍 차성로 397번길 7 · 051-722-1623). 1·2·3순위가 모두 이 날 접수합니다.</p>
         <p class="cap" style="margin:8px 0 0">아래 표는 <b>소득인정액이 생계기준(2인 134만 3,773원) 이하</b>일 때입니다.</p>
         <div class="tbl-wrap" style="margin-top:10px">
           <table class="ex t-3col">
@@ -1672,7 +1681,7 @@
       <div class="alone">
         <h4>두 가지만 조심하세요</h4>
         <p><b>①</b> 최근 1년 안에 어머님이 <b>보험금을 직접 받은</b> 것이 있으면 그 돈은 어머님 금융재산으로 잡힙니다(받는 사람 기준).</p>
-        <p><b>②</b> 생계급여는 부양의무자 기준이 원칙적으로 없어졌지만, 따로 사는 딸(누나)의 <b>연 소득이 1억 3,000만 원</b>을 넘거나 <b>일반재산이 12억 원</b>을 넘으면 부양의무자로 심사에 들어옵니다. 또 <b>의료급여를 함께 신청하면</b> 자녀 소득·재산을 따로 심사하기 때문에, 그때는 누나 보험의 해약환급금도 재산으로 잡힙니다.</p>
+        <p><b>②</b> 생계급여 부양의무자 기준은 크게 완화되어, 따로 사는 딸(누나)의 <b>연 소득이 1억 3,000만 원</b> 또는 <b>일반재산이 12억 원</b>을 넘을 때만 탈락합니다. 둘 다 그 아래면 누나 소득·재산은 생계급여 심사에 들어오지 않습니다. 또 <b>의료급여를 함께 신청하면</b> 자녀 소득·재산을 따로 심사하기 때문에, 그때는 누나 보험의 해약환급금도 재산으로 잡힙니다.</p>
       </div>
       <p class="cap">준비할 것 — 보험증권(계약자·피보험자·수익자가 적힌 것)과 누나가 따로 산다는 확인(전입·임대차계약).</p>
     </div>
@@ -1960,8 +1969,9 @@
     var inv = invSup;
 
     var actualRent = rent + deposit * 0.04 / 12;
-    /* 자기부담분은 10원 미만 버림, 지급액은 10원 단위 올림 */
-    var selfPay = invSup > st.saeng ? Math.floor(((invSup - st.saeng) * 0.3) / 10) * 10 : 0;
+    /* 자기부담분은 1원 미만 올림, 지급액은 10원 단위 올림(주거급여 고시 제7조④) */
+    var selfRaw = invSup > st.saeng ? (invSup - st.saeng) * 0.3 : 0;
+    var selfPay = Math.ceil(Math.round(selfRaw * 1000000) / 1000000);
     var grant = 0;
     if (pass.jugeo) {
       grant = roundUp10(Math.max(0, Math.min(st.cap, actualRent) - selfPay));
@@ -2108,31 +2118,32 @@
     oSaeng.textContent = (saengCash > 0 ? man(saengCash) : '0원');
     if (saengCash > 0) {
       oSaengBox.className = 'saeng';
-      oSaengNote.textContent = '생계기준 ' + manCheon(r.st.saeng) + ' 원에서 모자란 '
-                             + man(saengCash) + '을 현금으로 받습니다';
+      oSaengNote.innerHTML = '생계기준 <span class="nb">' + manCheon(r.st.saeng) + ' 원</span>에서 모자란 <span class="nb">'
+                             + man(saengCash) + '</span>을 현금으로 받습니다';
     } else {
       oSaengBox.className = 'saeng zero';
-      oSaengNote.textContent = '소득인정액이 생계기준(' + manCheon(r.st.saeng) + ' 원)을 넘어 0원입니다';
+      oSaengNote.innerHTML = '소득인정액이 생계기준(<span class="nb">' + manCheon(r.st.saeng) + ' 원</span>)을 넘어 0원입니다';
     }
 
+    var nv = function(v){ return '<span class="nb">' + man(v) + '</span>'; };
     if (!r.pass.jugeo) {
       oLine.className = 'line bad';
-      oLine.textContent = '소득인정액이 기준(' + manShort(r.st.jugeo) + ' 원)을 넘어 지원이 없습니다.';
+      oLine.innerHTML = '소득인정액이 기준(' + nv(r.st.jugeo) + ')을 넘어 지원이 없습니다.';
     } else if (r.grant <= 0) {
       oLine.className = 'line bad';
       oLine.textContent = '지원금이 0원입니다. 월세가 낮거나 소득이 기준에 가깝습니다.';
     } else if (r.rent <= 0) {
       oLine.className = 'line';
-      oLine.textContent = '현금 월세는 0원이고, 보증금 월 환산액(' + man(r.actualRent) + ') 기준으로 '
-                        + man(r.grant) + '을 지원받습니다.';
+      oLine.innerHTML = '현금 월세는 0원이고, 보증금 월 환산액(' + nv(r.actualRent) + ') 기준으로 '
+                        + nv(r.grant) + '을 지원받습니다.';
     } else if (r.grant >= r.actualRent - 1) {
       oLine.className = 'line';
-      oLine.textContent = '월세 ' + man(r.rent) + ' + 보증금 환산 ' + man(r.actualRent - r.rent)
-                        + ' = ' + man(r.grant) + ' 전액 지원합니다. 현금 월세는 한 푼도 내지 않고, 나머지는 보증금을 월세로 환산한 몫까지 함께 쳐준 것입니다.';
+      oLine.innerHTML = '월세 ' + nv(r.rent) + ' + 보증금 환산 ' + nv(r.actualRent - r.rent)
+                        + ' = ' + nv(r.grant) + ' 전액 지원합니다. 현금 월세는 한 푼도 내지 않고, 나머지는 보증금을 월세로 환산한 몫까지 함께 쳐준 것입니다.';
     } else {
       oLine.className = 'line';
-      oLine.textContent = '월세 ' + man(r.rent) + ' 중 ' + man(r.grant) + '을 지원받고, '
-                        + man(r.outOfPocket) + '을 냅니다.';
+      oLine.innerHTML = '월세 ' + nv(r.rent) + ' 중 ' + nv(r.grant) + '을 지원받고, '
+                        + nv(r.outOfPocket) + '을 냅니다.';
     }
 
     var caps = [
