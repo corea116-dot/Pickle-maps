@@ -386,16 +386,20 @@
 
   .fld{padding:13px 0;border-top:1px solid var(--line2)}
   .fld:first-of-type{border-top:0}
-  .fld .fl{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:9px}
+  .fld .fl{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;row-gap:7px}
   .fld label{font-size:1rem;font-weight:800;line-height:1.4}
   .fld label .ez{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-top:1px}
-  .fld .fv{display:flex;align-items:center;gap:5px;flex:0 0 auto}
+  .fld .fv{display:flex;align-items:center;gap:5px;flex:0 0 auto;margin-left:auto}
   .fld input[type=number]{
-    width:6.6em;font:inherit;font-size:1.18rem;font-weight:800;text-align:right;
+    width:7.2em;min-width:7.2em;font:inherit;font-size:1.18rem;font-weight:800;text-align:right;
     padding:9px 10px;min-height:48px;border-radius:11px;border:1.5px solid var(--line);
     background:var(--card);color:var(--navy);font-variant-numeric:tabular-nums;
     -moz-appearance:textfield;
   }
+  /* 큰 글씨에서는 라벨과 입력란을 위아래로 놓아 라벨이 뭉개지고 입력란 밖으로 밀리지 않게 */
+  html[data-fs="1"] .fld .fl,html[data-fs="2"] .fld .fl{display:block}
+  html[data-fs="1"] .fld .fv,html[data-fs="2"] .fld .fv{justify-content:flex-end;margin:7px 0 0}
+  html[data-fs="1"] .fld input[type=number],html[data-fs="2"] .fld input[type=number]{width:8em;min-width:8em}
   .fld input[type=number]::-webkit-outer-spin-button,
   .fld input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   .fld input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(21,84,184,.16)}
@@ -626,9 +630,9 @@
           <colgroup><col style="width:52%"><col style="width:28%"><col></colgroup>
           <thead><tr><th>항목</th><th>어머님</th><th style="text-align:right">점수</th></tr></thead>
           <tbody>
-            <tr><th>① 부산에 계속 산 기간<br><span class="ez">5년 넘으면 3점</span></th><td>5년 이상</td><td class="num">3점</td></tr>
-            <tr><th>② 나이<br><span class="ez">75세 넘으면 3점</span></th><td>70 ~ 74세</td><td class="num">2점</td></tr>
-            <tr><th>③ 등본 식구 수<br><span class="ez">3명 넘으면 3점</span></th><td>3명<br><span class="ez">누나·어머님·아버님</span></td><td class="num">3점</td></tr>
+            <tr><th>① 부산에 계속 산 기간<br><span class="ez">5년 이상 3점</span></th><td>5년 이상</td><td class="num">3점</td></tr>
+            <tr><th>② 나이<br><span class="ez">75세 이상 3점</span></th><td>70 ~ 74세</td><td class="num">2점</td></tr>
+            <tr><th>③ 등본 식구 수<br><span class="ez">3인 이상 3점</span></th><td>3명<br><span class="ez">누나·어머님·아버님</span></td><td class="num">3점</td></tr>
             <tr class="hi"><th>합계</th><td>—</td><td class="num">8점</td></tr>
           </tbody>
         </table>
@@ -685,7 +689,7 @@
             <tr><th>위치</th><td>수영동</td><td>기장읍 교리</td></tr>
             <tr><th>평수</th><td>전용 29㎡ · 방 1</td><td>전용 36㎡</td></tr>
             <tr><th>보증금</th><td class="num">551만 7,000원</td><td class="num">1,288만 5,000원</td></tr>
-            <tr><th>월세</th><td class="num">27.1 ~ 29.2만 원</td><td class="num">11만 7,650원</td></tr>
+            <tr><th>월세</th><td class="num">27만 1,420 ~<br>29만 1,950원</td><td class="num">11만 7,650원</td></tr>
             <tr><th>3인 소득 상한</th><td class="num">408만 원<br><span class="ez">50% 이하</span></td><td class="num">571만 원<br><span class="ez">70% 이하</span></td></tr>
             <tr class="hi"><th>어머님 순위</th><td>2순위</td><td>3순위</td></tr>
           </tbody>
@@ -1094,22 +1098,22 @@
         <text x="8" y="20" font-size="14.5" font-weight="800" fill="#0f2b47">① 연금만 40만 원 (소득 40만)</text>
         <rect x="8" y="28" width="344" height="30" rx="8" fill="#e4ebf2"/>
         <rect x="8" y="28" width="315" height="30" rx="8" fill="#08695f"/>
-        <text x="14" y="68" font-size="13.5" font-weight="800" fill="#08695f">지원 27.5만 원</text>
-        <text x="352" y="68" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 2.5만 원</text>
+        <text x="14" y="74" font-size="13.5" font-weight="800" fill="#08695f">지원 27.5만 원</text>
+        <text x="352" y="74" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 2.5만 원</text>
         <text x="8" y="104" font-size="14.5" font-weight="800" fill="#0f2b47">② 월급 200 + 연금 40 (소득 166만)</text>
         <rect x="8" y="112" width="344" height="30" rx="8" fill="#e4ebf2"/>
         <rect x="8" y="112" width="206" height="30" rx="8" fill="#08695f"/>
-        <text x="14" y="152" font-size="13.5" font-weight="800" fill="#08695f">지원 18.0만 원</text>
-        <text x="352" y="152" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 12.0만 원</text>
+        <text x="14" y="158" font-size="13.5" font-weight="800" fill="#08695f">지원 18.0만 원</text>
+        <text x="352" y="158" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 12.0만 원</text>
         <text x="8" y="188" font-size="14.5" font-weight="800" fill="#0f2b47">③ 딱 커트라인 201만 5,660원</text>
         <rect x="8" y="196" width="344" height="30" rx="8" fill="#e4ebf2"/>
         <rect x="8" y="196" width="84" height="30" rx="8" fill="#08695f"/>
-        <text x="14" y="236" font-size="13.5" font-weight="800" fill="#08695f">지원 7.3만 원</text>
-        <text x="352" y="236" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 22.7만 원</text>
+        <text x="14" y="242" font-size="13.5" font-weight="800" fill="#08695f">지원 7.3만 원</text>
+        <text x="352" y="242" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 22.7만 원</text>
         <text x="8" y="272" font-size="14.5" font-weight="800" fill="#6a7c8d">④ 기준을 넘으면 (210만)</text>
         <rect x="8" y="280" width="344" height="30" rx="8" fill="#dfe4ea"/>
-        <text x="14" y="320" font-size="13.5" font-weight="800" fill="#6a7c8d">지원 0원</text>
-        <text x="352" y="320" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 30만 원</text>
+        <text x="14" y="326" font-size="13.5" font-weight="800" fill="#6a7c8d">지원 0원</text>
+        <text x="352" y="326" text-anchor="end" font-size="13.5" font-weight="800" fill="#a51c14">내 돈 30만 원</text>
         <text x="180" y="346" text-anchor="middle" font-size="12" fill="#6a7c8d">초록색이 나라에서 주는 돈, 회색이 내가 내는 돈</text>
       </svg>
       </div>
@@ -1592,7 +1596,7 @@
           </tbody>
         </table>
       </div>
-      <p class="cap">부산은 전역이 <b>3급지</b>라 수영구·기장·해운대 어디든 같습니다(김해·양산은 4급지로 <span style="white-space:nowrap">1인 21만 2,000원</span>·<span style="white-space:nowrap">2인 23만 8,000원</span>). <b>소득인정액이 생계급여 기준(2인 134만 3,773원) 이하</b>이면 이 상한 안쪽 월세는 <b>전액</b> 나옵니다. 기준을 넘으면 넘는 금액의 30%만 어머님이 냅니다.</p>
+      <p class="cap">부산은 전역이 <b>3급지</b>라 수영구·기장·해운대 어디든 같습니다(김해·양산은 4급지로 <span style="white-space:nowrap">1인 21만 2,000원</span>·<span style="white-space:nowrap">2인 23만 8,000원</span>). <b>소득인정액이 생계급여 기준(2인 134만 3,773원) 이하</b>이면 이 상한 안쪽 월세는 <b>전액</b> 나옵니다. 소득인정액이 생계기준을 넘으면, 넘는 소득의 30%만 자기부담분으로 냅니다.</p>
 
       <div class="exbox">
         <h4>예시 — 기장교리 36형 (11월 30일 접수 · 국민임대)</h4>
@@ -1794,7 +1798,7 @@
 
     <div class="card">
       <h3>수영구 매입임대에 먼저 살다가 갈아타기</h3>
-      <p>수영구 매입임대는 2026년 2차 공고 기준 <b>보증금 105만 ~ 1,113만 원 · 월 임대료 1만 6,470 ~ 17만 6,470원</b>입니다(2차 공고 <b>25호 전체</b> 기준 — 중소형 12호 + 중대형 4호 + 소형 원룸형 9호, 승강기 있는 혼합형 1호만 월 24만 3,510원). 아파트형은 보증금이 크고 공고가 드물기 때문에, <b>괜찮은 저층 매입임대에 먼저 들어간 뒤</b> 다음 공고에서 아파트형으로 옮기는 편이 안전합니다.</p>
+      <p>수영구 매입임대는 2026년 2차 공고 기준 <b>보증금 105만 1,000 ~ 1,113만 1,000원 · 월 임대료 1만 6,470 ~ 24만 3,510원</b>입니다(2차 공고 <b>25호 전체</b> = 중소형 12호 + 중대형 4호 + 소형 원룸형 9호). 이 가운데 승강기 있는 혼합형 1호(망미동 제이하우스)만 월 <b>24만 3,510원</b>이고, 나머지 24호는 <b>1만 6,470 ~ 17만 6,470원</b>입니다. 아파트형은 보증금이 크고 공고가 드물기 때문에, <b>괜찮은 저층 매입임대에 먼저 들어간 뒤</b> 다음 공고에서 아파트형으로 옮기는 편이 안전합니다.</p>
       <p>아래 단추의 <b>지도 페이지</b>는 이 25호 가운데 <b>중소형·중대형 16호</b>만 그려 두었습니다(소형 원룸형 9호 제외).</p>
       <p><b>지금은 잔여 0호입니다.</b> 2026년 2차는 <b>1순위(우선) 접수(11.10~11.12)</b> 이후 <b>2026-11-18 확인 기준 잔여 0호</b>로 마감 표기되어, 12월 1순위(일반)·2순위 접수는 열리지 않습니다(최종 공고·발표 11.25 재확인 권장). 다음 정기모집은 <b>2027년 4월 말 공고 → 5월 중순 1순위 접수</b>가 예상입니다.</p>
       <p><b>11월 20일 고령자 매입임대 22호는 이 공고와 별개</b>로 새로 난 공고입니다(맨 위 <a href="#s0">NEW</a>). 2차 공고 25호와는 다른 공고이니 헷갈리지 마세요.</p>
@@ -1838,9 +1842,73 @@
   var fsIdx = 0;
   try { var saved = localStorage.getItem('sy-fs'); if (saved !== null) fsIdx = Math.max(0, Math.min(2, parseInt(saved,10)||0)); } catch(e){}
   var fsBtn = document.getElementById('fsBtn');
+  /* ---------- 그림(SVG) 속 글자도 글씨 크기에 맞춰 키운다 ---------- */
+  /* 글씨를 키우면 본문만 커지고 그림 속 글자는 그대로라 작게 보였다. 그림 안 글자는
+     그림 폭·칸 안에 들어가는 만큼만 키운다(넘치면 그만큼 돌려놓는다). */
+  function scaleSvgText(){
+    var rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 17;
+    var k = Math.max(1, rootPx / 17);
+    var svgs = document.querySelectorAll('.fig-panel svg');
+    for (var s=0;s<svgs.length;s++){
+      var svg = svgs[s], vb = svg.viewBox && svg.viewBox.baseVal;
+      if (!vb || !vb.width) continue;
+      var rects = svg.querySelectorAll('rect'), texts = svg.querySelectorAll('text');
+      for (var i=0;i<texts.length;i++){
+        var t = texts[i];
+        var parts = [t].concat(Array.prototype.slice.call(t.querySelectorAll('tspan')));
+        var bases = [];
+        for (var j=0;j<parts.length;j++){
+          var el = parts[j];
+          if (!el.dataset.fs0) el.dataset.fs0 = el.getAttribute('font-size') || String(parseFloat(getComputedStyle(el).fontSize) || 13.5);
+          bases.push(parseFloat(el.dataset.fs0) || 13.5);
+        }
+        var setR = function(r){
+          for (var q=0;q<parts.length;q++) parts[q].style.fontSize = (bases[q]*r).toFixed(2) + 'px';
+        };
+        var ax = parseFloat(t.getAttribute('x')||0), ay = parseFloat(t.getAttribute('y')||0);
+        var anchor = t.getAttribute('text-anchor') || 'start';
+        var host = null;
+        for (var m=0;m<rects.length;m++){
+          var rc = rects[m];
+          var rx = +rc.getAttribute('x'), ry = +rc.getAttribute('y'),
+              rw = +rc.getAttribute('width'), rh = +rc.getAttribute('height');
+          if (ax >= rx-1 && ax <= rx+rw+1 && ay >= ry-1 && ay <= ry+rh+1){
+            if (!host || rw < host.w) host = {x:rx, w:rw};
+          }
+        }
+        var lft = (host ? host.x : 0) + 6, rgt = (host ? host.x + host.w : vb.width) - 6;
+        /* 글자가 막대·칸과 위아래로 겹치지 않게: 칸 안에 든 글자는 칸 안에, 밖에 있는 글자는 칸을 침범하지 않게 */
+        var vFits = function(b){
+          for (var v=0; v<rects.length; v++){
+            var rr = rects[v];
+            var rx = +rr.getAttribute('x'), ry = +rr.getAttribute('y'),
+                rw = +rr.getAttribute('width'), rh = +rr.getAttribute('height');
+            if (!(b.x < rx+rw-2 && b.x+b.width > rx+2)) continue;
+            if (!(b.y < ry+rh-1 && b.y+b.height > ry+1)) continue;
+            if (b.y >= ry+2 && b.y+b.height <= ry+rh-2) continue;
+            return false;
+          }
+          return true;
+        };
+        var fits = function(){
+          var b = t.getBBox();
+          if (!b.width) return true;
+          var hOK = (anchor === 'middle')
+            ? ((ax - b.width/2 >= lft) && (ax + b.width/2 <= rgt))
+            : (b.x + b.width <= rgt);
+          return hOK && vFits(b);
+        };
+        var r = k;
+        setR(r);
+        for (var it=0; it<10 && !fits(); it++){ r = Math.max(1, r*0.94); setR(r); }
+      }
+    }
+  }
   function applyFs(){
     document.documentElement.style.fontSize = SIZES[fsIdx];
+    document.documentElement.setAttribute('data-fs', String(fsIdx));
     if (fsBtn) fsBtn.textContent = LABELS[fsIdx];
+    scaleSvgText();
     try { localStorage.setItem('sy-fs', String(fsIdx)); } catch(e){}
   }
   if (fsBtn) fsBtn.addEventListener('click', function(){ fsIdx = (fsIdx+1) % SIZES.length; applyFs(); });
@@ -1935,14 +2003,15 @@
   }
 
   /* ---------- 필드 ---------- */
+  /* 슬라이더·숫자 입력 모두 1단위 — 숫자로 154·263을 넣어도 슬라이더가 5단위로 튀지 않게 */
   var FIELDS = [
-    { id:'wageOld', t:'65세 이상 어르신 월급', ez:'(20만 원 빼고 30% 더 깎아줌 · 70%만 소득으로 침)', min:0, max:400, step:5 },
-    { id:'wageGen', t:'일반 성인 월급', ez:'(30% 깎고 70%만 · 3인 가구일 때만 합산)', min:0, max:600, step:5, only3:true },
-    { id:'pension', t:'연금 (기초·국민)', ez:'(100% 그대로 소득으로 침)', min:0, max:150, step:5 },
-    { id:'deposit', t:'집 보증금', ez:'(예: 500만 원이면 500)', min:0, max:10000, step:100 },
-    { id:'rent', t:'한 달 월세', ez:'', min:0, max:100, step:1 },
-    { id:'finance', t:'예금·적금·주식', ez:'(순수 보장성 보험은 빼요)', min:0, max:20000, step:100 },
-    { id:'debt', t:'은행 대출·빚', ez:'', min:0, max:20000, step:100 }
+    { id:'wageOld', t:'65세 이상 어르신 월급', ez:'(20만 원 빼고 30% 더 깎아줌 · 70%만 소득으로 침)', min:0, max:400 },
+    { id:'wageGen', t:'일반 성인 월급', ez:'(30% 깎고 70%만 · 3인 가구일 때만 합산)', min:0, max:600, only3:true },
+    { id:'pension', t:'연금 (기초·국민)', ez:'(100% 그대로 소득으로 침)', min:0, max:150 },
+    { id:'deposit', t:'집 보증금', ez:'(예: 500만 원이면 500)', min:0, max:10000 },
+    { id:'rent', t:'한 달 월세', ez:'', min:0, max:100 },
+    { id:'finance', t:'예금·적금·주식', ez:'(순수 보장성 보험은 빼요)', min:0, max:20000 },
+    { id:'debt', t:'은행 대출·빚', ez:'', min:0, max:20000 }
   ];
 
   var S = { hh:2, wageOld:200, wageGen:0, pension:40, deposit:500, rent:30, finance:0, debt:0 };
@@ -1959,8 +2028,8 @@
     var f = FIELDS[i];
     html += '<div class="fld' + (f.only3?' only3':'') + '" data-f="'+f.id+'">'
          +  '<div class="fl"><label for="in_'+f.id+'">'+f.t+(f.ez?' <span class="ez">'+f.ez+'</span>':'')+'</label>'
-         +  '<div class="fv"><input type="number" inputmode="numeric" id="in_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'"><span class="u">만원</span></div></div>'
-         +  '<input type="range" id="rg_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'">'
+         +  '<div class="fv"><input type="number" inputmode="numeric" id="in_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="1"><span class="u">만원</span></div></div>'
+         +  '<input type="range" id="rg_'+f.id+'" min="'+f.min+'" max="'+f.max+'" step="1">'
          +  '</div>';
   }
   fieldsBox.innerHTML = html;
