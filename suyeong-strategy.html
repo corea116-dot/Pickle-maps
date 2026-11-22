@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- suyeong-strategy.html · v=28 · 2026년 기준 · 해마다 다시 보는 안내 -->
+<!-- suyeong-strategy.html · v=29 · 2026년 기준 · 해마다 다시 보는 안내 -->
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -7,7 +7,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#10304f">
-<meta name="version" content="v=28">
+<meta name="version" content="v=29">
 <meta name="description" content="수영구에서 월세 지원(주거급여)을 받고 LH 매입임대 1순위로 들어가는 순서 — 세대분리, 수급·차상위 자격, 월세·생활비 계산기, 실전 Q&amp;A, 매입임대 공고 시기. 2026년 기준·해마다 쓰는 안내.">
 <title>LH 매입임대 입주 전략 — 수영구 세대분리 · 월세 지원 · 매입임대 1순위</title>
 <link rel="icon" href="data:,">
@@ -365,6 +365,13 @@
   .res .saeng.zero .val{color:var(--red)}
   /* 결과 카드는 화면에 붙잡지 않고 스크롤 흐름에 그대로 둡니다 — 아래 본문·표를 가리지 않게 */
 
+  .res .hhwarn{margin-top:11px;border:1.5px solid rgba(154,79,0,.55);background:var(--amberbg);
+    border-radius:12px;padding:10px 12px;font-size:.9rem;font-weight:800;line-height:1.6;color:var(--amber);
+    word-break:keep-all}
+  .res .hhwarn:empty{display:none}
+  .res .hhwarn b{color:var(--amber);font-weight:800;background:rgba(154,79,0,.14);border-radius:5px;padding:0 3px}
+  @media (prefers-color-scheme: dark){ .res .hhwarn b{background:rgba(234,176,105,.18)} }
+
   .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
   .bdg{display:flex;flex-direction:column;gap:1px;border-radius:10px;padding:6px 10px;
        border:1.5px solid var(--line);background:var(--soft);min-width:0}
@@ -669,7 +676,7 @@
           </tbody>
         </table>
       </div>
-      <p class="cap">‘2인 가구 기준’은 <b>소득인정액(실제 잡히는 월 소득)</b>이 이 금액보다 적으면 받는다는 뜻입니다. 2026년 기준. 식구가 다르면 선도 달라집니다(<b>3인 가구</b>는 생계 171만 4,892원 · 의료 214만 3,614원 · 주거 257만 2,337원 · 차상위 267만 9,518원).</p>
+      <p class="cap">‘2인 가구 기준’은 <b>소득인정액(실제 잡히는 월 소득)</b>이 이 금액 이하이면 받는다는 뜻입니다. 2026년 기준. 식구가 다르면 선도 달라집니다(<b>3인 가구</b>는 생계 171만 4,892원 · 의료 214만 3,614원 · 주거 257만 2,337원 · 차상위 267만 9,518원).</p>
       <p class="cap"><b>209만 9,646원은 중위소득 50%</b>라서 <b>교육급여 선정기준과 같은 금액</b>입니다. 다만 <b>차상위계층 확인서는 이것만으로 바로 나오지 않습니다</b> — 주민센터에 따로 신청해 소득·재산 조사를 거쳐야 하고, 본인부담 경감·장애수당 같은 세부 사업은 각각 다른 요건을 더 봅니다. LH 매입임대 1순위 판정도 LH가 서류로 따로 합니다.</p>
     </div>
 
@@ -953,6 +960,7 @@
         </div>
         <span class="note" id="oSaengNote">생계기준 1,343,773원을 넘어 0원입니다</span>
       </div>
+      <div class="hhwarn" id="oWarn" aria-live="polite"></div>
       <div class="badges" id="oBadges"></div>
     </div>
 
@@ -990,7 +998,7 @@
         </button>
         <button type="button" class="preset" data-p="3">
           <b>③ 3인 유지 (누나 소득 합산)</b>
-          <span>지금 넣은 집 값은 그대로 두고, 누나 월급 250까지 더해지면 기준 초과 → 지원 0원</span>
+          <span>지금 넣은 집 값은 그대로 두고, 누나 월급 250만 원까지 더해지면 기준 초과 → 지원 0원</span>
         </button>
       </div>
 
@@ -1091,7 +1099,7 @@
           <thead><tr><th>받으려는 것</th><th>쉬운 풀이</th><th style="text-align:right">엄마 세전 월급</th></tr></thead>
           <tbody>
             <tr class="hi"><th>생활비 현금<br><span class="ez">생계급여</span></th><td>생활비를 <b>현금</b>으로 받음</td><td class="num">약 112만 원<br>미만</td></tr>
-            <tr><th>월세 지원<br><span class="ez">주거급여</span></th><td><b>월세</b>를 대신 내줌</td><td class="num">약 208만 원<br>이하</td></tr>
+            <tr><th>월세 지원<br><span class="ez">주거급여</span></th><td><b>월세</b>를 대신 내줌</td><td class="num">약 208만 원<br>미만</td></tr>
             <tr><th>LH 매입임대 1순위<br><span class="ez">차상위계층</span></th><td><b>LH 매입임대</b>에서 <b>먼저</b> 뽑힘<br><span class="ez">(국민임대 1순위와 다름)</span></td><td class="num">약 219.9만 원<br>이하</td></tr>
           </tbody>
         </table>
@@ -1113,7 +1121,7 @@
         <text x="8" y="118" font-size="14" font-weight="800" fill="#0f2b47">월세 지원 <tspan font-size="12" font-weight="600" fill="#6a7c8d">주거급여</tspan></text>
         <rect x="8" y="126" width="344" height="28" rx="7" fill="#e4ebf2"/>
         <rect x="8" y="126" width="325" height="28" rx="7" fill="#a8600f"/>
-        <text x="18" y="145" font-size="12.5" font-weight="800" fill="#ffffff">월급 208만 원 이하</text>
+        <text x="18" y="145" font-size="12.5" font-weight="800" fill="#ffffff">월급 208만 원 미만</text>
 
         <text x="8" y="188" font-size="13.5" font-weight="800" fill="#0f2b47">LH 매입임대 1순위 <tspan font-size="12" font-weight="600" fill="#6a7c8d">차상위계층</tspan></text>
         <rect x="8" y="196" width="344" height="28" rx="7" fill="#e4ebf2"/>
@@ -1155,7 +1163,7 @@
       <p class="cap">숫자는 <b>만 원</b> 단위이고, 월세는 <b>월세 30만 원·보증금 500만 원</b> 집 기준입니다. <b>합계는 생활비 현금과 월세 지원을 더한 값</b>으로, 두 줄이 서로 깎지 않습니다. 월급 112만 원을 넘으면 생활비 현금은 0원이 되지만, <b>월세 지원과 LH 매입임대 1순위는 그대로</b>입니다.</p>
       <p class="cap"><b>원 단위까지 보면</b> — 월급 100만 원 줄은 생활비 현금 <b>83,780원</b>(83,773원을 10원 단위로 올림) + 월세 지원 <b>275,000원</b> = <b>358,780원</b>입니다.<br>
         <sup>†</sup> 112만 원 줄은 잡히는 소득(134만 4,000원)이 생계기준(134만 3,773원)을 227원 넘습니다. 자기부담분은 68.1원을 <b>1원 단위에서 올린 69원</b>이고, 지급액은 10원 단위로 올린 <b>274,940원</b>입니다(표에는 읽기 쉽게 27.5만으로 적었습니다). 자기부담분은 <b>1원 미만 올림</b>, 지급액은 <b>10원 미만 올림</b>입니다(「주거급여 실시에 관한 고시」 제7조④).</p>
-      <p class="cap"><b>끊기는 지점</b> — 월급이 <b>약 111만 9,676원</b>을 넘으면 생활비 현금이 0원이 되고, <b>약 207만 9,514원</b>을 넘으면 월세 지원도 0원이 됩니다(부부 연금 70만 원·재산 0원 기준). 경계 바로 위(월급 112만 원)에서는 월세 지원이 69원 줄어드는 정도라, <b>끊겨도 거의 그대로</b>입니다.</p>
+      <p class="cap"><b>끊기는 지점</b> — 월급이 <b>약 111만 9,676원</b>을 넘으면 생활비 현금이 0원이 되고, <b>약 207만 9,514원</b>을 넘으면 월세 지원도 0원이 됩니다. 여기서 <b>약 219만 9,494원</b>을 넘으면 LH 매입임대 1순위 자격(차상위)까지 사라집니다(부부 연금 70만 원·재산 0원 기준). 경계 바로 위(월급 112만 원)에서는 월세 지원이 69원 줄어드는 정도라, <b>끊겨도 거의 그대로</b>입니다.</p>
     </div>
 
     <figure>
@@ -1269,7 +1277,7 @@
         <p><span class="n">1</span>생계급여 차이 — 643,773원 − 420,556원 = <b>월&nbsp;223,217원</b></p>
         <p><span class="n">2</span>월세 지원 차이 — 275,000원 − 247,000원 = <b>월&nbsp;28,000원</b></p>
         <p><span class="n">3</span>둘을 더하면 <b>월&nbsp;251,217원</b> → 1년이면 <b>3,014,604원</b>(약&nbsp;301만&nbsp;원)</p>
-        <p><span class="n">4</span>에너지바우처 차이 — 407,500원 − 295,200원 = <b>연&nbsp;112,300원</b></p>
+        <p><span class="n">4</span>에너지바우처 차이 — 407,500원 − 295,200원 = <b>연&nbsp;112,300원</b><span class="ez" style="display:block;margin-top:2px">에너지바우처는 <b>별도 자격</b>(수급자 등)을 갖춘 경우에만 나오고, 금액도 보장가구가 아니라 <b>등본상 세대원 수</b>로 정해집니다 — 이 11만&nbsp;2,300원은 그 조건이 맞을 때의 차이입니다.</span></p>
         <p><span class="n">5</span>모두 더하면 <b>연&nbsp;3,126,904원</b> — <b>1년에 약&nbsp;313만&nbsp;원</b> 차이입니다.</p>
       </div>
       <p class="cap">어머님 월급이 있으면 위 05번 표와 같은 근로소득 공제 뒤 소득인정액이 차감됩니다. 생계기준 <b>820,556원</b>은 2026년 기준중위소득 1인 가구(2,564,238원)의 32%, <b>1,343,773원</b>은 2인 가구의 32%입니다(보건복지부 고시 제2025-135호). <b>에너지바우처 금액은 보장가구가 아니라 등본 세대원 수</b>로 정해집니다(2026년 1인 295,200원·2인 407,500원). 아버님 등본이 누나 쪽에 있으면 어머님은 등본상 1인 세대라 295,200원이 될 수 있고, 그때도 <b>생계·월세만으로 연&nbsp;301만&nbsp;원</b> 차이가 납니다.</p>
@@ -2226,6 +2234,17 @@
          +  '<i>' + manShort(caps[i][1]) + ' 이하</i></span>';
     }
     oBadges.innerHTML = bh;
+
+    /* 1인 가구인데 연금이 부부 합산값(70만) 그대로면 — 값을 바꾸지 않고 경고만 띄운다 (안 B) */
+    var warnEl = document.getElementById('oWarn');
+    if (warnEl) {
+      if (r.n === 1 && (S.pension || 0) > 40) {
+        warnEl.innerHTML = '⚠️ 지금 연금 <b>' + S.pension + '만 원</b>은 부부 합산 등 2인 기준값이라 1인 기준보다 높게 잡혔어요.<br>'
+                         + '어머님 혼자 기준이면 <b>연금을 40만 원</b>으로 낮춰 보세요.';
+      } else {
+        warnEl.innerHTML = '';
+      }
+    }
 
     /* 04번 그림 6을 대신하는 동적 비교 — 지금 조건에서 소득만 바꾼 네 경우 */
     var cmpRows = document.getElementById('cmpRows'), cmpNote = document.getElementById('cmpNote'),
