@@ -960,10 +960,10 @@
       <h3>소득이 늘면 지원금은 이렇게 줄어듭니다</h3>
       <p class="sub">집 값(<b id="cmpHome">월세 30만 원 · 보증금 500만 원</b>)은 그대로 두고 <b id="cmpHh">2인 가구</b>에서 <b>소득만 바꾼</b> 경우입니다. 아래 슬라이더를 움직이면 <b>이 표와 위 결과가 함께 바뀝니다.</b></p>
       <div class="kv" id="cmpRows">
-        <div class="r tot"><span class="k">지금 넣은 조건<br><span style="font-weight:600;font-size:.85em">월급 200만 + 연금 70만 · 소득인정액 1,960,000원</span></span><span class="v">지원 90,140원<br>내가 209,860원</span></div>
-        <div class="r"><span class="k">월급이 0원이면<br><span style="font-weight:600;font-size:.85em">연금 70만 · 소득인정액 700,000원</span></span><span class="v">지원 275,000원<br>내가 25,000원</span></div>
-        <div class="r"><span class="k">딱 커트라인<br><span style="font-weight:600;font-size:.85em">주거급여 기준</span></span><span class="v">지원 73,440원<br>내가 226,560원</span></div>
-        <div class="r"><span class="k">커트라인을 넘으면<br><span style="font-weight:600;font-size:.85em">기준 + 10만 원</span></span><span class="v">지원 0원<br>내가 300,000원</span></div>
+        <div class="r tot"><span class="k">지금 넣은 조건<br><span style="font-weight:600;font-size:.85em">월급 200만 + 연금 70만 · 소득인정액 196만 원</span></span><span class="v">지원 9만 원<br>내가 21만 원</span></div>
+        <div class="r"><span class="k">월급이 0원이면<br><span style="font-weight:600;font-size:.85em">연금 70만 · 소득인정액 70만 원</span></span><span class="v">지원 27.5만 원<br>내가 2.5만 원</span></div>
+        <div class="r"><span class="k">딱 커트라인<br><span style="font-weight:600;font-size:.85em">주거급여 기준</span></span><span class="v">지원 7.3만 원<br>내가 22.7만 원</span></div>
+        <div class="r"><span class="k">커트라인을 넘으면<br><span style="font-weight:600;font-size:.85em">기준 + 10만 원</span></span><span class="v">지원 0원<br>내가 30만 원</span></div>
       </div>
       <p class="cap" id="cmpNote">소득인정액이 <b>생계기준(1,343,773원)</b>을 넘으면 넘는 금액의 <b>30%</b>가 내 몫으로 붙어 지원금이 그만큼 줄고, <b>주거급여 기준(2,015,660원)</b>을 넘으면 <b>한 푼도 못 받습니다</b>. 지금 조건은 자기부담분 <b>184,869원</b>을 빼고 <b>90,140원</b>을 받습니다.</p>
     </div>
@@ -2259,8 +2259,8 @@
         var cs = cases[ci];
         ch += '<div class="r' + (ci === 0 ? ' tot' : '') + '"><span class="k">' + cs[0]
            +  '<br><span style="font-weight:600;font-size:.85em">' + cs[1]
-           +  (cs[2] === null ? '' : ' · 소득인정액 ' + won(cs[2])) + '</span></span>'
-           +  '<span class="v">지원 ' + won(cs[3]) + '<br>내가 ' + won(cs[4]) + '</span></div>';
+           +  (cs[2] === null ? '' : ' · 소득인정액 ' + man(cs[2])) + '</span></span>'
+           +  '<span class="v">지원 ' + man(cs[3]) + '<br>내가 ' + man(cs[4]) + '</span></div>';
       }
       cmpRows.innerHTML = ch;
 
