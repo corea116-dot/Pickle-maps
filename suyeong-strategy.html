@@ -2285,12 +2285,12 @@
       var pr = computeCalc(presetState(pk));
       var ptxt;
       if (!pr.pass.jugeo) {
-        ptxt = '소득인정액 ' + manShort(pr.inv) + '만 → 주거급여 기준(' + won(pr.st.jugeo) + ') 초과, 지원 0원';
+        ptxt = '소득인정액 ' + manShort(pr.inv) + ' → 주거급여 기준(' + won(pr.st.jugeo) + ') 초과, 지원 0원';
       } else if (pr.grant > 0) {
-        ptxt = '소득인정액 ' + manShort(pr.inv) + '만 → 월세 ' + man(pr.grant) + ', 생활비 현금 '
+        ptxt = '소득인정액 ' + manShort(pr.inv) + ' → 월세 ' + man(pr.grant) + ', 생활비 현금 '
              + (pr.saengCash > 0 ? man(pr.saengCash) : '0원');
       } else {
-        ptxt = '소득인정액 ' + manShort(pr.inv) + '만 → 지원 0원 (월세가 낮거나 기준에 가까움)';
+        ptxt = '소득인정액 ' + manShort(pr.inv) + ' → 지원 0원 (월세가 낮거나 기준에 가까움)';
       }
       pz.textContent = ptxt + ' · ' + pr.n + '인 기준';
     }
