@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- suyeong-strategy.html · v=29 · 2026년 기준 · 해마다 다시 보는 안내 -->
+<!-- suyeong-strategy.html · v=30 · 2026년 기준 · 해마다 다시 보는 안내 -->
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -7,7 +7,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#10304f">
-<meta name="version" content="v=29">
+<meta name="version" content="v=30">
 <meta name="description" content="수영구에서 월세 지원(주거급여)을 받고 LH 매입임대 1순위로 들어가는 순서 — 세대분리, 수급·차상위 자격, 월세·생활비 계산기, 실전 Q&amp;A, 매입임대 공고 시기. 2026년 기준·해마다 쓰는 안내.">
 <title>LH 매입임대 입주 전략 — 수영구 세대분리 · 월세 지원 · 매입임대 1순위</title>
 <link rel="icon" href="data:,">
@@ -258,6 +258,42 @@
   .dl .r.hi .v, .dl .r.hi .v b{color:var(--teal)}
   .dl .v .ez{display:block;margin-top:3px;font-size:.88em;font-weight:600}
   .dl .r.hi .v .ez{color:var(--muted)}
+  /* 06 · 항목별 '신청 방법 / 신청 시기' — 큰 글씨에서도 라벨과 내용이 좌우로 밀리지 않게 */
+  .ap{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:8px;row-gap:3px;
+      margin:9px 0 0;padding:9px 11px;background:var(--soft);border:1px solid var(--line2);
+      border-radius:11px;font-size:.9rem;line-height:1.55;font-weight:600;color:var(--ink)}
+  .dl .v .ap,.dl .r.hi .v .ap{color:var(--ink)}
+  .dl .v .ap b,.dl .r.hi .v .ap b{grid-column:1;color:var(--teal);font-size:.78rem;font-weight:800;
+      letter-spacing:.02em;padding-top:2px;white-space:nowrap}
+  .ap > span{grid-column:2;min-width:0}
+  .dl .v .ap b.pt{grid-column:1 / -1;color:var(--muted);font-size:.8rem;margin-top:7px;padding-top:7px;
+      border-top:1px dashed var(--line);white-space:normal}
+  .dl .v .ap b.pt:first-child{margin-top:0;padding-top:0;border-top:0}
+  /* 06 · 에너지바우처 상세 */
+  .ev{border:2px solid rgba(8,105,95,.5);border-radius:16px;padding:14px 14px 12px;margin:2px 0 0;background:var(--card)}
+  .ev-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 6px}
+  .ev-h .n{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--teal);color:#fff;
+    font-size:.84rem;font-weight:800;display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
+  @media (prefers-color-scheme: dark){ .ev-h .n{color:#0f151c} }
+  .ev-h h4{margin:0;font-size:1.1rem;font-weight:800;line-height:1.35;color:var(--teal);letter-spacing:-.01em}
+  .ev h5{margin:14px 0 7px;padding-top:12px;border-top:1px solid var(--line2);
+    font-size:.95rem;font-weight:800;color:var(--ink);line-height:1.4}
+  .ev p{font-size:.97rem;line-height:1.62;margin:0 0 8px}
+  .ev p:last-child{margin-bottom:0}
+  .ev .cond{display:grid;grid-template-columns:1fr;gap:8px;margin:2px 0 0}
+  .ev .cond .c{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:start;
+    background:var(--soft);border:1px solid var(--line2);border-radius:12px;padding:10px 12px}
+  .ev .cond .c .cn{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;
+    font-size:.78rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  @media (prefers-color-scheme: dark){ .ev .cond .c .cn{color:#0f151c} }
+  .ev .cond .c p{margin:0;font-size:.95rem;line-height:1.6}
+  .ev .cond .c p b{font-weight:800;color:var(--ink)}
+  table.t-ev{margin:0}
+  table.t-ev tbody th{width:46%}
+  table.t-ev td.num{font-size:1.02rem}
+  .ev .dl{margin:8px 0 0}
+  .ev .dl .k{font-size:.86rem}
+  .ev .dl .v{font-size:.99rem}
   .t-3col tbody th{width:30%}
   .t-4col tbody th{width:24%}
   .t4{font-size:.9rem}
@@ -1350,7 +1386,7 @@
 
   <!-- ============ 06 · 기초수급 혜택 총정리 ============ -->
   <section id="sbenefit">
-    <div class="sec-h"><span class="no">06</span><h2>기초수급이 되면 같이 받는 혜택 총정리</h2><span class="hint">생계급여·주거급여 중 <b>하나만 돼도</b> 받는 것만 · 의료급여 전용은 뺐습니다 · 뮤즈·인스팅트·큐 3인 교차검증(2026. 11. 21.)</span></div>
+    <div class="sec-h"><span class="no">06</span><h2>기초수급이 되면 같이 받는 혜택 총정리</h2><span class="hint">생계급여·주거급여 중 <b>하나만 돼도</b> 받는 것만 · 의료급여 전용은 뺐습니다 · 뮤즈·인스팅트·큐 3인 교차검증(2026. 11. 21.) · 항목별 <b>신청 방법·시기</b>를 기관 공식 안내로 확인해 보강(2026. 11. 22.)</span></div>
 
     <div class="card key">
       <h3>먼저 이것만 — 이 목록은 ‘의료급여 없이’ 받는 혜택입니다</h3>
@@ -1379,30 +1415,84 @@
     <div class="card">
       <h3>① 현금·바우처·공과금 <span class="ez">6가지</span></h3>
       <p class="sub">주민센터에서 <b>‘요금감면 일괄신청’</b> 한 장이면 전기·도시가스·수도·통신·TV 수신료를 <b>한 번에</b> 신청됩니다.</p>
-      <div class="dl">
-        <div class="r hi">
-          <span class="k">에너지바우처 <span class="bdg both"><b>생계·주거 공통</b></span></span>
-          <span class="v"><b>1인 연&nbsp;295,200원 · 2인 연&nbsp;407,500원</b><span class="ez">만 65세 이상이 있는 가구는 생계·주거급여 중 <b>하나만 돼도</b> 지급됩니다. 금액은 보장가구가 아니라 <b>등본 세대원 수</b>로 정해집니다.</span></span>
+      <div class="ev">
+        <div class="ev-h"><span class="n">1</span><h4>에너지바우처</h4><span class="bdg both"><b>생계·주거 공통</b></span></div>
+        <p>전기·도시가스·등유·LPG 같은 <b>냉·난방 요금</b>을 미리 넣어 주는 제도입니다. 현금으로 주는 것이 아니라 <b>요금에서 깎이는 바우처</b>입니다.</p>
+
+        <h5>얼마나 받나요 — 2026년 연간 총액</h5>
+        <div class="tbl-wrap">
+          <table class="t-2col t-ev">
+            <thead><tr><th scope="col">등본상 세대원 수</th><th scope="col">1년 지원금액</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1인 세대</th><td class="num">295,200원</td></tr>
+              <tr><th scope="row">2인 세대</th><td class="num">407,500원</td></tr>
+              <tr><th scope="row">3인 세대</th><td class="num">532,700원</td></tr>
+              <tr><th scope="row">4인 이상 세대</th><td class="num">701,300원</td></tr>
+            </tbody>
+          </table>
         </div>
+        <p class="cap">금액은 <b>보장가구가 아니라 주민등록등본상 세대원 수</b>로 정해집니다. 어머님은 아버님이 같은 등본에 계시면 <b>2인(연&nbsp;407,500원)</b>, 아버님이 누나 집 등본에 계시면 <b>1인(연&nbsp;295,200원)</b>이 됩니다.</p>
+        <p class="cap">여름·겨울 <b>구분 없이</b> 사용기간 안에서 자유롭게 쓸 수 있고, 이 금액은 <b>수급 소득 산정에 잡히지 않아</b> 받아도 생계급여가 줄지 않습니다.</p>
+
+        <h5>받을 수 있는 조건 — 두 가지 모두 맞아야 합니다</h5>
+        <div class="cond">
+          <div class="c"><span class="cn">①</span><p><b>소득기준</b> — 기초생활수급자(생계·의료·주거·교육급여 가운데 하나). <b>차상위계층·일반 가구는 65세 이상이 계셔도 대상이 아닙니다.</b></p></div>
+          <div class="c"><span class="cn">②</span><p><b>세대원 기준</b> — 주민등록표 등본상 세대원에 <b>만 65세 이상</b>(1961. 12. 31. 이전 출생)이 있어야 합니다. 어머님은 <b>생계·주거 가운데 하나만</b> 되셔도 해당됩니다.</p></div>
+        </div>
+        <p class="cap">65세 이상 말고도 영유아·장애인·임산부·중증질환자·한부모가족·다자녀 세대도 같은 ‘세대원 기준’으로 봅니다.</p>
+
+        <h5>신청하고 쓰는 방법</h5>
+        <div class="dl">
+          <div class="r">
+            <span class="k">신청하는 곳</span>
+            <span class="v">어머님 주소지 <b>동 주민센터(행정복지센터)</b> 방문 — 가족이 대리 신청할 수 있습니다<span class="ez">복지로(bokjiro.go.kr)에서도 온라인 신청이 됩니다. 수급자 신청할 때 창구에서 같이 넣으면 한 번에 끝납니다.</span></span>
+          </div>
+          <div class="r">
+            <span class="k">신청 기간</span>
+            <span class="v"><b>2026. 6. 15. ~ 12. 31.</b><span class="ez">매년 6월 중순에 열립니다. 처음 받는 해에는 꼭 신청하고, 이미 받던 집은 그해 자동 등록 여부를 주민센터에 확인하세요.</span></span>
+          </div>
+          <div class="r">
+            <span class="k">사용 기간</span>
+            <span class="v"><b>2026. 7. 1. ~ 2027. 5. 31.</b><span class="ez">여름(7~9월)에 안 쓰고 겨울에 몰아 쓰려면 <b>여름 요금 미차감 신청</b>을 따로 해야 합니다.</span></span>
+          </div>
+          <div class="r">
+            <span class="k">쓰는 방법 — 둘 중 하나</span>
+            <span class="v"><b>① 고지서 자동 차감(가상카드)</b><span class="ez">전기요금은 언제나 차감되고, 10월부터는 전기·도시가스·지역난방 가운데 하나를 골라 차감받습니다. 여름(7~9월)에는 전기요금만 차감됩니다.</span></span>
+            <span class="v" style="margin-top:9px"><b>② 국민행복카드(실물카드)</b><span class="ez">10월 3일부터 전기·도시가스·등유·LPG·연탄을 직접 결제합니다. 여름 냉방비는 카드가 아니라 전기요금 차감으로 나옵니다.</span></span>
+          </div>
+          <div class="r">
+            <span class="k">문의</span>
+            <span class="v">에너지바우처 콜센터 <b>1600-3190</b><span class="ez">한국에너지공단이 운영합니다.</span></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="sub" style="margin:16px 0 0"><b>그 밖의 공과금 감면 5가지</b> — 대부분 수급 확정 뒤 <b>주민센터 ‘요금감면 일괄신청’ 한 장</b>으로 시작합니다.</p>
+      <div class="dl">
         <div class="r">
           <span class="k">도시가스 요금 경감 <span class="bdg both"><b>생계·주거 공통</b></span></span>
-          <span class="v"><b>동절기(12~3월) 월 최대&nbsp;86,000원</b><span class="ez">에너지바우처를 받으면 월 86,000원, 못 받으면 월 148,000원. 4~11월은 <b>생계 월&nbsp;9,900원 · 주거 월&nbsp;4,950원</b>입니다.</span><span class="ez" style="color:var(--amber)">경감 단가와 고시는 해마다 새로 정해집니다 — 신청 전에 그해 고시로 확인하세요(아래 ‘해마다 확인할 3가지’).</span></span>
+          <span class="v"><b>동절기(12~3월) 월 최대&nbsp;86,000원 할인</b><span class="ez">에너지바우처를 받으면 월 최대&nbsp;86,000원 할인, 못 받으면 월 최대&nbsp;148,000원 할인입니다. 4~11월은 <b>생계 월&nbsp;9,900원 · 주거 월&nbsp;4,950원</b>입니다.</span><span class="ez" style="color:var(--amber)">경감 단가와 고시는 해마다 새로 정해집니다 — 신청 전에 그해 고시로 확인하세요(아래 ‘해마다 확인할 3가지’).</span></span>
+          <span class="ap"><b>신청</b><span>주민센터 ‘요금감면 일괄신청’ 한 장(도시가스사 고객센터에서도 접수)</span><b>시기</b><span>수급 확정 직후 언제든(상시)</span></span>
         </div>
         <div class="r">
           <span class="k">전기요금 복지할인(한전) <span class="bdg diff"><b>생계·주거 차등</b></span></span>
           <span class="v"><b>생계 월&nbsp;16,000원 · 주거 월&nbsp;10,000원</b><span class="ez"><b>6~8월에 쓴 전기(7~9월 청구분)</b>에는 <b>생계 20,000원 · 주거 12,000원</b>으로 올라갑니다.</span></span>
+          <span class="ap"><b>신청</b><span>주민센터 일괄신청 · 한전ON(online.kepco.co.kr) · 한전 고객센터 ‘123’</span><b>시기</b><span>수급 확정 직후 언제든(상시)</span></span>
         </div>
         <div class="r">
           <span class="k">부산 상하수도 감면 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v"><b>월&nbsp;16,490원</b><span class="ez">가정용 10㎥에 해당하는 금액을 깎아 줍니다(상수도 9,200 + 하수도 5,800 + 물이용부담금 1,490 = 16,490원).</span></span>
+          <span class="ap"><b>신청</b><span>부산시 상수도사업본부 인터넷·전화 ‘120’·지역사업소 방문(주민센터 일괄신청에서도 함께 처리)</span><b>시기</b><span>수급 확정 직후 언제든(상시) · 공동주택은 관리실에도 알려야 반영</span></span>
         </div>
         <div class="r">
           <span class="k">TV 수신료 면제 <span class="bdg saeng"><b>생계만</b></span></span>
           <span class="v"><b>월&nbsp;2,500원 면제</b><span class="ez">생계급여 수급자만 됩니다. <b>주거급여만</b> 받으면 빠집니다.</span></span>
+          <span class="ap"><b>신청</b><span>주민센터 방문 또는 KBS 수신료콜센터 1588-1801</span><b>시기</b><span>상시 · <b>신청한 달부터</b> 면제(자격을 받은 달로 거슬러 주지 않음)</span></span>
         </div>
         <div class="r">
           <span class="k">통신비 감면 <span class="bdg pick"><b>선택</b></span></span>
           <span class="v">기초연금 감면 <b>월 최대&nbsp;11,000원</b><span class="ez">수급자 통신비 감면과는 <b>중복되지 않아</b> 둘 중 <b>유리한 쪽 하나</b>만 받습니다. 실제 깎이는 금액은 통신사에 확인하세요.</span></span>
+          <span class="ap"><b>신청</b><span>쓰는 통신사 대리점·고객센터(휴대폰 ‘114’)에 수급자 증명서 제출 — 주민센터 일괄신청도 됩니다</span><b>시기</b><span>수급 확정 직후 언제든(상시)</span></span>
         </div>
       </div>
     </div>
@@ -1413,14 +1503,17 @@
         <div class="r">
           <span class="k">정부양곡(나라미) 10kg <span class="bdg diff"><b>생계·주거 차등</b></span></span>
           <span class="v"><b>생계 2,500원 · 주거 10,000원</b><span class="ez">동 주민센터에서 신청하고, 1인당 <b>월 10kg까지</b>입니다.</span></span>
+          <span class="ap"><b>신청</b><span>주소지 동 주민센터에 방문하거나 전화로 신청</span><b>시기</b><span><b>매월 1~10일</b>에 신청하면 다음 달에 배달됩니다(상시·매월)</span></span>
         </div>
         <div class="r">
           <span class="k">수영구 푸드마켓 · 무료급식 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v">망미동 <b>‘함께하는 푸드마켓’</b> 이용 (051-756-1925)<span class="ez">푸드뱅크 이용 순위는 <b>주거급여 2순위 · 생계급여 4순위</b>입니다.</span></span>
+          <span class="ap"><b>신청</b><span>동 주민센터 복지팀에 상담해 푸드마켓 이용 등록 — 경로식당·식사배달은 수영구 가족행복과(051-610-4364)에 신청</span><b>시기</b><span>상시 (방문 전에 전화로 운영시간·가능한 물품 확인)</span></span>
         </div>
         <div class="r">
           <span class="k">수영구 건강효도비 <span class="bdg pick"><b>연령 확인</b></span></span>
           <span class="v">만 70세 이상 <b>연&nbsp;10만&nbsp;원</b><span class="ez">수영구가 따로 주는 돈입니다. 실제로 만 70세가 넘는지는 <b>주민센터에서 확인</b>해야 합니다.</span></span>
+          <span class="ap"><b>신청</b><span>따로 없음 — 수영구가 대상자를 확인해 바로 지급(나이·수급 여부는 주민센터에서 확인)</span><b>시기</b><span>매년 한 번, 노인의 날(10월 2일)에 맞춰 지급</span></span>
         </div>
       </div>
       <p class="cap">정부양곡 단가와 건강효도비 나이 조건은 해마다 달라질 수 있어, 신청 전에 동 주민센터에 한 번 확인하세요.</p>
@@ -1432,14 +1525,17 @@
         <div class="r hi">
           <span class="k">노인 개안(백내장) 수술 지원 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v">한쪽 눈 <b>30만&nbsp;원</b> · 양안 최대 <b>60만&nbsp;원</b> 한도<span class="ez">수급자·차상위면 생계·주거급여만 돼도 대상입니다.</span><span class="ez" style="color:var(--amber)">예산이 조기 마감되는 해가 있습니다 — 신청 전에 <b>수영구보건소·한국실명예방재단</b>에 그해 예산·잔여분을 확인하세요.</span></span>
+          <span class="ap"><b>신청</b><span><b>수술 전에</b> 수영구보건소에 신청서 + 안과 진단서(소견서) + 수급자증명서 제출(방문·우편) → 재단 승인 뒤 수술</span><b>시기</b><span>연중 신청, 예산이 떨어지면 조기 마감 — 수술 날짜를 잡기 전에 먼저</span></span>
         </div>
         <div class="r">
           <span class="k">재난적의료비 <span class="bdg"><b>수급 무관</b></span></span>
           <span class="v">연간 본인부담 의료비 <b>80만&nbsp;원 초과</b> 시 비급여 포함 <b>80% 지원</b><span class="ez">입원·중증 위주이고, 2026. 7. 1.부터 당뇨 같은 경증 외래는 빠졌습니다.</span></span>
+          <span class="ap"><b>신청</b><span>국민건강보험공단 지사에 환자나 가족이 방문 신청(진단서·영수증 등 지참, 1577-1000)</span><b>시기</b><span><b>퇴원·최종진료 다음 날부터 180일 이내</b> — 기한을 넘기면 받을 수 없습니다</span></span>
         </div>
         <div class="r">
           <span class="k">노인맞춤돌봄서비스 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v">만 65세 이상 <b>무료 돌봄</b><span class="ez">안부 확인·외출 동행·퇴원 뒤 단기 돌봄. 동 행정복지센터에서 신청합니다.</span></span>
+          <span class="ap"><b>신청</b><span>동 행정복지센터에 방문(전화·우편·팩스, 복지로 온라인도 가능) — 가족이 대신 신청할 수 있습니다</span><b>시기</b><span>연중 상시</span></span>
         </div>
       </div>
       <p class="cap"><b>참고</b> — 당뇨 소모성 재료(혈당검사지·채혈침·주사기)는 기초수급과 상관없이 <b>건강보험</b>에서 계속 지원됩니다.</p>
@@ -1451,18 +1547,32 @@
         <div class="r">
           <span class="k">문화누리카드 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v"><b>연 15만&nbsp;원</b><span class="ez">영화·도서·여행·철도 등에 씁니다. <b>신청·사용 기간은 해마다 정해지니</b> 그해 안내를 확인하세요.</span></span>
+          <span class="ap"><b>신청</b><span>주민센터 방문 · 문화누리카드 누리집(mnuri.kr)·앱 · 전화 ARS 1544-3412 (가족이 대신 신청할 때는 위임장)</span><b>시기</b><span>매년 <b>2월 초~11월 30일</b> 발급(2026년은 2. 2.~11. 30.) · 쓰는 것은 12월 31일까지, 못 쓰면 소멸</span></span>
         </div>
         <div class="r">
           <span class="k">대중교통 · 철도 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v">도시철도 <b>만 65세 이상 무임</b> + K-패스 <b>53.3% 환급</b> + 기차누리 <b>30% 할인</b><span class="ez">K-패스는 한 달에 15회 이상 버스·지하철을 타야 환급되고, 기차누리는 코레일에서 30% 깎아 줍니다. <b>도시철도 무임은 수급과 상관없이 만 65세면</b> 지금도 됩니다.</span></span>
+          <span class="ap">
+            <b class="pt">도시철도 무임 (만 65세 이상)</b>
+            <b>신청</b><span>역 창구에서 신분증을 보이고 우대승차권을 받거나, 부산은행에서 <b>어르신교통카드</b> 발급(무료)</span>
+            <b>시기</b><span>아무 때나 — 만 65세가 되면 바로</span>
+            <b class="pt">K-패스 (저소득 53.3% 환급)</b>
+            <b>신청</b><span>K-패스 카드를 먼저 만들고 → K-패스 앱·누리집(korea-pass.kr)에서 회원가입(저소득 확인)</span>
+            <b>시기</b><span>상시 · 한 달 15회 이상 타야 환급(1일 2회·월 60회까지)</span>
+            <b class="pt">기차누리 (KTX·일반열차 30% 할인)</b>
+            <b>신청</b><span>코레일 회원가입 → 마이페이지에서 수급자 증명서 등록(역 창구도 가능, 1544-7788)</span>
+            <b>시기</b><span>연중 · <b>1년마다 다시 등록</b>, 출발 전에 미리 예매해야 할인 좌석이 남습니다</span>
+          </span>
         </div>
         <div class="r">
           <span class="k">세금 · 수수료 <span class="bdg both"><b>생계·주거 공통</b></span></span>
           <span class="v">주민세 <b>비과세</b> · 등초본·인감 등 <b>제증명 수수료 면제</b><span class="ez">우체국·행복지킴이통장 수수료도 면제됩니다. <b>주거급여만</b> 받을 때 일부 세목은 수영구청(051-610-4332)에 확인하세요.</span></span>
+          <span class="ap"><b>신청</b><span>따로 없음 — 주민세는 구청이 알아서 비과세, 수수료는 창구에서 수급자 확인으로 면제(수급자증명서 지참하면 확실)</span><b>시기</b><span>주민세는 매년 8월 부과분부터 · 나머지는 아무 때나</span></span>
         </div>
         <div class="r hi">
           <span class="k">공공임대 우선권 <span class="bdg saeng"><b>생계만</b></span></span>
           <span class="v">LH <b>매입임대·전세임대 1순위</b><span class="ez">생계급여 수급자면 신청할 때 자동으로 1순위로 들어갑니다(따로 신청하는 것이 아닙니다).</span></span>
+          <span class="ap"><b>신청</b><span>따로 없음 — LH 청약 신청할 때 수급자 자격으로 자동 1순위</span><b>시기</b><span>공고가 난 기간에 LH 청약센터에서 신청(공고마다 다름)</span></span>
         </div>
       </div>
     </div>
@@ -1474,9 +1584,9 @@
           <thead><tr><th scope="col">무엇을</th><th scope="col">어디서</th></tr></thead>
           <tbody>
             <tr><th scope="row">전기·도시가스·수도·통신·TV</th><td>동 주민센터 <b>‘요금감면 일괄신청’</b> 한 장</td></tr>
-            <tr><th scope="row">에너지바우처</th><td>동 주민센터</td></tr>
+            <tr><th scope="row">에너지바우처</th><td>동 주민센터 · 복지로 (신청 6.15~12.31)</td></tr>
             <tr><th scope="row">정부양곡(나라미)</th><td>동 주민센터 (1인 월 10kg)</td></tr>
-            <tr><th scope="row">푸드마켓·무료급식</th><td>망미동 ‘함께하는 푸드마켓’ <b>051-756-1925</b></td></tr>
+            <tr><th scope="row">푸드마켓·무료급식</th><td>망미동 ‘함께하는 푸드마켓’ <b>051-756-1925</b> · 가족행복과 051-610-4364</td></tr>
             <tr><th scope="row">건강효도비</th><td>수영구청 (만 70세 확인)</td></tr>
             <tr><th scope="row">개안(백내장) 수술</th><td>수영구보건소 · 한국실명예방재단 (잔여 확인)</td></tr>
             <tr><th scope="row">노인맞춤돌봄</th><td>동 행정복지센터</td></tr>
@@ -1501,7 +1611,7 @@
 
     <p class="cap" style="margin:0 4px 12px">이 혜택은 <b>생계·주거급여가 결정된 뒤</b>에 신청하는 것입니다. 먼저 <b>2인 보장가구</b>로 묶이는지(<a href="#s5one">05번</a>)와 접수 때 챙길 것(<a href="#s6">07번 체크리스트</a>)을 보고, 수급자로 결정되면 동 주민센터에서 <b>요금감면 일괄신청</b>부터 하세요.</p>
 
-    <p class="cap" style="margin:0 4px 6px">2026년 기준입니다. 뮤즈·인스팅트·큐 3인이 독립 조사해 교차검증(2026. 11. 21.)했고, 실제 지급 여부와 금액은 <b>수영구청(보장기관)</b>과 한전·도시가스사·통신사가 최종 결정합니다. 개인정보(성함·생년월일·주소)는 담지 않았습니다.</p>
+    <p class="cap" style="margin:0 4px 6px">2026년 기준입니다. 뮤즈·인스팅트·큐 3인이 독립 조사해 교차검증(2026. 11. 21.)했고, <b>항목별 신청 방법·시기</b>는 2026. 11. 22.에 정부24·복지로·한국에너지공단·한전·코레일·문화누리카드 등 각 기관 공식 안내로 확인해 적었습니다. 실제 지급 여부와 금액은 <b>수영구청(보장기관)</b>과 한전·도시가스사·통신사가 최종 결정하니, 지자체·예산에 따라 달라지는 부분은 신청 전에 한 번 더 확인하세요. 개인정보(성함·생년월일·주소)는 담지 않았습니다.</p>
   </section>
 
   <!-- ============ 07 ============ -->
